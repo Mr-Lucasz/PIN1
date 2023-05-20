@@ -1,14 +1,21 @@
 const { supabase } = require('../database');
 
 
-exports.createBebida = async (req, res) => {
-  const { status_maquina, local_maquina } = req.body;
-  const { maquina, error } = await supabase.maquina.create({
-    status_maquina,
-    local_maquina
-  });
+exports.createMaquina = async (status_maquina, local_maquina) => {
+  const { maquina, error } = await supabase.from('Maquina').insert({ status_maquina, local_maquina}, { returning: 'minimal' });
   if (error) {
-    return res.status(400).json({ error: error.message });
+    console.log('deu erro');
+    console.log(error)
   }
-  return res.json({ maquina });
+  return  maquina;
+};
+
+exports.updateMaquina = async (id_maquina,status_maquina, local_maquina) => {
+  const { id_maquina,status_maquina, local_maquina } = req.body;
+  const { maquina, error } = await supabase.from('Maquina').update({ status_maquina, local_maquina}).eq('id_maquina', id_maquina)
+  if (error) {
+    console.log('deu erro');
+    console.log(error)
+  }
+  return  maquina;
 };
