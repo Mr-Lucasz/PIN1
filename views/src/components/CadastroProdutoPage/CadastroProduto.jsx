@@ -23,9 +23,9 @@ function CadastroProduto() {
       <Header />
       <div className="cadastro-produto-wrap">
         <div className="title-cadastro-voltar" href="/home">
-          <a href="/home" class="home">
-            <img src={iconeVoltar} alt="Ícone da Opção Voltar" className="icone" />
-            CADASTRAR PRODUTO
+          <a href="/home" class="titulo">
+            {/* <img src={iconeVoltar} alt="Ícone da Opção Voltar" className="icone" /> */}
+            &#10094; CADASTRAR PRODUTO
           </a>
         </div>
         <form className="cadastro-produto">

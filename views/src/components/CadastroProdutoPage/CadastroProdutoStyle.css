@@ -4,4 +4,12 @@
     justify-content: center;
     margin: 0 auto;
 }
-
+.titulo{
+    font-family: 'Kaisei Tokumin';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    /* line-height: 100%; */
+    color: #000000;
+    text-decoration: none;
+}
