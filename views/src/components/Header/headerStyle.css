@@ -14,8 +14,7 @@ header .container-header{
   padding: 0 1rem;
   box-sizing: border-box;
   gap: 2rem;;
-  border-bottom: 1px groove #DC4F22;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0.1, 0.2);
+
   transition: all 0.3s ease;
 }
 
