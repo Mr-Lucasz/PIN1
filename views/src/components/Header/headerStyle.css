@@ -14,7 +14,6 @@ header .container-header{
   padding: 0 1rem;
   box-sizing: border-box;
   gap: 2rem;;
-
   transition: all 0.3s ease;
 }
 
