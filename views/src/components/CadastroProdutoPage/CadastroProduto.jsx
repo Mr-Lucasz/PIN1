@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../Header/Header';
-import iconeVoltar from '../util/iconeVoltar.png';
+import iconeVoltar from './iconeVoltar.png';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './CadastroProdutoStyle.css';
@@ -23,17 +23,15 @@ function CadastroProduto() {
       <Header />
       <div className="cadastro-produto-wrap">
         <div className="title-cadastro-voltar" href="/home">
-    
-          <a href="/home" className="titulo">
-                    <img src={iconeVoltar} alt="Ícone de voltar" className="title-icon" />
-                    <span>CADASTRAR PRODUTO</span>
-                </a>
+          <a href="/home" class="titulo">
+            {/* <img src={iconeVoltar} alt="Ícone da Opção Voltar" className="icone" /> */}
+            &#10094; CADASTRAR PRODUTO
+          </a>
         </div>
-        <form className="container-cadastro-produto">
-          <div className='container-form'>
+        <form className="cadastro-produto">
           <div className='produto-field-form'>
             <div className='label-produto'>
-              <label htmlFor="produto">PRODUTO</label>
+              <label htmlFor="produto">Produto</label>
             </div>
 
             <input type="text"
@@ -44,7 +42,7 @@ function CadastroProduto() {
 
           <div className='data-validade-field-form'>
             <div className='label-data-validade'>
-              <label htmlFor="data-validade">DATA DE VALIDADE</label>
+              <label htmlFor="data-validade">Data de Validade</label>
             </div>
 
             <DatePicker
@@ -77,11 +75,11 @@ function CadastroProduto() {
             </div>
           </div>
 
-          <div className='area-button-confirmar'>
+          <div className='button-confirmar'>
           
             <input type="submit" value="CONFIRMAR" className="confirmar-button" />
           </div>
-          </div>
+
         </form>
 
       </div>

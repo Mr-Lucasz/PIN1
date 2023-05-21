@@ -14,7 +14,7 @@
   align-items: center;
   flex-direction: row-reverse;
   gap: 11rem;
-  margin: 3.5rem;
+  margin: 2rem;
 }
 
 
@@ -81,7 +81,6 @@
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   
-
   .area-buttons  button{
     font-size: 1.4rem;
     width: 60%;
