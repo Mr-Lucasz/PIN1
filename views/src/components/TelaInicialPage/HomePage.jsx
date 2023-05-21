@@ -1,7 +1,7 @@
 
 import './HomePageStyle.css';
 import { useNavigate } from 'react-router-dom';
-
+import refriImage from '../util/refrihome.png';
 import Header from '../Header/Header';
 
 
@@ -34,13 +34,14 @@ function HomePage({ isAuthenticated }) {
 
 
     const gerenciarEstoqueMenu = async (e) => {
-        e.preventDefault();   
+        e.preventDefault();
         navigate('/cadastro-produto');
     };
 
     return (
+        <div>
+        <Header/>
         <div className="home-wrap">
-             <Header/>
             <div className="title-home">
                 <div className="titleHome1">
                     <span>
@@ -50,21 +51,23 @@ function HomePage({ isAuthenticated }) {
                 </div>
                 <div className="titleHome2">
                     <span>as</span>
-                    <span class="destaque"> melhores bebidas</span>
+                    <span className="destaque"> melhores bebidas</span>
                     <span> até </span>
-                    <span class="destaque">você!</span>
+                    <span className="destaque">você!</span>
                 </div>
             </div>
-            <div className="buttons">
-                <input type="button" value="GERENCIAR MÁQUINAS" className="maquinas-button" 
-                onClick={(e) =>gerenciarMaqMenu(e)}/>
-                <input type="button" value="RELATÓRIOS" className="relatorios-button"  
-                onClick={(e) =>relatorioMenu(e)}/>
-                <input type="button" value="GERENCIAR ESTOQUE" className="estoque-button" 
-                onClick={(e) =>gerenciarEstoqueMenu(e)}/>
+            <div className="area-btn-img">
+                <div className='img-refri-home'>
+                    <img src={refriImage} alt="Refri" />
+                </div>
+                
+                <div className="area-buttons">
+                    <button className='maquinas-button' onClick={(e) => gerenciarMaqMenu(e)} >GERENCIAR MÁQUINAS</button>
+                    <button className='relatorios-button' onClick={(e) => relatorioMenu(e)}>RELATÓRIOS</button>
+                    <button className='estoque-button'onClick={(e) => gerenciarEstoqueMenu(e)} >GERENCIAR ESTOQUE</button>
+                </div>
             </div>
-
-            <div className='img-refrigerante' />
+        </div>
         </div>
     );
 }

@@ -1,128 +1,160 @@
-* {
-    margin: 0px;
-    padding: 0px;
-  }
-  
+header{
+  display: flex;
+  width: 100%;
+  height: 7.5rem;
+
+}
+
+header .container-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  gap: 2rem;;
+
+  transition: all 0.3s ease;
+}
 
 
-header {
-    position: relative;
-    width: 100vw;
-    display: flex;
-    text-align: center;
-    padding-bottom: 1em;
-    align-items: center;
-    height: 100px;
-    border-bottom: 1px solid #DC4F22;
-    box-sizing: border-box;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
-  
-  }
-  
-  .logo {
-    height: 100%;
-    padding: 1em;
-  }
-  
-  .nav {
-    position: relative;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 25px;
-    color: #0F0E0E;
-    text-decoration: none;
-    /* Remove a linha de link */
-    color: inherit;
-    /* Define a cor padrão do texto, herdando do elemento pai */
-    bottom: -10%;
-  }
-  
-  .nav .sair {
-    position: relative;
-    left: 145%;
-  }
-  
-  .nav .solicitacoes {
-    position: relative;
-    left: 125%;
-  
-  }
-  
-  .nav .gerenciar {
-    position: relative;
-    left: 100%;
-  }
-  
-  .nav .home {
-    position: relative;
-    left: 70%;
-  }
-  
-  .nav:hover {
-    color: #DC4F22;
-  }
-  
-  /* Adicione a cor de realce no elemento ativo */
-  .nav.active {
-    color: #DC4F22;
-  }
-  
-  .nav .sair:hover {
-    color: #DC4F22;
-  }
-  
-  .nav .solicitacoes:hover {
-    color: #DC4F22;
-  }
-  
-  .nav .home:hover {
-    color: #DC4F22;
-  }
-  
-  .nav .gerenciar:hover {
-    color: #DC4F22;
-  }
-  
-  .nomeuser {
-    position: relative;
-    left: 9%;
-    font-family: 'Inter';
-    font-style: italic;
-    font-weight: 400;
-    font-size: 25px;
-    color: #0F0E0E;
-    font-variation-settings: 'slnt' -7;
-    opacity: 0.8;
-    bottom: -10%;
-  }
 
-  @media screen and (max-width: 600px) {
-    header {
-      flex-direction: column;
-      height: auto;
-    }
+
+.container-nav {
+  display: flex;
+  gap: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 3rem;
+  width: 100%;
+}
+
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 90px;
+  width: 100%;
   
-    .logo {
-      padding: 0.5em;
-    }
-  
-    .nav {
-      position: static;
-      display: flex;
-      flex-direction: column;
-      font-size: 18px;
-      margin-top: 0.5em;
-    }
-  
-    .nav > * {
-      margin: 0.5em;
-    }
-  
-    .nomeuser {
-      position: static;
-      margin-top: 0.5em;
-      margin-bottom: 0.5em;
-      font-size: 18px;
-    }
+}
+
+.logo img {
+  width: 90%;
+  height: 100%;
+}
+
+.logo-user {
+  /* Estilos para o logotipo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap:12.8125rem;; */
+}
+
+.nome-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+
+}
+
+.nome-user span {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 25px;
+  color: #0F0E0E;
+  font-variation-settings: 'slnt' -7;
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.container-nav {
+  display: flex;
+  gap: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 1rem;
+  width: 100%;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-icon {
+  margin-right: 0.3125rem;
+  /* Espaço entre o ícone e o texto */
+  margin-left: 0.3125rem;
+  margin-bottom: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6em;
+  text-decoration-line: underline;
+  color: #0F0E0E;
+  transition: all 0.3s ease;
+
+}
+
+
+.nav-text {
+  color: rgba(0, 37, 255, 0.8);
+}
+
+
+.nav-link:hover {
+  color: #DC4F22;
+}
+
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  header .container-header{
+    gap: 0.8rem;
+    transition: all 0.3s ease;
   }
+  .nav-link span{
+    transition: all 0.3s ease;
+    font-size: 1.4em;
+  }
+  .container-nav {
+    transition: all 0.3s ease;
+    gap: 3rem;
+  }
+  .nome-user span {
+    transition: all 0.3s ease;
+    font-size: 1.4em;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  header .container-header{
+    transition: all 0.3s ease;
+    gap: 0.5rem;
+  }
+  .nav-link span{
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+  }
+  .container-nav {
+    gap: 2rem;
+    transition: all 0.3s ease;
+  }
+  .nome-user span {
+    font-size:  1.1em;
+    transition: all 0.3s ease;
+  }
+}
