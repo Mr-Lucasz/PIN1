@@ -60,13 +60,11 @@ function HomePage({ isAuthenticated }) {
                 <div className='img-refri-home'>
                     <img src={refriImage} alt="Refri" />
                 </div>
-                <div className="buttons">
-                    <input type="button" value="GERENCIAR MÁQUINAS" className="maquinas-button"
-                        onClick={(e) => gerenciarMaqMenu(e)} />
-                    <input type="button" value="RELATÓRIOS" className="relatorios-button"
-                        onClick={(e) => relatorioMenu(e)} />
-                    <input type="button" value="GERENCIAR ESTOQUE" className="estoque-button"
-                        onClick={(e) => gerenciarEstoqueMenu(e)} />
+                
+                <div className="area-buttons">
+                    <button className='maquinas-button' onClick={(e) => gerenciarMaqMenu(e)} >GERENCIAR MÁQUINAS</button>
+                    <button className='relatorios-button' onClick={(e) => relatorioMenu(e)}>RELATÓRIOS</button>
+                    <button className='estoque-button'onClick={(e) => gerenciarEstoqueMenu(e)} >GERENCIAR ESTOQUE</button>
                 </div>
             </div>
         </div>
