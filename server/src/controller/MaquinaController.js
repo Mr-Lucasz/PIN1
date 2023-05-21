@@ -1,5 +1,5 @@
 const { supabase } = require('../database');
-const modelmaquina = require('../model/Bebida');
+const modelmaquina = require('../model/Maquina');
 
 
 exports.createMaquina = async (req, res) => {
@@ -18,11 +18,11 @@ exports.createMaquina = async (req, res) => {
   }
 };
 
-exports.updateBebida = async (req, res) => {
+exports.updateMaquina = async (req, res) => {
     const {id_maquina,status_maquina, local_maquina} = req.body;
   
     try {
-     const bebida = await modelmaquina.updateBebida(id_maquina,status_maquina, local_maquina);
+     const bebida = await modelmaquina.updateMaquina(id_maquina,status_maquina, local_maquina);
      res.status(201).json({ 
       message: 'Maquina editada com sucesso!', maquina });
     } catch (error) {
