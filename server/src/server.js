@@ -3,8 +3,12 @@ const bodyParser = require('body-parser'); // Importa o middleware Body Parser
 const cors = require('cors'); // Importa o middleware CORS
 const routes = require('./routes'); // Importa as rotas do servidor
 require('dotenv').config();
+const { createClient } = require('@supabase/supabase-js');
 
 
+const supabaseUrl = process.env.SUPABASE_URL; // Substitua com a URL do seu projeto Supabase
+const supabaseKey = process.env.SUPABASE_KEY; // Substitua com a chave de acesso do seu projeto Supabase
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 const app = express(); // Cria uma instância do servidor Express
 // Configuração de middleware
