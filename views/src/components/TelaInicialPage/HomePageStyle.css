@@ -1,114 +1,151 @@
-.home-wrap{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 1rem;
-  width: auto;
-
-}
-
-.area-btn-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row-reverse;
-  gap: 11rem;
-  margin: 3.5rem;
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
 
-.area-buttons {
+header {
+  position: relative;
+  width: 100vw;
   display: flex;
-  justify-content: center;
+  text-align: center;
+  padding-bottom: 1em;
   align-items: center;
-  flex-direction: column;
-  gap: 1.4em;
-  width: 34.25rem;
-  height: 23.196rem;
+  height: 100px;
+  border-bottom: 1px solid #DC4F22;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+
 }
 
+.logo {
+  height: 100%;
+  padding: 1em;
+}
 
+.nav {
+  position: relative;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  color: #0F0E0E;
+  text-decoration: none;
+  /* Remove a linha de link */
+  color: inherit;
+  /* Define a cor padrão do texto, herdando do elemento pai */
+  bottom: -10%;
+}
 
-.title-home {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+.nav .sair {
+  position: relative;
+  left: 145%;
+}
+
+.nav .solicitacoes {
+  position: relative;
+  left: 125%;
+
+}
+
+.nav .gerenciar {
+  position: relative;
+  left: 100%;
+}
+
+.nav .home {
+  position: relative;
+  left: 70%;
+}
+
+.nav:hover {
+  color: #DC4F22;
+}
+
+/* Adicione a cor de realce no elemento ativo */
+.nav.active {
+  color: #DC4F22;
+}
+
+.nav .sair:hover {
+  color: #DC4F22;
+}
+
+.nav .solicitacoes:hover {
+  color: #DC4F22;
+}
+
+.nav .home:hover {
+  color: #DC4F22;
+}
+
+.nav .gerenciar:hover {
+  color: #DC4F22;
+}
+
+.nomeuser {
+  position: relative;
+  left: 9%;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 25px;
+  color: #0F0E0E;
+  font-variation-settings: 'slnt' -7;
+  opacity: 0.8;
+  bottom: -10%;
+}
+.title-home{
   font-family: 'Kaisei Tokumin';
   font-style: normal;
   font-weight: 500;
-  font-size: 3.2rem;
-  margin: 3rem;
-  width: 100%;
-
+  font-size: 50px;
+  margin-top: 3%;
+  
+  
+  
 }
-
-.titleHome1 {
-  position: relative;
-  margin-right: 25%;
+.titleHome1 {position: relative;
+  left: 15%;
 }
 
 
 .titleHome2 {
-
-  margin-left: 15%;
+  position: relative;
+  left: 42%;
 }
 
-
-.area-buttons button {
-  height: 100%;
-  width: 100%;
+.buttons input[type="button"] {
+  position: relative;
+  left: 20%;
+   
+  display: block;
+  margin-bottom: 1vw;
+  /* substitua 10px pelo valor desejado */
+  width: 27vw;
+  height: 4.5vw;
   border-radius: 45px;
   border: none;
   box-shadow: 0px 1px 0px #999;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 25px;
   opacity: 0.85;
 }
 
-@media screen and (min-width: 1025px) and (max-width: 1280px) {
-  .area-buttons button{
-    font-size: 1.4rem;
-  }
-
-  .area-btn-img {
-    gap: 9rem;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  
-
-  .area-buttons  button{
-    font-size: 1.4rem;
-    width: 60%;
-
-  } 
-
-  .area-btn-img {
-    gap: 6rem;
-
-  }
-  .title-home {
-    font-size: 2.5rem;
-  
-  }
-}
-
-button:hover {
+.buttons input[type="button"]:hover {
   box-shadow: 0px 5px 0px #999;
   /* Adiciona sombra maior quando o mouse passa sobre o botão */
 }
 
-button  {
+.buttons input[type="button"]:active {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   opacity: 0.8;
 }
 
-.maquinas-button {
+
+.maquinas-button{
   background: rgba(237, 55, 68, 0.15);
   margin-top: 7%;
 }
@@ -118,25 +155,30 @@ button  {
 }
 
 
-.estoque-button {
+.estoque-button{
   background: rgba(237, 55, 68, 0.35);
+}
+
+.img-refrigerante {
+  /* Define a posição absoluta do elemento em relação à janela do navegador */
+  position: relative;
+  /* Define a largura máxima do elemento como 100% do elemento pai */
+  max-width: 100%;
+  margin: 0 auto;
+  /* Define a imagem de fundo do elemento */
+  background-image: url(../util/refri1.png);
+  /* Define o tamanho da imagem de fundo do elemento como 95% da largura do elemento */
+  background-size: 60%;
+  /* Define que a imagem de fundo do elemento não deve ser repetida */
+  background-repeat: no-repeat;
+  width: 28vw;
+  height: 40vw;
+  right: -22%;
+  margin-top: -22%;
+  transition: all 0.5s ease-in-out;
+
 }
 
 .destaque {
   color: rgba(235, 55, 67, 1);
-}
-
-.img-refri-home {
-  display: flex;
-  justify-content: center;
-  width: 243px;
-  height: 25.5625rem;
-}
-
-
-.img-refri-home img {
-
-  
-  height: 100%;
-
 }
