@@ -39,9 +39,9 @@ function HomePage({ isAuthenticated }) {
     };
 
     return (
+        <div>
+        <Header/>
         <div className="home-wrap">
-            <Header />
-
             <div className="title-home">
                 <div className="titleHome1">
                     <span>
@@ -51,9 +51,9 @@ function HomePage({ isAuthenticated }) {
                 </div>
                 <div className="titleHome2">
                     <span>as</span>
-                    <span class="destaque"> melhores bebidas</span>
+                    <span className="destaque"> melhores bebidas</span>
                     <span> até </span>
-                    <span class="destaque">você!</span>
+                    <span className="destaque">você!</span>
                 </div>
             </div>
             <div className="area-btn-img">
@@ -69,7 +69,7 @@ function HomePage({ isAuthenticated }) {
                         onClick={(e) => gerenciarEstoqueMenu(e)} />
                 </div>
             </div>
-
+        </div>
         </div>
     );
 }

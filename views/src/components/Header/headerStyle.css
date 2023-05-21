@@ -1,46 +1,26 @@
-.header {
+header{
+  display: flex;
+  width: 100%;
+  height: 7.5rem;
+
+}
+
+header .container-header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
   box-sizing: border-box;
-  width: 100%;
-  height: 7.5rem;
-  border-bottom: 1px solid #DC4F22;;
+  gap: 2rem;;
+  border-bottom: 1px groove #DC4F22;
   box-shadow: 0px 2px 4px rgba(0, 0, 0.1, 0.2);
-  /* gap: 12.6875rem; */
+  transition: all 0.3s ease;
 }
 
 
 
-.logo{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-height: 7.5rem;
-  width: 100%;
-}
-
-.logo-user {
-  /* Estilos para o logotipo */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* gap:12.8125rem;; */
-}
-
-.nomeuser {
-
-font-family: 'Inter';
-font-style: italic;
-font-weight: 400;
-font-size: 25px;
-line-height: 30px;
-color: #0F0E0E;
-font-variation-settings: 'slnt' -7;
-opacity: 0.8;
-text-decoration: underline;
-}
 
 .container-nav {
   display: flex;
@@ -51,25 +31,131 @@ text-decoration: underline;
   width: 100%;
 }
 
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 90px;
+  width: 100%;
+  
+}
+
+.logo img {
+  width: 90%;
+  height: 100%;
+}
+
+.logo-user {
+  /* Estilos para o logotipo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap:12.8125rem;; */
+}
+
+.nome-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+
+}
+
+.nome-user span {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 25px;
+  color: #0F0E0E;
+  font-variation-settings: 'slnt' -7;
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.container-nav {
+  display: flex;
+  gap: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 1rem;
+  width: 100%;
+}
+
 .nav-link {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #000; /* Cor do texto da navegação */
+  color: #000;
 }
 
 .nav-icon {
-  margin-right: 0.3125rem; /* Espaço entre o ícone e o texto */
+  margin-right: 0.3125rem;
+  /* Espaço entre o ícone e o texto */
   margin-left: 0.3125rem;
   margin-bottom: 0.3rem;
+  transition: all 0.3s ease;
 }
 
-span{
+.nav-link span {
   font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 1.6rem;
-text-decoration-line: underline;
-color: #0F0E0E;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6em;
+  text-decoration-line: underline;
+  color: #0F0E0E;
+  transition: all 0.3s ease;
 
+}
+
+
+.nav-text {
+  color: rgba(0, 37, 255, 0.8);
+}
+
+
+.nav-link:hover {
+  color: #DC4F22;
+}
+
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  header .container-header{
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+  }
+  .nav-link span{
+    transition: all 0.3s ease;
+    font-size: 1.4em;
+  }
+  .container-nav {
+    transition: all 0.3s ease;
+    gap: 3rem;
+  }
+  .nome-user span {
+    transition: all 0.3s ease;
+    font-size: 1.4em;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  header .container-header{
+    transition: all 0.3s ease;
+    gap: 0.5rem;
+  }
+  .nav-link span{
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+  }
+  .container-nav {
+    gap: 2rem;
+    transition: all 0.3s ease;
+  }
+  .nome-user span {
+    font-size:  1.1em;
+    transition: all 0.3s ease;
+  }
 }

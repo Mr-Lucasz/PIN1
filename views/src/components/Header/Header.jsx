@@ -22,12 +22,15 @@ function Header() {
         }
     };
     return (
-        <header className="header">
+        <header>
+                <div class="container-header">
 
             <div className='logo'>
                 <img src={Logo} alt="Logo" className="logo" />
             </div>
-            <div className="nomeuser">Olá, Lucas</div>
+            <div className="nome-user">
+                <span>Olá, Lucas</span>
+                </div>
 
             <nav className="container-nav">
                 <a href="/home" className="nav-link">
@@ -43,10 +46,11 @@ function Header() {
                     <span>SOLICITAÇÕES</span>
                 </a>
                 <a href="/logout" onClick={handleLogout} className="nav-link">
-                    <span>SAIR</span>
+                <span className="nav-text">SAIR</span>
                     <img src={iconeSair} alt="Ícone da Opção de Sair" className="nav-icon" />
                 </a>
             </nav>
+            </div>
         </header>
     );
 
