@@ -1,132 +1,95 @@
-
-.img-refri {
-  max-width: 100%;
-  height: 744px;
-
-
-}
-
-.img-refri img {
-  width: 100%;
-  height: 100%;
-
+.home-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+  width: auto;
 
 }
 
-.logo {
-  height: 100%;
-  padding: 1em;
+.area-btn-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 11rem;
+  margin: 3.5rem;
 }
 
-.nav {
-  position: relative;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 25px;
-  color: #0F0E0E;
-  text-decoration: none;
-  /* Remove a linha de link */
-  color: inherit;
-  /* Define a cor padrão do texto, herdando do elemento pai */
-  bottom: -10%;
-}
-
-.nav .sair {
-  position: relative;
-  left: 145%;
-}
-
-.nav .solicitacoes {
-  position: relative;
-  left: 125%;
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.4rem;
+  width: 34.25rem;
+  height: 23.196rem;
 
 }
 
-.nav .gerenciar {
-  position: relative;
-  left: 100%;
-}
 
-.nav .home {
-  position: relative;
-  left: 70%;
-}
-
-.nav:hover {
-  color: #DC4F22;
-}
-
-/* Adicione a cor de realce no elemento ativo */
-.nav.active {
-  color: #DC4F22;
-}
-
-.nav .sair:hover {
-  color: #DC4F22;
-}
-
-.nav .solicitacoes:hover {
-  color: #DC4F22;
-}
-
-.nav .home:hover {
-  color: #DC4F22;
-}
-
-.nav .gerenciar:hover {
-  color: #DC4F22;
-}
-
-.nomeuser {
-  position: relative;
-  left: 9%;
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 400;
-  font-size: 25px;
-  color: #0F0E0E;
-  font-variation-settings: 'slnt' -7;
-  opacity: 0.8;
-  bottom: -10%;
-}
-.title-home{
+.title-home {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   font-family: 'Kaisei Tokumin';
   font-style: normal;
   font-weight: 500;
-  font-size: 50px;
-  margin-top: 3%;
-  
-  
-  
+  font-size: 3.2rem;
+  margin: 3rem;
+  width: 100%;
+
 }
-.titleHome1 {position: relative;
-  left: 15%;
+
+.titleHome1 {
+  position: relative;
+  margin-right: 25%;
 }
 
 
 .titleHome2 {
-  position: relative;
-  left: 42%;
+
+  margin-left: 15%;
 }
 
+
 .buttons input[type="button"] {
-  position: relative;
-  left: 20%;
-   
-  display: block;
-  margin-bottom: 1vw;
-  /* substitua 10px pelo valor desejado */
-  width: 27vw;
-  height: 4.5vw;
+  height: 100%;
+  width: 100%;
   border-radius: 45px;
   border: none;
   box-shadow: 0px 1px 0px #999;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 1.6rem;
   opacity: 0.85;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .buttons input[type="button"]{
+    font-size: 1.4rem;
+  }
+
+  .area-btn-img {
+    gap: 9rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .buttons input[type="button"]{
+    font-size: 1.1rem;
+  }
+
+  .area-btn-img {
+    gap: 6rem;
+  }
+  .title-home {
+    font-size: 2.5rem;
+  
+  }
 }
 
 .buttons input[type="button"]:hover {
@@ -139,8 +102,7 @@
   opacity: 0.8;
 }
 
-
-.maquinas-button{
+.maquinas-button {
   background: rgba(237, 55, 68, 0.15);
   margin-top: 7%;
 }
@@ -150,12 +112,24 @@
 }
 
 
-.estoque-button{
+.estoque-button {
   background: rgba(237, 55, 68, 0.35);
 }
 
-
-
 .destaque {
   color: rgba(235, 55, 67, 1);
+}
+
+.img-refri-home {
+  display: flex;
+  justify-content: center;
+  width: 243px;
+  height: 25.5625rem;
+}
+
+
+.img-refri-home img {
+
+  width: auto;
+
 }

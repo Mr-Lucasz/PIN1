@@ -76,10 +76,8 @@ function CadastroProduto() {
           </div>
 
           <div className='button-confirmar'>
-            <button type="submit"
-              className='btn-confirmar'>
-            </button>
-            <input type="button" value="CONFIRMAR" className="confirmar-button" />
+          
+            <input type="submit" value="CONFIRMAR" className="confirmar-button" />
           </div>
 
         </form>
