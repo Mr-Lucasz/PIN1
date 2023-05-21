@@ -1,3 +1,4 @@
+
 header{
   display: flex;
   width: 100%;
@@ -120,40 +121,125 @@ header .container-header{
 }
 
 
-@media screen and (min-width: 1025px) and (max-width: 1280px) {
-  header .container-header{
-    gap: 0.8rem;
-    transition: all 0.3s ease;
-  }
-  .nav-link span{
-    transition: all 0.3s ease;
-    font-size: 1.4em;
-  }
-  .container-nav {
-    transition: all 0.3s ease;
-    gap: 3rem;
-  }
-  .nome-user span {
-    transition: all 0.3s ease;
-    font-size: 1.4em;
-  }
-}
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  header .container-header{
-    transition: all 0.3s ease;
-    gap: 0.5rem;
+header {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    text-align: center;
+    padding-bottom: 1em;
+    align-items: center;
+    height: 100px;
+    border-bottom: 1px solid #DC4F22;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+  
   }
-  .nav-link span{
-    font-size: 1.2em;
-    transition: all 0.3s ease;
+  
+  .logo {
+    height: 100%;
+    padding: 1em;
   }
-  .container-nav {
-    gap: 2rem;
-    transition: all 0.3s ease;
+  
+  .nav {
+    position: relative;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    color: #0F0E0E;
+    text-decoration: none;
+    /* Remove a linha de link */
+    color: inherit;
+    /* Define a cor padrão do texto, herdando do elemento pai */
+    bottom: -10%;
   }
-  .nome-user span {
-    font-size:  1.1em;
-    transition: all 0.3s ease;
+  
+  .nav .sair {
+    position: relative;
+    left: 145%;
   }
-}
+  
+  .nav .solicitacoes {
+    position: relative;
+    left: 125%;
+  
+  }
+  
+  .nav .gerenciar {
+    position: relative;
+    left: 100%;
+  }
+  
+  .nav .home {
+    position: relative;
+    left: 70%;
+  }
+  
+  .nav:hover {
+    color: #DC4F22;
+  }
+  
+  /* Adicione a cor de realce no elemento ativo */
+  .nav.active {
+    color: #DC4F22;
+  }
+  
+  .nav .sair:hover {
+    color: #DC4F22;
+  }
+  
+  .nav .solicitacoes:hover {
+    color: #DC4F22;
+  }
+  
+  .nav .home:hover {
+    color: #DC4F22;
+  }
+  
+  .nav .gerenciar:hover {
+    color: #DC4F22;
+  }
+  
+  .nomeuser {
+    position: relative;
+    left: 9%;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 25px;
+    color: #0F0E0E;
+    font-variation-settings: 'slnt' -7;
+    opacity: 0.8;
+    bottom: -10%;
+  }
+
+  @media screen and (max-width: 600px) {
+    header {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .logo {
+      padding: 0.5em;
+    }
+  
+    .nav {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      font-size: 18px;
+      margin-top: 0.5em;
+    }
+  
+    .nav > * {
+      margin: 0.5em;
+    }
+  
+    .nomeuser {
+      position: static;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      font-size: 18px;
+    }
+  }
