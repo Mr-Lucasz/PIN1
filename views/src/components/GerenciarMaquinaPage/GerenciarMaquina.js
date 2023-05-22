@@ -7,7 +7,7 @@ function GerenciarMaquina() {
 
 
   return (
-    <div className="home-wrap">
+    <div>
       <Header />
       <div className='titulo-pagina'>
         <a href="/home" class="titulo">
@@ -42,7 +42,7 @@ function GerenciarMaquina() {
           {/* espaco */}
           <div className='espaco'></div>
           {/* adcionar maquina */}
-          <a href="/cadastro-produto" className="addmaquina">
+          <a href="/adicionar-maquina" className="addmaquina">
            ADD MÁQUINA
           </a>
           {/* espaco */}
