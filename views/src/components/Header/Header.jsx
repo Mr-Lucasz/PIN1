@@ -1,8 +1,8 @@
-import Logo from '../util/logoDrinker.png';
-import iconeHome from '../util/iconeHome.png';
-import iconeGerenciar from '../util/iconeGerenciar.png';
-import iconeSolicitacoes from '../util/iconeSolicitacoes.png';
-import iconeSair from '../util/iconeSair.png';
+import Logo from './logoDrinker.png';
+import iconeHome from './iconeHome.png';
+import iconeGerenciar from './iconeGerenciar.png';
+import iconeSolicitacoes from './iconeSolicitacoes.png';
+import iconeSair from './iconeSair.png';
 import './headerStyle.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -22,6 +22,7 @@ function Header() {
         }
     };
     return (
+
         <header className='header-fixed'>
                 <div class="container-header">
 
@@ -52,8 +53,8 @@ function Header() {
             </nav>
             </div>
         </header>
-    );
 
+    );
 }
 
 export default Header;

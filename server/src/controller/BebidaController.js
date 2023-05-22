@@ -1,17 +1,19 @@
 const { supabase } = require('../database');
-const modelbebida = require('../model/Bebida');
+const bebida = require('../model/Bebida');
 
 
+// Controlador para criação de usuário
 exports.createBebida = async (req, res) => {
-
-  const { nome_bebida, tipo_bebida,valor_bebida } = req.body;
+  // Extrai email e senha do body da requisição
+  const {nome_bebida, tipo_bebida, valor_bebida } = req.body;
 
   try {
    // Chama o método createbebida do modelo para criar uma bebida no Supabase
-   const bebida = await modelbebida.createBebidaTeste(nome_bebida, tipo_bebida, valor_bebida);
+   const user = await bebida.createBebida(nome_bebida, tipo_bebida, valor_bebida);
+
    // Retorna a resposta com mensagem de sucesso e dados da bebida
    res.status(201).json({ 
-    message: 'Bebida criada com sucesso!', bebida });
+    message: 'Bebida criada com sucesso!', user });
   } catch (error) {
     // Em caso de erro, retorna a mensagem de erro e status HTTP 500
     console.error(error);
@@ -22,15 +24,15 @@ exports.createBebida = async (req, res) => {
 
 exports.updateBebida = async (req, res) => {
     // Extrai email e senha do body da requisição
-    const {id_bebida, nome_bebida, tipo_bebida, valor_bebida } = req.body;
+    const {nome_bebida, tipo_bebida, valor_bebida } = req.body;
   
     try {
      // Chama o método updateBebida do modelo  para edita uma bebida no Supabase
-     const bebida = await modelbebida.updateBebida(id_bebida,nome_bebida, tipo_bebida, valor_bebida);
+     const user = await bebida.updateBebida(id_bebida,nome_bebida, tipo_bebida, valor_bebida);
   
      // Retorna a resposta com mensagem de sucesso e dados da bebida
      res.status(201).json({ 
-      message: 'Bebida editada com sucesso!', bebida });
+      message: 'Bebida editada com sucesso!', user });
     } catch (error) {
       // Em caso de erro, retorna a mensagem de erro e status HTTP 500
       console.error(error);

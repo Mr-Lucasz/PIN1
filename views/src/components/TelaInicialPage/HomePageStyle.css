@@ -17,16 +17,17 @@
   margin: 3.5rem;
 }
 
-.buttons {
+
+.area-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 1.4em;
   width: 34.25rem;
   height: 23.196rem;
-
 }
+
 
 
 .title-home {
@@ -55,7 +56,7 @@
 }
 
 
-.buttons input[type="button"] {
+.area-buttons button {
   height: 100%;
   width: 100%;
   border-radius: 45px;
@@ -69,7 +70,7 @@
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1280px) {
-  .buttons input[type="button"]{
+  .area-buttons button{
     font-size: 1.4rem;
   }
 
@@ -79,12 +80,17 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  .buttons input[type="button"]{
-    font-size: 1.1rem;
-  }
+  
+
+  .area-buttons  button{
+    font-size: 1.4rem;
+    width: 60%;
+
+  } 
 
   .area-btn-img {
     gap: 6rem;
+
   }
   .title-home {
     font-size: 2.5rem;
@@ -92,12 +98,12 @@
   }
 }
 
-.buttons input[type="button"]:hover {
+button:hover {
   box-shadow: 0px 5px 0px #999;
   /* Adiciona sombra maior quando o mouse passa sobre o botão */
 }
 
-.buttons input[type="button"]:active {
+button  {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   opacity: 0.8;
 }
@@ -130,6 +136,7 @@
 
 .img-refri-home img {
 
-  width: auto;
+  
+  height: 100%;
 
 }
