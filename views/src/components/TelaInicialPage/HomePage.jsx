@@ -1,3 +1,4 @@
+
 import './HomePageStyle.css';
 import { useNavigate } from 'react-router-dom';
 import refriImage from '../util/refrihome.png';
@@ -71,4 +72,6 @@ function HomePage({ isAuthenticated }) {
         </div>
         </div>
     );
-}export default HomePage;
+}
+
+export default HomePage;
