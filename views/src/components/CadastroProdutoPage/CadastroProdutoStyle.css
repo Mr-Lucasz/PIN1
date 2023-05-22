@@ -55,9 +55,9 @@
 }
 
 .produto-field-form,
-.data-validade-field-form,
+.valor-field-form,
 .imagem-field-form,
-.categoria-field-form {
+.tipo-bebida-field-form {
     display: flex;
     align-items: center;
     font-family: 'Inter';
@@ -98,12 +98,12 @@
 }
 
 .input-produto,
-.react-datepicker__input-container {
+.input-valor {
     width: 249px;
     height: 40px;
 }
 
-.datepicker,
+.input-valor input,
 .input-produto input {
     width: 100%;
     height: 100%;
@@ -116,39 +116,94 @@
     font-style: italic;
     font-weight: 500;
     font-size: 25px;
-    margin-left: 5.5rem;
+
     /* Remova ou ajuste a margem esquerda conforme necessário */
 }
 
-.data-validade-field-form label {
+.input-valor label {
     width: 233px;
+    margin-right: 1.8rem;
+
+}
+.input-valor input{
+    margin-left: 10.5rem;
+}
+.input-produto input {
+
+    margin-left: 1rem;
+
 }
 
-.input-imagem {
-    width: 113px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.5);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
+input[type="file"] {
+    display: none;
+}
+
+.input-imagem label {
+
+    padding: 0.4rem 1rem;
+    width: 70%;
+    height: 1.5rem;
+    background-color: #333;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    display: block;
+    margin-left: 2rem;
+    cursor: pointer;
     font-family: 'Inter';
     font-style: italic;
     font-weight: 500;
     font-size: 15px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.5);
-    font-variation-settings: 'slnt' -10;
-    flex-direction: column;
-    
-    
-
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
 }
 
-.input-imagem input[type="file"] {
-    
-    opacity: 0;
-    width: 90px;
+.input-bebida select{
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    width: 150px;
     height: 40px;
-    
+    margin-left: 1.5rem;
+
 }
+
+
+  select {
+    /* Reset Select */
+
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0em 1em;
+    background-color: #333;
+    color: rgba(0, 0, 0, 0.5);
+
+    cursor: pointer;
+  }
+  /* Remove IE arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  /* Custom Select wrapper */
+  .select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    border-radius: .25em;
+    overflow: hidden;
+  }
+  /* Arrow */
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0m;
+    background-color: #34495e;
+    transition: .25s all ease;
+    pointer-events: none;
+  }
+  /* Transition */
