@@ -89,6 +89,10 @@
     background: #7EE98A;
     border-radius: 15px;
     border: 0px solid #7EE98A;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 25px;
 
 }
 
@@ -125,9 +129,11 @@
     margin-right: 1.8rem;
 
 }
-.input-valor input{
+
+.input-valor input {
     margin-left: 10.5rem;
 }
+
 .input-produto input {
 
     margin-left: 1rem;
@@ -158,7 +164,7 @@ input[type="file"] {
     border-radius: 5px;
 }
 
-.input-bebida select{
+.input-bebida select {
     background: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     width: 150px;
@@ -168,7 +174,7 @@ input[type="file"] {
 }
 
 
-  select {
+select {
     /* Reset Select */
 
     outline: 0;
@@ -181,22 +187,25 @@ input[type="file"] {
     color: rgba(0, 0, 0, 0.5);
 
     cursor: pointer;
-  }
-  /* Remove IE arrow */
-  select::-ms-expand {
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
     display: none;
-  }
-  /* Custom Select wrapper */
-  .select {
+}
+
+/* Custom Select wrapper */
+.select {
     position: relative;
     display: flex;
     width: 20em;
     height: 3em;
     border-radius: .25em;
     overflow: hidden;
-  }
-  /* Arrow */
-  .select::after {
+}
+
+/* Arrow */
+.select::after {
     content: '\25BC';
     position: absolute;
     top: 0;
@@ -205,5 +214,6 @@ input[type="file"] {
     background-color: #34495e;
     transition: .25s all ease;
     pointer-events: none;
-  }
-  /* Transition */
+}
+
+/* Transition */
