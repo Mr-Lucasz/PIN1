@@ -12,14 +12,31 @@
     font-weight: 400;
     font-size: 30px;
     color: #000000;
-    text-decoration: none;
+
 }
+
 
 .title-icon {
     margin-right: 1.7rem;
     /* Espaço entre o ícone e o texto */
     margin-bottom: -0.3rem;
     transition: all 0.3s ease;
+}
+
+.container-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.inputs-field-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+
 }
 
 .container-cadastro-produto {
@@ -47,6 +64,8 @@
     font-style: italic;
     font-weight: 500;
     font-size: 25px;
+    width: 100%;
+
 }
 
 .area-button-confirmar {
@@ -56,11 +75,13 @@
     margin-top: 5.5625rem;
     width: 322px;
     height: 73px;
-    
+
 
 }
 
 .confirmar-button {
+    display: flex;
+    justify-content: center;
     padding: 1rem;
     box-sizing: border-box;
     width: 100%;
@@ -71,8 +92,63 @@
 
 }
 
-.container-form label{
-    background-color: aquamarine;
+
+.label-produto {
+    margin-right: 1.8rem;
+}
+
+.input-produto,
+.react-datepicker__input-container {
+    width: 249px;
+    height: 40px;
+}
+
+.datepicker,
+.input-produto input {
+    width: 100%;
+    height: 100%;
+    border: 0px solid #7EE98A;
+    border-radius: 15px;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 25px;
+    margin-left: 5.5rem;
+    /* Remova ou ajuste a margem esquerda conforme necessário */
+}
+
+.data-validade-field-form label {
+    width: 233px;
+}
+
+.input-imagem {
+    width: 113px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
+    font-variation-settings: 'slnt' -10;
+    flex-direction: column;
+    
     
 
+}
+
+.input-imagem input[type="file"] {
+    
+    opacity: 0;
+    width: 90px;
+    height: 40px;
+    
 }
