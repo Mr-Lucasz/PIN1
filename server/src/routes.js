@@ -5,7 +5,7 @@ const bebidaController = require('./controller/BebidaController');
 const vendaController = require('./controller/VendaController');
 const funcionarioController = require('./controller/FuncionarioController');
 const maquinaController = require('./controller/MaquinaController');
-
+const totemController = require('./controller/TotemController');
 
 
 
@@ -38,6 +38,13 @@ router.post('/newfuncionario', funcionarioController.createFuncionario);
 
 // Rota de atualiza funcionario
 router.post('/updatefuncionario', funcionarioController.updateFuncionario);
+
+//Rota criar Totem
+router.post('/newTotem',totemController.createTotem);
+
+//Rota de atualizar totem
+router.post('/updateTotem',totemController.updateTotem);
+
 
 module.exports = router;
 
