@@ -22,7 +22,7 @@ function Header() {
         }
     };
     return (
-        <header>
+        <header className='header-fixed'>
                 <div class="container-header">
 
             <div className='logo'>
