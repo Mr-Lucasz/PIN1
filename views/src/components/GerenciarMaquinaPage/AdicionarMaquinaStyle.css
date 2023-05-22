@@ -1,0 +1,33 @@
+
+.titulo-pagina{
+    display: flex;
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 100%;
+    height: 2rem;
+}
+
+.titulo{
+    font-family: 'Kaisei Tokumin';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.cadastroMaquina-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(237, 55, 68, 0.1);
+    padding: 1.375rem 3.125rem 2.625rem;
+    box-sizing: border-box;
+    border-radius: 60px;
+    margin-top: 3%;
+    margin-left: 5%;
+    width: 90%;
+    height: 25.375rem;
+    /* gap: 2px; */
+}
