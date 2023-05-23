@@ -8,7 +8,8 @@ function Relatorio() {
   return (
     <div>
       <Header />
-      // o conteúdo da sua página aqui
+    
+       {/* O conteúdo da sua página aqui*/}
     </div>
   );
 }
