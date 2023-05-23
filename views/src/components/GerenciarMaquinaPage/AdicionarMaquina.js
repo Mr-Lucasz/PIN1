@@ -5,12 +5,14 @@ import Header from '../Header/Header';
 
 function AdicionarMaquina() {
 
+
   // const adicionarMaquina = async (e) => {
   //   e.preventDefault();
 
 
 
   // }
+
 
   return (
     <div>
@@ -21,6 +23,7 @@ function AdicionarMaquina() {
         </a>
       </div>
       <div>
+
         <form className='cadastroMaquina-form'>
           <label className='campos_maquina' for="id_maquina">ID da Máquina:</label>
           <input className='id_maquina' type="number" disabled />
@@ -48,7 +51,6 @@ function AdicionarMaquina() {
           {/* <a href="/home" className="cadastrarmaquina" onClick={(e) => adicionarMaquina(e)} >Cadastrar</a> */}
 
         </form>
-
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ function GerenciarMaquina() {
 
 
   return (
-    <div className="home-wrap">
+    <div>
       <Header />
       <div className='titulo-pagina'>
         <a href="/home" class="titulo">
