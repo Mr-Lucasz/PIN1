@@ -5,7 +5,7 @@ import axios from 'axios';//biblioteca para fazer requisições HTTP em JavaScri
 
 function AdicionarMaquina() {
 
-  const[status_maquina, setStatusMaquina] = useState('');
+  const[status_maquina, setStatusMaquina] = useState('Ativo');
   const[local_maquina, setLocalMaquina] = useState('');
 
     const adicionarMaquina = async (e) => {
