@@ -27,7 +27,6 @@ function App() {
         <Route path="/relatorio" element={<Relatorio isAuthenticated={isAuthenticated} />} />
         <Route path="/gerenciar-maquina" element={<GerenciarMaquina isAuthenticated={isAuthenticated} />} />
         <Route path="/adicionar-maquina" element={<AdicionarMaquina isAuthenticated={isAuthenticated} />} />
-
       </Routes>
     </div>
   );

@@ -25,9 +25,52 @@
     padding: 1.375rem 3.125rem 2.625rem;
     box-sizing: border-box;
     border-radius: 60px;
-    margin-top: 3%;
-    margin-left: 5%;
-    width: 90%;
+
+    margin-top: 4%;
+    margin-left: 25%;
+    width: 50%;
     height: 25.375rem;
-    /* gap: 2px; */
+    gap: 2px;
+}
+
+.local_maquina,
+.status_maquina{
+    box-sizing: border-box;
+    padding-left: 2%;
+    width: 90%;
+    height: 10%;
+    background: white;
+    border-radius: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    border: #000000;
+}
+
+.cadastrarmaquina{
+    text-decoration: none;
+    box-sizing: border-box;
+    padding-left: 12%;
+    padding-top: 1.6%; 
+    width: 40%;
+    height: 15%;
+    border-radius: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+    background: rgba(72, 231, 115, 0.7);
+}
+
+.campos_maquina{
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
 }
