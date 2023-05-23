@@ -5,13 +5,15 @@ import Header from '../Header/Header';
 
 function AdicionarMaquina() {
 
+  const[status_maquina, setStatus] = use()
 
-  // const adicionarMaquina = async (e) => {
-  //   e.preventDefault();
+  const adicionarMaquina = async (e) => {
+    e.preventDefault();
+
+    console.log("teste");
 
 
-
-  // }
+  }
 
 
   return (
@@ -48,7 +50,7 @@ function AdicionarMaquina() {
           <input type="file" id="imagem_maquina" name="imagem_maquina" accept="image/*"/>
            */}
 
-          {/* <a href="/home" className="cadastrarmaquina" onClick={(e) => adicionarMaquina(e)} >Cadastrar</a> */}
+          <button href="/home" className="cadastrarmaquina" onClick={(e) => adicionarMaquina(e)} >Cadastrar</button>
 
         </form>
       </div>
