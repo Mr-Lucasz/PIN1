@@ -10,7 +10,7 @@ exports.createMaquina = async (req, res) => {
    const { data, error } = await modelmaquina.createMaquina(status_maquina, local_maquina);
    if (data && data.length) {
     res.status(201).json({
-        message: 'Maquina criado com sucesso!', data
+        message: 'Máquina criado com sucesso!', data
     });
 } else {
     throw Error('Erro ao criar maquina!')

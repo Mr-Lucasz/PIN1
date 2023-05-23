@@ -10,13 +10,15 @@ function AdicionarMaquina() {
 
     const adicionarMaquina = async (e) => {
     e.preventDefault();
-    const response = await axios.post('http://localhost:3001/newmaquina', {
+    const { data, error } = await axios.post('http://localhost:3001/newmaquina', {
       status_maquina,
       local_maquina
     }); 
-    // console.log("teste");
-    // console.log(status_maquina);
-    // console.log(local_maquina);
+    if (error) {
+      console.log('Ocorreu um erro:', error);
+    } else {
+      alert(data.message);
+    }
   }
 
 
