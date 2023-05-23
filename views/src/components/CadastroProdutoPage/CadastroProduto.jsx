@@ -1,36 +1,34 @@
 import React, { useState } from 'react';
 import Header from '../Header/Header';
 import iconeVoltar from '../util/iconeVoltar.png';
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './CadastroProdutoStyle.css';
+import axios from 'axios';//biblioteca para fazer requisições HTTP em JavaScript
 
 
 
 function CadastroProduto() {
-  const [startDate, setStartDate] = useState(new Date());
-  const [selectedOption, setSelectedOption] = useState("opcao1");
-  const [nomeBebida, setNomeBebida] = useState('');
+
+  const [nome_bebida, setNomeBebida] = useState('');
+  const [valor_bebida, setValorBebida] = useState('');
+  const [imagem_bebida, setImagemBebida] = useState('');
+  const [tipo_bebida, setTipoBebida] = useState('');
 
 
-createProduct =  async (e) => {
-  e.preventDefault();
-  // const response = await axios.post('http://localhost:3001//newbebida', {
-  //   nomeBebida,
-  //   valor,
-  //   imagem,
-  //   tipoBebida,
-  // });
-}
+  const createProduct = async (e) => {
+    e.preventDefault();
+    const response = await axios.post('http://localhost:3001/newbebida', {
+      nome_bebida,
+      tipo_bebida,
+      valor_bebida
+      // imagemBebida,
+    });      
 
-
-  const handleDateChange = (date) => {
-    setStartDate(date);
-  };
-
-  function handleSelectChange(event) {
-    setSelectedOption(event.target.value);
+    // Exibe no console o objeto de resposta da requisição
+    console.log(response.data);
   }
+
+
 
 
   return (
@@ -55,9 +53,9 @@ createProduct =  async (e) => {
                   <input type="text"
                     name="produto"
                     placeholder="Informe o Produto:"
-                    required 
+                    required
                     onChange={(e) =>
-                      setNomeBebida(e.target.value)}/>
+                      setNomeBebida(e.target.value)} />
                 </div>
               </div>
               <div className='valor-field-form'>
@@ -68,10 +66,13 @@ createProduct =  async (e) => {
                 </div>
 
                 <div className='input-valor'>
-                  <input type="text"
+                  <input type="number"
                     name="valor"
+                    step="0.01"
                     placeholder="Informe o Preço:"
-                    required />
+                    required
+                    onChange={(e) =>
+                      setValorBebida(e.target.value)} />
                 </div>
 
               </div>
@@ -83,18 +84,22 @@ createProduct =  async (e) => {
                 </div>
                 <div className="input-imagem">
                   <label for="arquivo">CARREGAR</label>
-                  <input type="file" name="arquivo" id="arquivo" />
+                  <input type="file" name="arquivo" id="arquivo"
+                    required
+                    onChange={(e) =>
+                      setImagemBebida(e.target.value)} />
                 </div>
-
               </div>
-
-
               <div className='tipo-bebida-field-form'>
                 <div className='label-tipoBebida'>
                   <label htmlFor="tipo-bebida">CATEGORIA</label>
                 </div>
                 <div className='input-bebida'>
-                  <select value={selectedOption} onChange={handleSelectChange} required>
+
+                  <select value={tipo_bebida}
+                    required
+                    onChange={(e) =>
+                      setTipoBebida(e.target.value)}>
                     <option value="refrigerante">Refrigerante</option>
                     <option value="agua">Água</option>
                     <option value="suco">Suco</option>
@@ -103,13 +108,19 @@ createProduct =  async (e) => {
                     <option value="cafe">Café</option>
                     <option value="alcoolica">Bebida Alcoólica</option>
                   </select>
+
                 </div>
               </div>
 
             </div>
             <div className='area-button-confirmar'>
-
-              <input type="submit" value="CONFIRMAR" className="confirmar-button" />
+              <div className='area-btn-form'>
+                <button type="submit"
+                  className='confirmar-button'
+                  onClick={(e) =>
+                    createProduct(e)}>CONFIRMAR</button>
+              </div>
+              {/* <input type="submit" value="CONFIRMAR" className="confirmar-button" /> */}
             </div>
           </div>
         </form>
