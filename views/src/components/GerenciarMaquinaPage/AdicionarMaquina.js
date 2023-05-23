@@ -33,10 +33,10 @@ function AdicionarMaquina() {
       <div>
 
         <form className='cadastroMaquina-form'>
-          <label className='campos_maquina' for="id_maquina">ID da Máquina:</label>
+          {/* <label className='campos_maquina' for="id_maquina">ID da Máquina:</label>
           <input className='id_maquina' type="number" disabled />
 
-          <br></br>
+          <br></br> */}
 
           <label className='campos_maquina'>Status da Máquina:</label>
 

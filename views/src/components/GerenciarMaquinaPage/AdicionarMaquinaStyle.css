@@ -34,7 +34,6 @@
 }
 
 .local_maquina,
-.id_maquina,
 .status_maquina{
     box-sizing: border-box;
     padding-left: 2%;
