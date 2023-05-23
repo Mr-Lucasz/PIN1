@@ -31,3 +31,5 @@ const port = process.env.SERVER_PORT || 5000; // Define a porta do servidor, len
 app.listen(port, () => {
   console.log(`Servidor iniciado na porta ${port}`);
 });
+
+module.exports = { supabase };
