@@ -1,15 +1,11 @@
 const { supabase } = require('../database');
 
 
-exports.createBebida = async (req, res) => {
-  const { nome_bebida, tipo_bebida,valor_bebida } = req.body;
-  const { bebida, error } = await supabase.bebida.create({
-    nome_bebida,
-    tipo_bebida,
-    valor_bebida
-  });
+exports.createReposicao = async (status_reposicao, observacao_reposicao, id_itemestoque, data_reposicao,id_totem) => {
+  const { reposicao, error} = await supabase.from('Reposicao').insert({ status_reposicao: status_reposicao, observacao_reposicao: observacao_reposicao, id_itemestoque:id_itemestoque, data_reposicao: data_reposicao, id_totem: id_totem }, { returning :'minimal'});
   if (error) {
-    return res.status(400).json({ error: error.message });
+    console.log('Deu erro aqui');
+    console.log(error)
   }
-  return res.json({ bebida });
+  return reposicao;
 };
