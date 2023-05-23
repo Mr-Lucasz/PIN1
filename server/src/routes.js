@@ -5,8 +5,8 @@ const bebidaController = require('./controller/BebidaController');
 const vendaController = require('./controller/VendaController');
 const funcionarioController = require('./controller/FuncionarioController');
 const maquinaController = require('./controller/MaquinaController');
-
-
+const totemController = require('./controller/TotemController');
+const totemReposicao = require('./controller/ReposicaoController');
 
 
 // Rota de autenticação
@@ -38,6 +38,19 @@ router.post('/newfuncionario', funcionarioController.createFuncionario);
 
 // Rota de atualiza funcionario
 router.post('/updatefuncionario', funcionarioController.updateFuncionario);
+
+//Rota criar Totem
+router.post('/newTotem',totemController.createTotem);
+
+//Rota de atualizar totem
+router.post('/updateTotem',totemController.updateTotem);
+
+//Rota criar Reposicao
+router.post('/newReposicao',totemReposicao.createReposicao);
+
+//Rota de atualizar totem
+router.post('/updateReposicao',totemReposicao.updateReposicao);
+
 
 module.exports = router;
 

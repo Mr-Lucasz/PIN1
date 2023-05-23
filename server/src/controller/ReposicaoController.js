@@ -19,3 +19,22 @@ exports.createReposicao = async (req,res) => {
     }
 
 };
+
+exports.updateReposicao = async (req,res) => {
+    const {id_reposicao,status_reposicao, observacao_reposicao, id_itemestoque, data_reposicao,id_totem} = req.body;
+    
+    try {
+        const { data, error } = await modelReposicao.updateReposicao(id_reposicao,status_reposicao, observacao_reposicao, id_itemestoque, data_reposicao,id_totem);
+        if (data && data.length) {
+            res.status(201).json({
+                message: 'Reposição realizada com sucesso!',data
+            });
+        } else {
+            throw Error('Erro ao realizar reposição totem!')
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+
+}
