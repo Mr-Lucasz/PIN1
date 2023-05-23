@@ -1,18 +1,22 @@
 import './AdicionarMaquinaStyle.css';
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../Header/Header';
-
+import axios from 'axios';//biblioteca para fazer requisições HTTP em JavaScript
 
 function AdicionarMaquina() {
 
-  const[status_maquina, setStatus] = use()
+  const[status_maquina, setStatusMaquina] = useState('');
+  const[local_maquina, setLocalMaquina] = useState('');
 
-  const adicionarMaquina = async (e) => {
+    const adicionarMaquina = async (e) => {
     e.preventDefault();
-
-    console.log("teste");
-
-
+    const response = await axios.post('http://localhost:3001/newmaquina', {
+      status_maquina,
+      local_maquina
+    }); 
+    // console.log("teste");
+    // console.log(status_maquina);
+    // console.log(local_maquina);
   }
 
 
@@ -33,16 +37,19 @@ function AdicionarMaquina() {
           <br></br>
 
           <label className='campos_maquina'>Status da Máquina:</label>
-          <select className='status_maquina' required>
-            <option value="ativo">Ativo</option>
-            <option value="inativo">Inativo</option>
-            <option value="manutencao">Manutenção</option>
+
+          <select className='status_maquina' required
+          onChange={(e) => setStatusMaquina(e.target.value)}>
+            <option value="Ativo">Ativo</option>
+            <option value="Inativo">Inativo</option>
+            <option value="Manutencao">Manutenção</option>
           </select>
 
           <br></br>
 
           <label className='campos_maquina'>Local da Máquina:</label>
-          <input className='local_maquina' type="text" required />
+          <input className='local_maquina' type="text" required 
+          onChange={(e) => setLocalMaquina(e.target.value)}/>
 
           <br></br>
 
@@ -50,7 +57,8 @@ function AdicionarMaquina() {
           <input type="file" id="imagem_maquina" name="imagem_maquina" accept="image/*"/>
            */}
 
-          <button href="/home" className="cadastrarmaquina" onClick={(e) => adicionarMaquina(e)} >Cadastrar</button>
+          <button href="/home" className="cadastrarmaquina" 
+          onClick={(e) => adicionarMaquina(e)} >Cadastrar</button>
 
         </form>
       </div>

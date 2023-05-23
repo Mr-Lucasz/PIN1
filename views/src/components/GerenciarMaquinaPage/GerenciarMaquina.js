@@ -5,7 +5,6 @@ import Header from '../Header/Header';
 
 function GerenciarMaquina() {
 
-
   return (
     <div>
       <Header />
