@@ -42,7 +42,7 @@ function GerenciarMaquina() {
           {/* espaco */}
           <div className='espaco'></div>
           {/* adcionar maquina */}
-          <a href="/cadastro-produto" className="addmaquina">
+          <a href="/adicionar-maquina" className="addmaquina">
            ADD MÁQUINA
           </a>
           {/* espaco */}
