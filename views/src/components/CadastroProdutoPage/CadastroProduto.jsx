@@ -10,6 +10,20 @@ import './CadastroProdutoStyle.css';
 function CadastroProduto() {
   const [startDate, setStartDate] = useState(new Date());
   const [selectedOption, setSelectedOption] = useState("opcao1");
+  const [nomeBebida, setNomeBebida] = useState('');
+
+
+createProduct =  async (e) => {
+  e.preventDefault();
+  // const response = await axios.post('http://localhost:3001//newbebida', {
+  //   nomeBebida,
+  //   valor,
+  //   imagem,
+  //   tipoBebida,
+  // });
+}
+
+
   const handleDateChange = (date) => {
     setStartDate(date);
   };
@@ -17,6 +31,7 @@ function CadastroProduto() {
   function handleSelectChange(event) {
     setSelectedOption(event.target.value);
   }
+
 
   return (
     <div>
@@ -40,7 +55,9 @@ function CadastroProduto() {
                   <input type="text"
                     name="produto"
                     placeholder="Informe o Produto:"
-                    required />
+                    required 
+                    onChange={(e) =>
+                      setNomeBebida(e.target.value)}/>
                 </div>
               </div>
               <div className='valor-field-form'>
