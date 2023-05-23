@@ -2,16 +2,19 @@ const { supabase } = require('../database');
 const user = require('../model/Auth');
 
 
+
+
 // Controlador para login de usuário
 exports.login = async (req, res) => {
   // Extrai email e senha do corpo da requisição
   const { email, password } = req.body;
- 
+
+
 
   try {
     // Faz o login do usuário usando o Supabase
 
-    const { user, error } = await supabase.auth.signInWithPassword({
+    let { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
@@ -20,11 +23,8 @@ exports.login = async (req, res) => {
       throw new Error('Falha ao fazer login: ' + error.message);
     }
 
-    // Cria um token JWT com o ID do usuário
-    const token = user && (await user.getIdToken());
- 
     // Retorna os dados do usuário e o token JWT
-    return res.json({ user, token });
+    return res.json({ data });
   } catch (error) {
     // Em caso de erro, retorna a mensagem de erro e status HTTP 500
     console.error(error);
@@ -37,14 +37,40 @@ exports.login = async (req, res) => {
 exports.createUser = async (req, res) => {
   // Extrai email e senha do body da requisição
   const { email, password } = req.body;
+  
+  // function isValidPassword(password) {
+  //   // Verifica se a senha possui no mínimo 8 caracteres
+  //   if (typeof password !== 'string') {
+  //     return false;
+  //   }
+  //   // Verifica se a senha possui no mínimo 8 caracteres
+  //   if (password.length < 8) {
+  //     return false;
+    
+  //   }
+  // return true;
+  // }
 
+  // if (!isValidPassword(password)) {
+  //   res.status(400).json({
+  //     message: 'A senha fornecida não atende aos requisitos de segurança.',
+  //   });
+  //   return;
+  // }
   try {
-   // Chama o método createUser do modelo de autenticação para criar o usuário no Supabase
-   const user = await Auth.createUser(email, password);
+    // Chama o método createUser do modelo de autenticação para criar o usuário no Supabase
+    let { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password
+    });
+    if (error) {
+      throw new Error('Falha ao criar usuário: ' + error.message);
+    }
 
-   // Retorna a resposta com mensagem de sucesso e dados do usuário
-   res.status(201).json({ 
-    message: 'Usuário criado com sucesso!', user });
+    // Retorna a resposta com mensagem de sucesso e dados do usuário
+    res.status(201).json({
+      message: 'Usuário criado com sucesso!', data
+    });
   } catch (error) {
     // Em caso de erro, retorna a mensagem de erro e status HTTP 500
     console.error(error);
@@ -53,11 +79,13 @@ exports.createUser = async (req, res) => {
   }
 };
 
+
 // Controlador para logout de usuário
 exports.logout = async (req, res) => {
   try {
     // Faz logout do usuário usando o Supabase
-    const { error } = await supabase.auth.signOut();
+
+    let { error } = await supabase.auth.signOut()
 
     // Verifica se ocorreu algum erro durante o logout
     if (error) {
