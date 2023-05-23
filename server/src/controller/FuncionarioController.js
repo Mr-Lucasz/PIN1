@@ -4,30 +4,39 @@ const modelfuncionario = require('../model/Funcionario');
 
 exports.createFuncionario = async (req, res) => {
 
-  const {nome, email, password} = req.body;
+  const { nome, email, password } = req.body;
 
   try {
-   const funcionario = await modelfuncionario.createFuncionario(nome, email, password);
-
-   res.status(201).json({ 
-    message: 'Funcionario cadastrado com sucesso!', funcionario });
+    const { data, error } = await modelfuncionario.createFuncionario(nome, email, password);
+    if (data && data.length) {
+      res.status(201).json({
+        message: 'Funcionario Criado com sucesso!',
+        data
+      });
+    } else {
+      throw Error('Erro ao Criar Funcionario!')
+    }
   } catch (error) {
-    console.error(error);
-    res.status(500).json(
-      { message: 'Erro ao cadastrar Funcionario!' });
+    console.log(error);
+    res.status(500).json({ message: error.message });
   }
 };
 
 exports.updateFuncionario = async (req, res) => {
-    const {id_funcionario, nome, email, password} = req.body;
-  
-    try {
-     const funcionario = await modelfuncionario.updateFuncionario(id_funcionario, nome, email, password);
-     res.status(201).json({ 
-      message: 'Funcionario editado com sucesso!', funcionario });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json(
-        { message: 'Erro ao editar o Funcionario!' });
+  const { id_funcionario, nome, email, password } = req.body;
+
+  try {
+    const { data, error } = await modelfuncionario.updateFuncionario(id_funcionario, nome, email, password);
+    if (data && data.length) {
+      res.status(201).json({
+        message: 'Funcionario editado com sucesso!',
+        data
+      });
+    } else {
+      throw Error('Erro ao editar Funcionario!')
     }
-  };
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+};
