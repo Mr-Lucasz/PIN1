@@ -3,7 +3,7 @@ const modelmaquina = require('../model/Maquina');
 
 
 exports.createMaquina = async (req, res) => {
-
+// Chama o metodo createMaquina do modelo 
   const {status_maquina, local_maquina } = req.body;
 
   try {
