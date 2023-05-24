@@ -5,30 +5,55 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './CadastroStyle.css';
 import axios from 'axios';//biblioteca para fazer requisições HTTP em JavaScript
+import  {redirect, useParams } from 'react-router-dom';
 
 
-function CadastroSolicitacao() {
+function EditarSolicitacao() {
+// pega id passado
+    const { id_reposicao } = useParams();
+// monta selects da tela
+  const [selectestoque, setSelectEstoque] = useState([]);
+  const [selecttotem, setSelectTotem] = useState([]);
+//pega valores para salvar no banco
   const [data_reposicao, setStartDate] = useState(new Date());
   const [status_reposicao, setStatus] = useState('');
   const [observacao_reposicao, setObservacao] = useState('');
-  const [selectestoque, setSelectEstoque] = useState([]);
-  const [selecttotem, setSelectTotem] = useState([]);
   const [id_itemestoque, setIdItemEstoque] = useState('');
   const [id_totem, setIdTotem] = useState('');
 
-  const createSolicitacao = async (e) => {
+  const editarSolicitacao = async (e) => {
     e.preventDefault();
-    const {data, error} = await axios.post('http://localhost:3001/newreposicao', {
+    const {data, error} = await axios.post('http://localhost:3001/updatereposicao', {
+      id_reposicao,
       status_reposicao,
       observacao_reposicao,
       id_itemestoque,
       data_reposicao,
       id_totem
     });
+    console.log(error);
+    if(error === 'undefined'){
+        return "/gerenciar_reposicao";
+    }
     console.log(data);    
   }
 
   useEffect(() => {
+
+    const consultarbyid = async () => {
+        try {
+          const data = await axios.get('http://localhost:3001/selectbyidreposicao/'+id_reposicao);
+        
+         // setStartDate(data.data.data[0].data_reposicao);
+         setStatus(data.data.data[0].status_reposicao);
+         setObservacao(data.data.data[0].observacao_reposicao);
+         setIdItemEstoque(data.data.data[0].id_itemestoque);
+         setIdTotem(data.data.data[0].id_totem); // Atualiza o estado com os dados obtidos do banco
+        } catch (error) {
+          console.error('Erro ao buscar os dados do banco:', error);
+        }
+      };
+
 
     const selectEstoque = async () => {
       try {
@@ -49,6 +74,7 @@ function CadastroSolicitacao() {
         console.error('Erro ao buscar os dados do banco:', error);
       }
     };
+    consultarbyid();
     selectTotem();
     selectEstoque();
 
@@ -67,7 +93,7 @@ function CadastroSolicitacao() {
 
           <a href="/gerenciar_reposicao" className="titulo">
             <img src={iconeVoltar} alt="Ícone de voltar" className="title-icon" />
-            <span>SOLICITAR REPOSIÇÃO</span>
+            <span>EDITAR REPOSIÇÃO</span>
           </a>
         </div>
         
@@ -148,7 +174,7 @@ function CadastroSolicitacao() {
                   <label className="labelform" htmlFor="produto">OBSERVAÇÃO:</label>
                 </div>
                 <div className='input-produto'>
-                  <input className="inputbebida"  required
+                  <input className="inputbebida" value={observacao_reposicao} required
                     onChange={(e) =>
                       setObservacao(e.target.value)} />
                 </div>
@@ -157,7 +183,7 @@ function CadastroSolicitacao() {
               <div className='area-button-confirmar'>
 
                 <input type="submit" value="CONFIRMAR" className="cadastrar"  onClick={(e) =>
-                      createSolicitacao(e)}/>
+                      editarSolicitacao(e)}/>
               </div>
               
           </div>
@@ -174,4 +200,4 @@ function CadastroSolicitacao() {
   );
 }
 
-export default CadastroSolicitacao;
+export default EditarSolicitacao;

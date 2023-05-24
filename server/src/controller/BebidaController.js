@@ -43,3 +43,23 @@ exports.updateBebida = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+exports.selectBebida = async (req, res) => {
+  const { id_bebida } = req.params; // Assume que o ID da bebida está sendo passado nos parâmetros da URL
+
+  try {
+    // Chama o método selectBebida do modelo para recuperar os dados da bebida no Supabase
+    const { data, error } = await modelbebida.selectBebida(id_bebida);
+    if (data && data.length) {
+      res.status(200).json({
+        message: 'Bebida encontrada!',
+        data
+      });
+    } else {
+      throw error('Bebida não encontrada!');
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+};

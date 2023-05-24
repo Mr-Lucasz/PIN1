@@ -21,3 +21,17 @@ exports.updateBebida = async (id_bebida, nome_bebida, tipo_bebida,valor_bebida) 
   console.log(data);
   return  {data,error};
 };
+
+exports.selectBebida = async (id_bebida) => {
+  let { data: Bebida, error } = await supabase
+    .from('Bebida')
+    .select('id_bebida, nome_bebida');
+
+  if (error) {
+    console.log('Ocorreu um erro ao recuperar a bebida:');
+    console.log(error);
+  }
+
+  console.log(Bebida);
+  return { data: Bebida, error };
+};
