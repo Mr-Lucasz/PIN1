@@ -52,7 +52,7 @@
     padding: 1.2rem 1.9rem;
     background: rgba(237, 55, 68, 0.1);
     box-sizing: border-box;
-
+    
 }
 
 .produto-field-form,
@@ -62,7 +62,7 @@
     display: flex;
     align-items: center;
     font-family: 'Inter';
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 500;
     font-size: 25px;
     width: 100%;
@@ -91,7 +91,7 @@
     border-radius: 15px;
     border: 0px solid #7EE98A;
     font-family: 'Inter';
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 500;
     font-size: 25px;
 
@@ -118,7 +118,7 @@
     box-sizing: border-box;
     padding: 0.5rem 1rem;
     font-family: 'Inter';
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 500;
     font-size: 25px;
 
@@ -157,7 +157,7 @@ input[type="file"] {
     margin-left: 2rem;
     cursor: pointer;
     font-family: 'Inter';
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 500;
     font-size: 15px;
     background: rgba(255, 255, 255, 0.5);
@@ -233,7 +233,7 @@ select::-ms-expand {
     box-sizing: border-box;
     align-items: center;
     font-family: 'Inter';
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 500;
     font-size: 25px;
     color: #FFFFFF;

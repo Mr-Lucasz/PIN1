@@ -69,12 +69,12 @@ const selectBebida = (e) => {
       <div className="cadastro-produto-wrap">
         <div className="title-cadastro-voltar" href="/home">
           <a href="/home" className="titulo">
-            <img
+            {/* <img
               src={iconeVoltar}
               alt="Ícone de voltar"
               className="title-icon"
-            />
-            <span>CADASTRAR PRODUTO</span>
+            /> */}
+            <span>&#10094; CADASTRAR PRODUTO</span>
           </a>
         </div>
         <form className="container-cadastro-produto">
@@ -82,13 +82,13 @@ const selectBebida = (e) => {
             <div className="inputs-field-form">
               <div className="produto-field-form">
                 <div className="label-produto">
-                  <label htmlFor="produto">NOME PRODUTO</label>
+                  <label htmlFor="produto">Nome Produto</label>
                 </div>
                 <div className="input-produto">
                   <input
                     type="text"
                     name="produto"
-                    placeholder="Informe o Produto:"
+                    // placeholder="Informe o Produto:"
                     required
                     onChange={(e) => setNomeBebida(e.target.value)}
                   />
@@ -97,7 +97,7 @@ const selectBebida = (e) => {
               <div className="valor-field-form">
                 <div className="label-valor">
                   <label htmlFor="valor-label">
-                    <span>VALOR</span>
+                    <span>Valor</span>
                   </label>
                 </div>
 
@@ -106,7 +106,7 @@ const selectBebida = (e) => {
                     type="number"
                     name="valor"
                     step="0.01"
-                    placeholder="Informe o Preço:"
+                    // placeholder="Informe o Preço:"
                     required
                     onChange={(e) => setValorBebida(e.target.value)}
                   />
@@ -115,10 +115,10 @@ const selectBebida = (e) => {
 
               <div className="imagem-field-form">
                 <div className="label-imagem">
-                  <label htmlFor="imagem">IMAGEM</label>
+                  <label htmlFor="imagem">Imagem</label>
                 </div>
                 <div className="input-imagem">
-                  <label htmlFor="arquivo">CARREGAR</label>
+                  <label htmlFor="arquivo">Carregar</label>
                   <input
                     type="file"
                     name="arquivo"
@@ -130,7 +130,7 @@ const selectBebida = (e) => {
               </div>
               <div className="tipo-bebida-field-form">
                 <div className="label-tipoBebida">
-                  <label htmlFor="tipo-bebida">CATEGORIA</label>
+                  <label htmlFor="tipo-bebida">Categoria</label>
                 </div>
                 <div className="input-bebida">
                   <select
