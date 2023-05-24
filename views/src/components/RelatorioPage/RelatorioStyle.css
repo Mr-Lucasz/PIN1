@@ -1,19 +1,26 @@
-
-
-.form-relatorio{
+.page-relatorio{
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    background: rgba(22, 240, 51, 0.1) !important;
-    padding: 1.375rem 3.125rem 2.625rem;
-    box-sizing: border-box;
-    border-radius: 60px;
+}
 
-    margin-top: 4%;
-    margin-left: 25%;
-    width: 400px;
-    height: 25.375rem;
-    gap: 2px;
+.form-relatorio{
+    background-color: violet;
+    width: 673px;
+    height: 433px;
+    background: rgba(237, 55, 68, 0.22);
+    border-radius: 33px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.maquina, .periodo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 

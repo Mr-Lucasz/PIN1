@@ -20,15 +20,14 @@ function Relatorio() {
   return (
     <div>
       <Header />
-
+      <div className='page-relatorio'>
       <div className='titulo-pagina'>
         <a href="/home" className="titulo">
           &#10094; RELATÓRIO
         </a>
       </div>
-      <br />
-      <div>
-        <form classname='form-relatorio'>
+   
+        <form className='form-relatorio'>
           <div className='id_maquina'>
             <label className='maquina'>ID Máquina:</label><br />
             <select className='opcao-maquina'>
@@ -80,7 +79,7 @@ function Relatorio() {
           </div>
 
         </form>
-      </div>
+    </div>
     </div>
 
   );
