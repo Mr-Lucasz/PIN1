@@ -1,0 +1,61 @@
+.title-usuario-voltar a {
+
+text-decoration: none;
+margin-left: 2rem;
+font-family: 'Kaisei Tokumin';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+color: #000000;
+
+
+}
+
+.title-icon {
+    margin-right: 1.7rem;
+    /* Espaço entre o ícone e o texto */
+    margin-bottom: -0.3rem;
+    transition: all 0.3s ease;
+}
+
+.wrap-cadastro-funcionario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem;
+
+}
+
+
+.insert-button , 
+.alterar-button{
+  height: 100%;
+  width: 100%;
+  border-radius: 45px;
+  border: none;
+  box-shadow: 0px 1px 0px #999;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  opacity: 0.85;
+}
+
+
+.area-buttons-usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.4rem;
+    width: 34.25rem;
+    height: 13.375rem;
+  
+  }
+  .alterar-button{
+    background: #F7AE94;
+}
+  .insert-button{
+    background: #F16F69;
+  } 
+
