@@ -14,20 +14,28 @@ function InsertFuncionario() {
     const [email, setEmail] = useState("");
     const [password, setPassoword] = useState("");
     const [mostrarSenha, setMostrarSenha] = useState(false);
+    const [erro, setErro] = useState(null); // Estado para armazenar a mensagem de erro
 
 
 
 
   const insertUser = async (e) => {
     e.preventDefault();
-    const response = await axios.post("http://localhost:3001/newfuncionario", {
+    
+    
+    try {
+      const response = await axios.post("http://localhost:3001/newfuncionario", {
         nome,
         email,
         password
       });
       console.log(response.data);
+      setErro(null);
+    } catch (error) {
+      setErro(error.response.data.message); // Define a mensagem de erro recebida do backend
+    }
+    
   };
-
 
   return (
     <div>
@@ -82,6 +90,7 @@ function InsertFuncionario() {
         
 
       </div>
+    
         <div className="area-btn-form-func">
                 <button
                   type="submit"
@@ -89,7 +98,7 @@ function InsertFuncionario() {
                   onClick={(e) => insertUser(e)}
                 > CONFIRMAR </button>
               </div>
-              
+              <p className="error-message">{erro}</p>
         </form>
       </div>
     </div>

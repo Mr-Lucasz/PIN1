@@ -41,6 +41,35 @@ color: #000000;
   opacity: 0.85;
 }
 
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .area-buttons-usuario button{
+    font-size: 1.4rem;
+  }
+
+  .area-btn-img {
+    gap: 9rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  button{
+    font-size: 1.1rem;
+  }
+
+  .area-btn-img {
+    gap: 0.2rem;
+    margin-left: -1em;
+  }
+  .title-usuario-voltar{
+    font-size: 2.5rem;
+  
+  }
+  .area-buttons-usuario  button{
+    font-size: 1.4rem;
+    width: 60%;
+
+  } 
+}
 
 .area-buttons-usuario {
     display: flex;
