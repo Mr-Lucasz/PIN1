@@ -5,32 +5,27 @@ import iconeVoltar from "../../util/iconeVoltar.png";
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import axios from "axios"; //biblioteca para fazer requisições HTTP em JavaScript
 
 
 
 function InsertFuncionario() {
-    const [name, setName] = useState("");
+    const [nome, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
+    const [password, setPassoword] = useState("");
     const [mostrarSenha, setMostrarSenha] = useState(false);
 
 
-    const createFuncionario = async (e) => {
-        e.preventDefault();
-    //     const response = await axios.post("http://localhost:3001/newbebida", {
-    //       nome_bebida,
-    //       tipo_bebida,
-    //       valor_bebida,
-         
-    //     });
-    
 
-    //     console.log(response.data);
-      };
 
   const insertUser = async (e) => {
     e.preventDefault();
-
+    const response = await axios.post("http://localhost:3001/newfuncionario", {
+        nome,
+        email,
+        password
+      });
+      console.log(response.data);
   };
 
 
@@ -55,7 +50,7 @@ function InsertFuncionario() {
         <label>Informe seu nome:
         <input
          type="name" 
-         value={name}
+         value={nome}
          placeholder="Informe seu nome"
          onChange={(e) => setName(e.target.value)}/>
       </label>
@@ -73,8 +68,8 @@ function InsertFuncionario() {
           <input
             type={mostrarSenha ? "text" : "password"}
             placeholder="Informe sua senha"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
+            value={password}
+            onChange={(e) => setPassoword(e.target.value)}
           />
          <FontAwesomeIcon
             icon={mostrarSenha ? faEyeSlash : faEye}
@@ -91,7 +86,7 @@ function InsertFuncionario() {
                 <button
                   type="submit"
                   className="confirmar-button-usuario"
-                  onClick={(e) => createFuncionario(e)}
+                  onClick={(e) => insertUser(e)}
                 > CONFIRMAR </button>
               </div>
               

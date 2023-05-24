@@ -38,25 +38,6 @@ exports.createUser = async (req, res) => {
   // Extrai email e senha do body da requisição
   const { email, password } = req.body;
   
-  // function isValidPassword(password) {
-  //   // Verifica se a senha possui no mínimo 8 caracteres
-  //   if (typeof password !== 'string') {
-  //     return false;
-  //   }
-  //   // Verifica se a senha possui no mínimo 8 caracteres
-  //   if (password.length < 8) {
-  //     return false;
-    
-  //   }
-  // return true;
-  // }
-
-  // if (!isValidPassword(password)) {
-  //   res.status(400).json({
-  //     message: 'A senha fornecida não atende aos requisitos de segurança.',
-  //   });
-  //   return;
-  // }
   try {
     // Chama o método createUser do modelo de autenticação para criar o usuário no Supabase
     let { data, error } = await supabase.auth.signUp({
