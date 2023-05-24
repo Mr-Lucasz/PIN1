@@ -69,7 +69,7 @@ function AdicionarMaquina() {
            */}
 
           <button href="/home" className="cadastrarmaquina"
-            onClick={(e) => adicionarMaquina(e)} >Cadastrar</button>
+            onClick={(e) => adicionarMaquina(e)} >CADASTRAR</button>
 
           <br />
 
