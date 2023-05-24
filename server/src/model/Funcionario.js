@@ -20,3 +20,13 @@ exports.updateFuncionario = async (id_funcionario, nome, email, password) => {
   console.log(data);
   return  {data,error};
 };
+
+exports.selectFuncionarios = async () => {
+  const { data, error } = await supabase.from('Funcionario').select('id_funcionario, nome, password, email');
+  if (error) {
+    console.log('Ocorreu um erro');
+    console.log(error);
+  }
+  console.log(data);
+  return { data, error };
+};

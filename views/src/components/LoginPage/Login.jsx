@@ -17,6 +17,7 @@ function Login() {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
+
     const fazerLogin = async (e) => {
         e.preventDefault();
 
@@ -55,7 +56,7 @@ function Login() {
                 setError('Erro ao acessar o servidor');
             } else if (error.response.status === 401) {
                 // Exibe uma mensagem de erro caso a resposta seja um erro de autenticação (status 401)
-                setError('Usuário ou senha inválidos');
+                setError(error.response.data.message);
             }
         }
     };
