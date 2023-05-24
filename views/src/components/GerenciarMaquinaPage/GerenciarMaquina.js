@@ -1,8 +1,27 @@
 import './GerenciarMaquinaStyle.css';
-import React from 'react';
+// import React from 'react';
 import Header from '../Header/Header';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+// import { selectMaquina } from '../../../../server/src/model/Maquina';
 
 function GerenciarMaquina() {
+
+  const [selectmaquinas, setSelectMaquinas] = useState([]);
+  const [id_maquina, setIdMaquina] = useState('');
+
+  useEffect(() => {
+    const selectMaquinas = async () => {
+      try {
+        const data = await axios.get('http://localhost:3001/selectmaquina');
+
+        setSelectMaquinas(data.data.data); // Atualiza o estado com os dados obtidos do banco
+      } catch (error) {
+        console.error('Erro ao buscar os dados do banco:', error);
+      }
+    };
+    selectMaquinas();
+  }, []);
 
   return (
     <div>
@@ -11,14 +30,14 @@ function GerenciarMaquina() {
         <a href="/home" class="titulo">
           &#10094; GERENCIAMENTO DE MÁQUINAS
         </a>
-     
+
       </div>
       <br></br>
       <br></br>
       <div className='filtros'>
         {/* espaco */}
         <div className='espaco'></div>
-        {/* busca */} 
+        {/* busca */}
         <input type='text' className='buscar' name='buscar' placeholder='BUSCAR' required></input>
         {/* espaco */}
         <div className='espaco'></div>
@@ -38,7 +57,31 @@ function GerenciarMaquina() {
           ADICIONAR MÁQUINA
         </a>
         {/* espaco */}
-        <div className='espaco'></div>   
+        <div className='espaco'></div>
+      </div>
+
+      <br></br>
+      <br></br>
+      <div class="tabela-wrapper">
+        <table className="tabelaMaquina">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Status</th>
+              <th>Endereço</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {selectmaquinas.map((maquina) => (
+              <tr>
+                <td>{maquina.id_maquina}</td>
+                <td>{maquina.status_maquina}</td>
+                <td>{maquina.local_maquina}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
