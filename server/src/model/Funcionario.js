@@ -22,11 +22,33 @@ exports.updateFuncionario = async (id_funcionario, nome, email, password) => {
 };
 
 exports.selectFuncionarios = async () => {
-  const { data, error } = await supabase.from('Funcionario').select('id_funcionario, nome, password, email');
+  let { data: Funcionario, error } = await supabase
+    .from('Funcionario')
+    .select('name, email');
+
   if (error) {
     console.log('Ocorreu um erro');
     console.log(error);
   }
+
+  console.log(Funcionario);
+
+  return { data: Funcionario, error };
+};
+
+
+exports.funcionarioById = async (id_funcionario) => {
+  const { data, error } = await supabase
+    .from('Funcionario')
+    .select('name, email, password')
+    .eq('id_funcionario', id_funcionario);
+
+  if (error) {
+    console.log('deu erro');
+    console.log(error);
+  }
+  
   console.log(data);
+  
   return { data, error };
 };

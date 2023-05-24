@@ -79,6 +79,8 @@ router.get('/selectbyidmaquina/:id_maquina',maquinaController.maquinaById);
 
 router.get('/selectfuncionario',funcionarioController.selectFuncionario);
 
+router.get('/selectbyfuncionario/:id',funcionarioController.funcionarioById);
+
 
 
 
