@@ -8,6 +8,7 @@ const maquinaController = require('./controller/MaquinaController');
 const totemController = require('./controller/TotemController');
 const reposicaoController = require('./controller/ReposicaoController');
 const estoqueController = require('./controller/EstoqueController');
+const relatorioController = require('./controller/RelatorioController');
 
 // Rota de autenticação
 router.post('/login', authController.login);
@@ -59,6 +60,8 @@ router.post('/updateestoque',estoqueController.updateEstoque);
 
 //Rota para deletar estoque
 router.post('/deleteestoque',estoqueController.deleteEstoque);
+
+router.post('/pesquisarelatorio',relatorioController.relatorioTotem);
 
 router.get('/selectestoque',estoqueController.selectEstoque);
 
