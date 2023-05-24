@@ -68,5 +68,11 @@ router.get('/selectmaquina',maquinaController.selectMaquina);
 
 router.get('/selectbebida',bebidaController.selectBebida);
 
+router.get('/listareposicao',reposicaoController.listaReposicao);
+
+router.get('/selectbyidreposicao/:id_reposicao',reposicaoController.reposicaoById);
+
+
+
 module.exports = router;
 

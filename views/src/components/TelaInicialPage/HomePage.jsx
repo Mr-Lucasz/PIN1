@@ -21,7 +21,7 @@ function HomePage({ isAuthenticated }) {
     };
     const solicitarReposicao = async (e) => {
         e.preventDefault();
-        navigate('/solicitacao_reposicao');
+        navigate('/gerenciar_reposicao');
     };
 
     return (

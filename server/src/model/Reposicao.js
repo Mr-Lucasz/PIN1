@@ -19,3 +19,22 @@ if(error){
 console.log(data);
 return {data,error};
 };
+
+exports.listaReposicao = async () => {
+  const { data, error } = await supabase.from('Reposicao').select(`id_reposicao, Totem(nome_totem),Item_estoque(Bebida(nome_bebida)), status_reposicao, data_reposicao`);
+  if (error) {
+      console.log('deu erro');
+      console.log(error)
+  }
+  return { data, error };
+};
+
+exports.reposicaoById = async (id_reposicao) => {
+  const { data, error } = await supabase.from('Reposicao').select('id_reposicao, id_itemestoque, id_totem, status_reposicao,observacao_reposicao, data_reposicao').eq('id_reposicao', id_reposicao);
+
+  if (error) {
+      console.log('deu erro');
+      console.log(error)
+  }
+  return { data, error };
+};
