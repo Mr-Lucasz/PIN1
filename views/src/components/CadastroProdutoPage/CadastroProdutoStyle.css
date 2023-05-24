@@ -253,6 +253,7 @@ select::-ms-expand {
     display: flex;
     align-items: center;
     justify-content: center;
+
   
 
 
@@ -270,6 +271,7 @@ select::-ms-expand {
     flex-direction: column;
     justify-content: center;
     gap: 3rem;
+    border-radius: 25px;
     
   }
 
