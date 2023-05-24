@@ -36,7 +36,7 @@ function EditarMaquina() {
          
          setStatus(data.data.data[0].status_maquina);
          setEndereco(data.data.data[0].endereco_maquina);
-         
+
         // Atualiza o estado com os dados obtidos do banco
         } catch (error) {
           console.error('Erro ao buscar os dados do banco:', error);
@@ -56,8 +56,8 @@ function EditarMaquina() {
         <div className="title-cadastro-voltar" href="/home">
 
           <a href="/gerenciar-maquina" className="titulo">
-            <img src={iconeVoltar} alt="Ícone de voltar" className="title-icon" />
-            <span>EDITAR REPOSIÇÃO</span>
+            {/* <img src={iconeVoltar} alt="Ícone de voltar" className="title-icon" /> */}
+            <span> &#10094;  EDITAR MAQUINA</span>
           </a>
         </div>
         
