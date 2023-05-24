@@ -58,6 +58,7 @@ function EditarMaquina() {
           <a href="/gerenciar-maquina" className="titulo">
             {/* <img src={iconeVoltar} alt="Ícone de voltar" className="title-icon" /> */}
             <span> &#10094;  EDITAR MAQUINA</span>
+            
           </a>
         </div>
         
