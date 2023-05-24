@@ -44,4 +44,41 @@ exports.updateReposicao = async (req,res) => {
         res.status(500).json({ message: error.message });
     }
 
-}
+};
+
+exports.listaReposicao = async (req, res) => {
+
+    try {
+        const { data, error } = await modelReposicao.listaReposicao();
+
+        if (data && data.length) {
+            res.status(200).json({
+                message: 'Econtrado!', data
+            });
+        } else {
+            throw Error('Não encontrado dados!')
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+
+};
+
+exports.reposicaoById = async (req, res) => {
+    const {id_reposicao} = req.params;
+    try {
+        const { data, error } = await modelReposicao.reposicaoById(id_reposicao);
+        if (data && data.length) {
+            res.status(200).json({
+                message: 'Econtrado!', data
+            });
+        } else {
+            throw Error('Não encontrado dados!')
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+
+};
