@@ -4,6 +4,7 @@ import iconeVoltar from '../util/iconeVoltar.png';
 import "react-datepicker/dist/react-datepicker.css";
 import './CadastroProdutoStyle.css';
 import axios from 'axios';//biblioteca para fazer requisições HTTP em JavaScript
+import PopupFormEstoque from './PopupFormEstoque';
 
 
 
@@ -13,6 +14,7 @@ function CadastroProduto() {
   const [valor_bebida, setValorBebida] = useState('');
   const [imagem_bebida, setImagemBebida] = useState('');
   const [tipo_bebida, setTipoBebida] = useState('');
+   const [exibirPopup, setExibirPopup] = useState(false);
 
 
   const createProduct = async (e) => {
@@ -124,7 +126,13 @@ function CadastroProduto() {
             </div>
           </div>
         </form>
-
+        <div className='area-btn-acessar'>
+                <button type="button"
+                  className='acessar-estoque-button'
+                  onClick={() => setExibirPopup(true)}
+                  >ACESSAR ESTOQUE</button>
+              </div>    
+              {exibirPopup && PopupFormEstoque}
       </div>
 
 
