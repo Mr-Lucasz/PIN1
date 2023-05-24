@@ -26,7 +26,7 @@ function Relatorio() {
             &#10094; RELATÓRIO
           </a>
         </div>
-        <br/>
+        
         <form className='form-relatorio'>
 
         <br/>
@@ -39,7 +39,7 @@ function Relatorio() {
 
           <br/>
           <div className='data'>
-            <label htmlFor='data'>Data - de - até:</label>
+            <label htmlFor='data'>Data</label>
             
             <br/>
             <input
@@ -50,7 +50,8 @@ function Relatorio() {
               onChange={(e) => setData(e.target.value)}
             />
             <br/>
-            
+            <label htmlFor='data'>Até</label>
+            <br/>
             <input
               className='preencherdata'
               type='date'
