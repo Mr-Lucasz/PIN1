@@ -21,65 +21,61 @@ function Relatorio() {
     <div>
       <Header />
       <div className='page-relatorio'>
-      <div className='titulo-pagina'>
-        <a href="/home" className="titulo">
-          &#10094; RELATÓRIO
-        </a>
-      </div>
-   
+        <div className='titulo-pagina'>
+          <a href="/home" className="titulo">
+            &#10094; RELATÓRIO
+          </a>
+        </div>
+
         <form className='form-relatorio'>
+
           <div className='id_maquina'>
-            <label className='maquina'>ID Máquina:</label><br />
+            <label className='maquina'>ID Máquina:</label>
             <select className='opcao-maquina'>
               <option value="id-maquina">ID DAS MAQUINAS </option>
             </select>
           </div>
 
-          <div>
-            <div className='periodo'>
-              <label htmlFor='periodo'> Período:</label><br />
-              <input
-                type='text'
-                id='periodo'
-                value={periodo}
-                onChange={(e) => setPeriodo(e.target.value)}
-              />
-
-            </div>
-
-            <div className='produto'>
-              <label htmlFor='Produto'>Produto:</label><br />
-              <input
-                type='text'
-                id='produto'
-                value={id_itemestoque}
-                onChange={(e) => setCampoPreencher(e.target.value)}
-              />
-            </div>
-
-            <div className='data'>
-              <label htmlFor='data'>Data:</label><br />
-              <input
-                type='date'
-                id='data'
-                value={data}
-                onChange={(e) => setData(e.target.value)}
-              />
-              <label htmlFor='data'>Até:</label>
-              <input
-                type='date'
-                id='data'
-                value={ate}
-                onChange={(e) => setAte(e.target.value)}
-              />
-            </div>
-            <div className='botao-confirmar'>
-              <button type='submit'>Confirmar</button>
-            </div>
+          <br />
+          <div className='data'>
+            <label htmlFor='data'>Data:</label><br />
+            <input
+              type='date'
+              id='data'
+              value={data}
+              onChange={(e) => setData(e.target.value)}
+            />
+            <label htmlFor='data'>Até:</label>
+            <input
+              type='date'
+              id='data'
+              value={ate}
+              onChange={(e) => setAte(e.target.value)}
+            />
           </div>
 
+          <br />
+          
+          <div className='produto'>
+            <label htmlFor='Produto'>Produto:</label>
+            <input
+              type='text'
+              id='produto'
+              value={id_itemestoque}
+              onChange={(e) => setCampoPreencher(e.target.value)}
+            />
+          </div>
+
+          <br />
+
+          <div className='botao-confirmar'>
+            <button type='submit'>Confirmar</button>
+          </div>
+
+          <br />
+
         </form>
-    </div>
+      </div>
     </div>
 
   );
