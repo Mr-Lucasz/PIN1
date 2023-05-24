@@ -37,18 +37,18 @@ function Header() {
             <nav className="container-nav">
                 <a href="/home" className="nav-link">
                     <img src={iconeHome} alt="Ícone da Opção Home" className="nav-icon" />
-                    <span>HOME</span>
+                    <span>Home</span>
                 </a>
                 <a href="/gerenciar" className="nav-link">
                     <img src={iconeGerenciar} alt="Ícone da Opção Gerenciar" className="nav-icon" />
-                    <span>GERENCIAR</span>
+                    <span>Gerenciar</span>
                 </a>
                 <a href="/solicitacoes" className="nav-link">
                     <img src={iconeSolicitacoes} alt="Ícone da Opção Solicitações" className="nav-icon" />
-                    <span>SOLICITAÇÕES</span>
+                    <span>Solicitações</span>
                 </a>
                 <a href="/logout" onClick={handleLogout} className="nav-link">
-                <span className="nav-text">SAIR</span>
+                <span className="nav-text">Sair</span>
                     <img src={iconeSair} alt="Ícone da Opção de Sair" className="nav-icon" />
                 </a>
             </nav>

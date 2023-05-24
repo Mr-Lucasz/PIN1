@@ -38,7 +38,7 @@ function GerenciarReposicao() {
         {/* espaco */}
         <div className='espaco'></div>
         {/* busca */} 
-        <input type='text' className='buscar' name='buscar' placeholder='BUSCAR' required></input>
+        <input type='text' className='buscar' name='buscar' placeholder='Buscar' required></input>
         {/* espaco */}
         <div className='espaco'></div>
         {/* campo de selecao */}
@@ -53,7 +53,7 @@ function GerenciarReposicao() {
         <div className='espacomaior'></div>
         {/* adcionar maquina */}
         <a href="/solicitacao_reposicao" className="addmaquina">
-          ADICIONAR REPOSIÇÃO
+        +  ADICIONAR REPOSIÇÃO
         </a>
         {/* espaco */}
         <div className='espaco'></div>   

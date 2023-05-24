@@ -52,10 +52,10 @@ function HomePage({ isAuthenticated }) {
                     <img src={refriImage} alt="Refri" />
                 </div>
                 <div className="area-buttons">
-                    <button className='maquinas-button' onClick={(e) => gerenciarMaqMenu(e)} >GERENCIAR MÁQUINAS</button>
-                    <button className='relatorios-button' onClick={(e) => relatorioMenu(e)}>RELATÓRIOS</button>
-                    <button className='estoque-button'onClick={(e) => gerenciarEstoqueMenu(e)} >GERENCIAR ESTOQUE</button>
-                    <button className='reposicao-button'onClick={(e) => solicitarReposicao(e)} >SOLICITAR REPOSIÇÃO</button>
+                    <button className='maquinas-button' onClick={(e) => gerenciarMaqMenu(e)} >Gerenciar Máquinas</button>
+                    <button className='relatorios-button' onClick={(e) => relatorioMenu(e)}>Relatórios</button>
+                    <button className='estoque-button'onClick={(e) => gerenciarEstoqueMenu(e)} >Gerenciar Estoque</button>
+                    <button className='reposicao-button'onClick={(e) => solicitarReposicao(e)} >Solicitar Reposição</button>
                 </div>
             </div>
 

@@ -38,7 +38,7 @@ function GerenciarMaquina() {
         {/* espaco */}
         <div className='espaco'></div>
         {/* busca */}
-        <input type='text' className='buscar' name='buscar' placeholder='BUSCAR' required></input>
+        <input type='text' className='buscar' name='buscar' placeholder='Buscar' required></input>
         {/* espaco */}
         <div className='espaco'></div>
         {/* campo de selecao */}
@@ -54,7 +54,7 @@ function GerenciarMaquina() {
         <div className='espacomaior'></div>
         {/* adcionar maquina */}
         <a href="/adicionar-maquina" className="addmaquina">
-          ADICIONAR MÁQUINA
+          +  ADICIONAR MÁQUINA
         </a>
         {/* espaco */}
         <div className='espaco'></div>
