@@ -7,6 +7,7 @@ import CadastroProduto from './components/CadastroProdutoPage/CadastroProduto';
 import Relatorio from './components/RelatorioPage/Relatorio';
 import GerenciarMaquina from './components/GerenciarMaquinaPage/GerenciarMaquina';
 import AdicionarMaquina from './components/GerenciarMaquinaPage/AdicionarMaquina';
+import EditarMaquina from './components/GerenciarMaquinaPage/EditarMaquina';
 import CadastroSolicitacao from './components/SolicitacaoReposicao/CadastroSolicitacao';
 import GerenciarReposicao from './components/SolicitacaoReposicao/GerenciarReposicao';
 import EditarReposicao from './components/SolicitacaoReposicao/EditarReposicao';
@@ -37,6 +38,7 @@ function App() {
         <Route path="/gerenciar_reposicao" element={<GerenciarReposicao isAuthenticated={isAuthenticated} />} />
         <Route path="/gerenciar-maquina" element={<GerenciarMaquina isAuthenticated={isAuthenticated} />} />
         <Route path="/adicionar-maquina" element={<AdicionarMaquina isAuthenticated={isAuthenticated} />} />
+        <Route path="/editar-maquina/:id_maquina" element={<EditarMaquina isAuthenticated={isAuthenticated} />} />
         <Route path="/cadastro-funcionario" element={<CadastroFuncionario isAuthenticated={isAuthenticated} />} />
         <Route path="/insert-user" element={<InsertFuncionario isAuthenticated={isAuthenticated} />} />
       </Routes>

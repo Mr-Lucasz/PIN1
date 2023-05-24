@@ -59,3 +59,21 @@ exports.updateMaquina = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
   };
+
+  exports.maquinaById = async (req, res) => {
+    const {id_maquina} = req.params;
+    try {
+        const { data, error } = await modelmaquina.maquinaById(id_maquina);
+        if (data && data.length) {
+            res.status(200).json({
+                message: 'Econtrado!', data
+            });
+        } else {
+            throw Error('Não encontrado dados!')
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+
+};

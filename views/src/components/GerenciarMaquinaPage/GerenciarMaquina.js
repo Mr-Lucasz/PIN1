@@ -2,6 +2,7 @@ import './GerenciarMaquinaStyle.css';
 import Header from '../Header/Header';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function GerenciarMaquina() {
   const [selectmaquinas, setSelectMaquinas] = useState([]);
@@ -85,6 +86,7 @@ function GerenciarMaquina() {
               <th>#</th>
               <th>Status</th>
               <th>Endereço</th>
+              <th>Editar</th>
             </tr>
           </thead>
           <tbody>
@@ -93,6 +95,9 @@ function GerenciarMaquina() {
                 <td>{maquina.id_maquina}</td>
                 <td>{maquina.status_maquina}</td>
                 <td>{maquina.local_maquina}</td>
+                <td>
+                  <Link to={`/editar-maquina/${maquina.id_maquina}`}>Editar</Link>
+                </td>
               </tr>
             ))}
           </tbody>

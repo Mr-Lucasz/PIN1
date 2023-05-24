@@ -29,3 +29,13 @@ exports.selectMaquina = async () => {
   }
   return { data, error };
 };
+
+exports.maquinaById = async (id_maquina) => {
+  const { data, error } = await supabase.from('Maquina').select('id_maquina, status_maquina, endereco_maquina').eq('id_maquina', id_maquina);
+
+  if (error) {
+      console.log('deu erro');
+      console.log(error)
+  }
+  return { data, error };
+};
