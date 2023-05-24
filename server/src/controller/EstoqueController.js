@@ -7,16 +7,19 @@ exports.createEstoque = async (req, res) => {
 
     try {
         //Chama o metodo createEstoque do modelo 
-        const estoque = await modelEstoque.createEstoque(id_bebida);
+        const { data, error } = await modelEstoque.createEstoque(id_bebida);
         //Retorna a resposta com a mensagem de sucesso e dados do estoque
-        res.status(201).json({
-            message: 'Estoque criado com sucesso!', estoque
-        });
+        if (data && data.length) {
+            res.status(201).json({
+                message: 'Estoque criado com sucesso!',
+                data
+            });
+        } else {
+            throw Error('Erro ao criar estoque!')
+        }
     } catch (error) {
-        //em caso de erro, retorna mensagem de erro e status HTTP 500 
-        console.error(error);
-        res.status(500).json(
-            { message: 'Erro ao criar Estoque!' });
+        console.log(error);
+        res.status(500).json({ message: error.message });
     }
 };
 //TEM QUE TESTAR
@@ -26,45 +29,59 @@ exports.updateEstoque = async (req, res) => {
 
     try {
         //Chama o metodo createEstoque do modelo
-        const estoqueUp = await modelEstoque.updateEstoque(id_itemestoque, id_bebida);
-
+        const { data, error } = await modelEstoque.updateEstoque(id_itemestoque, id_bebida);
         //retorna a resposta com mensagem de sucesso e dados do estoque 
-        res.status(201).json({
-            message: 'Estoque atualizada com sucesso!', estoque
-        });
+        if (data && data.length) {
+            res.status(201).json({
+                message: 'Estoque atualizado com sucesso!', data
+            });
+        } else {
+            throw Error('Erro ao atualizar o estoque!')
+        }
     } catch (error) {
-        //em caso de erro, retorna a mensagem de erro
-        console.error(error);
-        res.status(500).json(
-            { message: 'Erro ao atualizar estoque!' });
-
+        console.log(error);
+        res.status(500).json({ message: error.message });
     }
+
 };
 //TEM QUE TESTAR
 exports.deleteEstoque = async (req, res) => {
     // Extrai o ID do estoque a ser excluído dos parâmetros da requisição
-    const { id_estoque } = req.body;
+    const { id_itemestoque, id_bebida } = req.body;
 
     try {
         // Chama a função deleteEstoque para excluir o estoque
-        const deleteResult = await deleteEstoque(id_estoque);
+        const { data, error } = await modelEstoque.deleteEstoque(id_itemestoque, id_bebida);
 
-        if (deleteResult) {
-            // Retorna a resposta com mensagem de sucesso
-            res.status(200).json({
-                message: 'Estoque excluído com sucesso!'
+        if (data && data.length) {
+            res.status(201).json({
+                message: 'Estoque excluido com sucesso!', data
             });
         } else {
-            // Retorna a resposta com mensagem de erro
-            res.status(404).json({
-                message: 'Estoque não encontrado!'
-            });
+            throw Error('Erro ao excluir o estoque!')
         }
     } catch (error) {
-        // Em caso de erro, retorna a mensagem de erro
-        console.error(error);
-        res.status(500).json({
-            message: 'Erro ao excluir estoque!'
-        });
+        console.log(error);
+        res.status(500).json({ message: error.message });
     }
+
+};
+
+exports.selectEstoque = async (req, res) => {
+
+    try {
+        const { data, error } = await modelEstoque.selectEstoque();
+
+        if (data && data.length) {
+            res.status(200).json({
+                message: 'Econtrado!', data
+            });
+        } else {
+            throw Error('Não encontrado dados!')
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+
 };

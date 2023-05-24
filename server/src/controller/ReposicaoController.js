@@ -7,15 +7,41 @@ exports.createReposicao = async (req,res) => {
 
     try{
         //Chama o metodo createReposicao do modelo
-        const reposicao = await modelReposicao.createReposicao(status_reposicao, observacao_reposicao, id_itemestoque, data_reposicao,id_totem)
-        //retorna resposta com mensamge de sucesso 
-        res.status(201).json({
-            message: 'Reposição realizada com sucesso!', reposicao});
-    }catch(error){
-        //em caso de erro, retorna a mensagem de erro
-        console.error(error);
-        res.status(500).json(
-            {message : 'Erro ao realizar reposição!'});
+        const { data, error } = await modelReposicao.createReposicao(status_reposicao, observacao_reposicao, id_itemestoque, data_reposicao,id_totem);
+        //retorna data - documentacao do supabase utiliza data para verificar caso deu certo
+        if (data && data.length) {
+            res.status(201).json({
+                message: 'Reposicao criada com sucesso!',data
+            });
+        } else {
+            throw Error('Erro ao criar reposição!')
+        }
+    } catch (error) {
+        //Em caso de erro, retorna mensagem de erro
+        console.log(error);
+        res.status(500).json({ message: error.message });
     }
 
 };
+
+exports.updateReposicao = async (req,res) => {
+    //Chama o metodo updateReposicao do modelo
+    const {id_reposicao,status_reposicao, observacao_reposicao, id_itemestoque, data_reposicao,id_totem} = req.body;
+    
+    try {
+        const { data, error } = await modelReposicao.updateReposicao(id_reposicao,status_reposicao, observacao_reposicao, id_itemestoque, data_reposicao,id_totem);
+        //retorna data - documentacao do supabase utiliza data para verificar caso deu certo
+        if (data && data.length) {
+            res.status(201).json({
+                message: 'Reposição atualizada com sucesso!',data
+            });
+        } else {
+            throw Error('Erro ao atualizar reposição totem!')
+        }
+    } catch (error) {
+        //Em caso de erro, retorna mensagem de erro
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+
+}
