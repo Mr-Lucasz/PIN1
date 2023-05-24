@@ -8,9 +8,7 @@ function AdicionarMaquina() {
   const [status_maquina, setStatusMaquina] = useState('Ativo');
   const [local_maquina, setLocalMaquina] = useState('');
 
-  const adicionarMaquina = async (e) => 
-
-  {
+  const adicionarMaquina = async (e) => {
 
     if(local_maquina === ""){
       alert('Local da máquina precisa ser preenchido!');
@@ -24,6 +22,7 @@ function AdicionarMaquina() {
         alert('Ocorreu um erro:', error);
       } else {
         alert(data.message);
+        window.location.reload() //refresh na tela pra reiniciar variaveis
       }
     }
 
@@ -59,7 +58,7 @@ function AdicionarMaquina() {
           <br /><br />
 
           <label className='campos_maquina'>Local da Máquina:</label>
-          <input className='local_maquina' type="text" required
+          <input className='local_maquina' type="text" id='local_maquina' required
             onChange={(e) => setLocalMaquina(e.target.value)} />
 
           <br /><br />
