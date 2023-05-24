@@ -48,11 +48,13 @@
     border: #000000;
 }
 
+
 .cadastrarmaquina{
     text-decoration: none;
     box-sizing: border-box;
-    padding-left: 12%;
-    padding-top: 1.6%; 
+    
+    /* padding-left: 12%;
+    padding-top: 1.6%;  */
     width: 40%;
     height: 15%;
     border-radius: 25px;
