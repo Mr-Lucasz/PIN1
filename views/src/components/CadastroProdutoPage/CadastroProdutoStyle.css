@@ -243,8 +243,10 @@ select::-ms-expand {
     
 }
 
-.modal-overlay {
-    background-color: rgba(0, 0, 0, 0.5); /* Defina a cor de fundo com transparência */
+/*
+
+ .modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5); 
     position: fixed;
     top: 0;
     bottom: 0;
@@ -301,9 +303,9 @@ display: flex;
     outline: 0;
     border: 0;
     box-shadow: none;
-    /* Personalize */
     flex: 1;
     padding: 0em 1em;
     color: rgba(0, 0, 0, 0.9);
     cursor: pointer;
-  }
+  } 
+  */

@@ -4,7 +4,7 @@ import iconeVoltar from "../util/iconeVoltar.png";
 import "react-datepicker/dist/react-datepicker.css";
 import "./CadastroProdutoStyle.css";
 import axios from "axios"; //biblioteca para fazer requisições HTTP em JavaScript
-import Modal from "react-modal";
+import ModalFormEstoque from "../FormEstoqueModal/ModalFormEstoque.jsx"
 
 function CadastroProduto() {
   const [id_bebida, setIdBebida] = useState("");
@@ -16,7 +16,6 @@ function CadastroProduto() {
   const [bebidasDisponiveis, setBebidasDisponiveis] = useState([]);
   const [nomeBebidasDisponiveis, setNomeBebidasDisponiveis] = useState([]);
   const [exibirModal, setExibirModal] = useState(false);
-  const [selectedBebida, setSelectedBebida] = useState("");
 
 
   const createProduct = async (e) => {
@@ -119,7 +118,7 @@ const selectBebida = (e) => {
                   <label htmlFor="imagem">IMAGEM</label>
                 </div>
                 <div className="input-imagem">
-                  <label for="arquivo">CARREGAR</label>
+                  <label htmlFor="arquivo">CARREGAR</label>
                   <input
                     type="file"
                     name="arquivo"
@@ -171,37 +170,14 @@ const selectBebida = (e) => {
           >
             ACESSAR ESTOQUE
           </button>
-          <Modal
-            isOpen={exibirModal}
-            onRequestClose={() => setExibirModal(false)}
-            contentLabel="Exemplo de Modal"
-            overlayClassName="modal-overlay"
-            className="modal-content"
-            ariaHideApp={false}
-          >
-            <form className="form-modal">
-              <h2>ESTOQUE</h2>
-              <div className="escolher-bebida">
-                <label htmlFor="bebidas-disponiveis">Bebidas Disponíveis</label>
-                <div className="input-bebidas-disponiveis">
-                <select value={nomeBebidasDisponiveis}
-                    required
-                    onChange={selectBebida} // Alterado para chamar a função selectBebida
-                  className="bebidas-disponiveis" >
-                  <option value="">Selecione uma bebida</option>
-                  {bebidasDisponiveis.map((Bebida) => (
-                    <option key={Bebida.id} value={Bebida.id}>
-                      {Bebida.nome_bebida}
-                    </option>
-                  ))}
-                </select>
-                </div>
-              </div>
-              <button onClick={insertEstoque}>INSERIR NO ESTOQUE</button>
-            </form>
-
-            <button onClick={() => setExibirModal(false)}>Fechar</button>
-          </Modal>
+           <ModalFormEstoque
+          isOpen={exibirModal}
+          onClose={() => setExibirModal(false)}
+          bebidasDisponiveis={bebidasDisponiveis}
+          nomeBebidasDisponiveis={nomeBebidasDisponiveis}
+          selectBebida={selectBebida}
+          insertEstoque={insertEstoque}
+        />
         </div>
       </div>
     </div>

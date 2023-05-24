@@ -10,7 +10,11 @@ import AdicionarMaquina from './components/GerenciarMaquinaPage/AdicionarMaquina
 import CadastroSolicitacao from './components/SolicitacaoReposicao/CadastroSolicitacao';
 import GerenciarReposicao from './components/SolicitacaoReposicao/GerenciarReposicao';
 import EditarReposicao from './components/SolicitacaoReposicao/EditarReposicao';
+import CadastroFuncionario from './components/Admin-CadastroUserPage/CadastroFuncionario.jsx';
+import AdminHomePage from './components/Admin--TelaInicialPage/AdminHomePage.jsx';
 import { Routes, Route} from "react-router-dom";
+import InsertFuncionario from './components/Admin-CadastroUserPage/IncluirUsuarioPage/insertFuncPage.jsx';
+
 
 
 function App() {
@@ -25,7 +29,7 @@ function App() {
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
         {/* Rota para a página inicial */}
         <Route path="/home" element={<HomePage isAuthenticated={isAuthenticated} />} />
-
+        <Route path="/admin-home" element={<AdminHomePage isAuthenticated={isAuthenticated} />} />
         <Route path="/cadastro-produto" element={<CadastroProduto isAuthenticated={isAuthenticated} />} />
         <Route path="/relatorio" element={<Relatorio isAuthenticated={isAuthenticated} />} />
         <Route path="/solicitacao_reposicao" element={<CadastroSolicitacao isAuthenticated={isAuthenticated} />} />
@@ -33,6 +37,8 @@ function App() {
         <Route path="/gerenciar_reposicao" element={<GerenciarReposicao isAuthenticated={isAuthenticated} />} />
         <Route path="/gerenciar-maquina" element={<GerenciarMaquina isAuthenticated={isAuthenticated} />} />
         <Route path="/adicionar-maquina" element={<AdicionarMaquina isAuthenticated={isAuthenticated} />} />
+        <Route path="/cadastro-funcionario" element={<CadastroFuncionario isAuthenticated={isAuthenticated} />} />
+        <Route path="/insert-user" element={<InsertFuncionario isAuthenticated={isAuthenticated} />} />
       </Routes>
     </div>
   );

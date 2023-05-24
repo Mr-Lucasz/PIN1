@@ -1,12 +1,12 @@
-import './HomePageStyle.css';
+import './AdminHomePageStyle.css';
 import { useNavigate } from 'react-router-dom';
 import refriImage from '../util/refrihome.png';
 import Header from '../Header/Header';
 
 
-function HomePage({ isAuthenticated }) {
+function AdminHomePage({ isAuthenticated }) {
     const navigate = useNavigate();
- 
+
     const gerenciarMaqMenu = async (e) => {
         e.preventDefault();
         navigate('/gerenciar-maquina');
@@ -19,9 +19,10 @@ function HomePage({ isAuthenticated }) {
         e.preventDefault();
         navigate('/cadastro-produto');
     };
-    const solicitarReposicao = async (e) => {
+
+    const cadastroFuncionario = async (e) => {
         e.preventDefault();
-        navigate('/gerenciar_reposicao');
+        navigate('/cadastro-funcionario');
     };
 
     return (
@@ -55,7 +56,7 @@ function HomePage({ isAuthenticated }) {
                     <button className='maquinas-button' onClick={(e) => gerenciarMaqMenu(e)} >GERENCIAR MÁQUINAS</button>
                     <button className='relatorios-button' onClick={(e) => relatorioMenu(e)}>RELATÓRIOS</button>
                     <button className='estoque-button'onClick={(e) => gerenciarEstoqueMenu(e)} >GERENCIAR ESTOQUE</button>
-                    <button className='reposicao-button'onClick={(e) => solicitarReposicao(e)} >SOLICITAR REPOSIÇÃO</button>
+                    <button className='gerenciar-usuario-button'onClick={(e) => cadastroFuncionario(e)} >GERENCIAR USUÁRIO</button>
                 </div>
             </div>
 
@@ -65,4 +66,4 @@ function HomePage({ isAuthenticated }) {
 }
 
 
-export default HomePage;
+export default AdminHomePage;
