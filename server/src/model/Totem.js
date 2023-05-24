@@ -21,3 +21,12 @@ exports.updateTotem = async (id_totem,id_maquina, nome_totem) => {
   console.log(data);
   return  {data,error};
 };
+
+exports.selectTotem = async () => {
+  const { data, error } = await supabase.from('Totem').select(`id_totem, nome_totem`);
+  if (error) {
+      console.log('deu erro');
+      console.log(error)
+  }
+  return { data, error };
+};
