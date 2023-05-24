@@ -175,7 +175,7 @@ input[type="file"] {
 }
 
 
-select {
+.imput-bebida select {
     /* Reset Select */
 
     outline: 0;
