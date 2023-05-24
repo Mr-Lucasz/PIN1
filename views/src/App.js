@@ -15,6 +15,7 @@ import AdminHomePage from './components/Admin--TelaInicialPage/AdminHomePage.jsx
 import { Routes, Route} from "react-router-dom";
 import InsertFuncionario from './components/Admin-CadastroUserPage/IncluirUsuarioPage/insertFuncPage.jsx';
 import UptadeFuncionario from './components/Admin-CadastroUserPage/AlterarUsuarioPage/UptadeFuncionario.jsx';
+import EditarFuncionario from './components/Admin-CadastroUserPage/AlterarUsuarioPage/EditarFuncionario.jsx';
 
 
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/cadastro-funcionario" element={<CadastroFuncionario isAuthenticated={isAuthenticated} />} />
         <Route path="/insert-user" element={<InsertFuncionario isAuthenticated={isAuthenticated} />} />
         <Route path="/uptade-user" element={<UptadeFuncionario isAuthenticated={isAuthenticated} />} />
+        <Route path="/updatefuncionario" element={<EditarFuncionario isAuthenticated={isAuthenticated} />} />
       </Routes>
     </div>
   );

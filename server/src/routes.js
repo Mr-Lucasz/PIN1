@@ -74,6 +74,8 @@ router.get('/selectbyidreposicao/:id_reposicao',reposicaoController.reposicaoByI
 
 router.get('/selectfuncionario',funcionarioController.selectFuncionario);
 
+router.get('/selectbyfuncionario/:id',funcionarioController.funcionarioById);
+
 
 
 module.exports = router;

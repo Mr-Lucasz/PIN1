@@ -57,3 +57,21 @@ exports.selectFuncionario = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+exports.funcionarioById = async (req, res) => {
+  const {id_funcionario} = req.params;
+  try {
+      const { data, error } = await modelfuncionario.funcionarioById(id_funcionario);
+      if (data && data.length) {
+          res.status(200).json({
+              message: 'Encontrado!', data
+          });
+      } else {
+          throw Error('Não encontrado dados!')
+      }
+  } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: error.message });
+  }
+
+};
