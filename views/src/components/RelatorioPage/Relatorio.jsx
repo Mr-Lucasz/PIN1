@@ -23,7 +23,7 @@ function Relatorio() {
       <div className='page-relatorio'>
         <div className='titulo-pagina'>
           <a href="/home" className="titulo">
-            &#10094; RELATÓRIO
+              &#10094; RELATÓRIO
           </a>
         </div>
         

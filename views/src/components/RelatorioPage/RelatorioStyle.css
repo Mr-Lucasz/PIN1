@@ -16,7 +16,7 @@
     background-color: violet;
     width: 40%;
     height: 100%;
-    background: rgba(237, 55, 68, 0.22);
+    background: rgba(237, 55, 68, 0.1);
     border-radius: 33px;
     display: flex;
     flex-direction: column;
@@ -69,6 +69,7 @@
     font-size: 20px;
     line-height: 30px;
     background: rgba(72, 231, 115, 0.7);
+    border: #000000;
   }
 
 
