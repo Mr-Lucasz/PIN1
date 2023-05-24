@@ -56,7 +56,8 @@
 
 .maquinas-button , 
 .relatorios-button,
- .estoque-button {
+ .estoque-button,
+ .reposicao-button {
 
   height: 100%;
   width: 100%;
