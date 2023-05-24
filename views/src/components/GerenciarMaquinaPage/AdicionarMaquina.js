@@ -5,7 +5,7 @@ import axios from 'axios';//biblioteca para fazer requisições HTTP em JavaScri
 
 function AdicionarMaquina() {
 
-  const [status_maquina, setStatusMaquina] = useState('Ativo');
+  const [status_maquina, setStatusMaquina] = useState('Disponível');
   const [local_maquina, setLocalMaquina] = useState('');
 
   const adicionarMaquina = async (e) => {
@@ -50,9 +50,10 @@ function AdicionarMaquina() {
 
           <select className='status_maquina'
             onChange={(e) => setStatusMaquina(e.target.value)}>
-            <option value="Ativo">Ativo</option>
-            <option value="Inativo">Inativo</option>
+            <option value="Disponivel">Disponível</option>
+            <option value="Operacao">Operação</option>
             <option value="Manutencao">Manutenção</option>
+            <option value="Inativa">Inativa</option>
           </select>
 
           <br /><br />

@@ -21,7 +21,7 @@
     box-sizing: border-box;
     padding-left: 2%;
     padding-top: 0.6%;
-    width: 15%;
+    width: 19%;
     height: 100%;
     border-radius: 25px;
     font-family: 'Inter';
@@ -67,5 +67,9 @@
 }
 
 .espaco{
-    width: 3%;
+    width: 2%;
+}
+
+.espacomaior{
+    width: 24%;
 }
