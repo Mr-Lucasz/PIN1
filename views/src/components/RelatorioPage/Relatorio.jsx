@@ -26,9 +26,10 @@ function Relatorio() {
             &#10094; RELATÓRIO
           </a>
         </div>
-
+        <br/>
         <form className='form-relatorio'>
 
+        <br/>
           <div className='id_maquina'>
             <label className='maquina'>ID Máquina:</label>
             <select className='opcao-maquina'>
@@ -36,17 +37,22 @@ function Relatorio() {
             </select>
           </div>
 
-          <br />
+          <br/>
           <div className='data'>
-            <label htmlFor='data'>Data:</label><br />
+            <label htmlFor='data'>Data - de - até:</label>
+            
+            <br/>
             <input
+            className='preencherdata'
               type='date'
               id='data'
               value={data}
               onChange={(e) => setData(e.target.value)}
             />
-            <label htmlFor='data'>Até:</label>
+            <br/>
+            
             <input
+              className='preencherdata'
               type='date'
               id='data'
               value={ate}
@@ -54,11 +60,13 @@ function Relatorio() {
             />
           </div>
 
-          <br />
+          
           
           <div className='produto'>
             <label htmlFor='Produto'>Produto:</label>
+            <br/>
             <input
+              className='preencherproduto'
               type='text'
               id='produto'
               value={id_itemestoque}
@@ -66,13 +74,13 @@ function Relatorio() {
             />
           </div>
 
-          <br />
+          <br/>
 
-          <div className='botao-confirmar'>
-            <button type='submit'>Confirmar</button>
-          </div>
+          
+          <button className='botao-confirmar' type='submit'>Confirmar</button>
+         
 
-          <br />
+          <br/>
 
         </form>
       </div>
