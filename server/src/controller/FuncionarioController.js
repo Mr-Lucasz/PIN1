@@ -40,3 +40,20 @@ exports.updateFuncionario = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+exports.selectFuncionario = async (req, res) => {
+  try {
+    const { data, error } = await modelfuncionario.selectFuncionarios();
+    if (data && data.length) {
+      res.status(200).json({
+        message: 'Funcionários encontrados com sucesso!',
+        data
+      });
+    } else {
+      throw Error('Nenhum funcionário encontrado!');
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+};

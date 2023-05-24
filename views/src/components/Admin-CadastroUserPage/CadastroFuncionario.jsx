@@ -5,12 +5,13 @@ import iconeVoltar from "../util/iconeVoltar.png";
 import refriImage from "../util/refriCadastroUser.png";
 import { useNavigate } from "react-router-dom";
 
+
 function CadastroFuncionario() {
   const navigate = useNavigate();
 
   const alterarUser = async (e) => {
     e.preventDefault();
-    navigate("/alterar-usuario");
+    navigate("/uptade-user");
   };
   const insertUser = async (e) => {
     e.preventDefault();
