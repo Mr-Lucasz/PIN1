@@ -5,12 +5,10 @@ import axios from 'axios';//biblioteca para fazer requisições HTTP em JavaScri
 
 function AdicionarMaquina() {
 
-  const [status_maquina, setStatusMaquina] = useState('Ativo');
+  const [status_maquina, setStatusMaquina] = useState('Disponível');
   const [local_maquina, setLocalMaquina] = useState('');
 
-  const adicionarMaquina = async (e) => 
-
-  {
+  const adicionarMaquina = async (e) => {
 
     if(local_maquina === ""){
       alert('Local da máquina precisa ser preenchido!');
@@ -24,6 +22,7 @@ function AdicionarMaquina() {
         alert('Ocorreu um erro:', error);
       } else {
         alert(data.message);
+        window.location.reload() //refresh na tela pra reiniciar variaveis
       }
     }
 
@@ -51,15 +50,16 @@ function AdicionarMaquina() {
 
           <select className='status_maquina'
             onChange={(e) => setStatusMaquina(e.target.value)}>
-            <option value="Ativo">Ativo</option>
-            <option value="Inativo">Inativo</option>
+            <option value="Disponivel">Disponível</option>
+            <option value="Operacao">Operação</option>
             <option value="Manutencao">Manutenção</option>
+            <option value="Inativa">Inativa</option>
           </select>
 
           <br /><br />
 
           <label className='campos_maquina'>Local da Máquina:</label>
-          <input className='local_maquina' type="text" required
+          <input className='local_maquina' type="text" id='local_maquina' required
             onChange={(e) => setLocalMaquina(e.target.value)} />
 
           <br /><br />

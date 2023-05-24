@@ -30,6 +30,10 @@ function HomePage({ isAuthenticated }) {
         e.preventDefault();
         navigate('/cadastro-produto');
     };
+    const solicitarReposicao = async (e) => {
+        e.preventDefault();
+        navigate('/solicitacao_reposicao');
+    };
 
     return (
         <div>
@@ -62,6 +66,7 @@ function HomePage({ isAuthenticated }) {
                     <button className='maquinas-button' onClick={(e) => gerenciarMaqMenu(e)} >GERENCIAR MÁQUINAS</button>
                     <button className='relatorios-button' onClick={(e) => relatorioMenu(e)}>RELATÓRIOS</button>
                     <button className='estoque-button'onClick={(e) => gerenciarEstoqueMenu(e)} >GERENCIAR ESTOQUE</button>
+                    <button className='reposicao-button'onClick={(e) => solicitarReposicao(e)} >SOLICITAR REPOSIÇÃO</button>
                 </div>
             </div>
 

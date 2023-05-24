@@ -60,8 +60,11 @@ router.post('/updateestoque',estoqueController.updateEstoque);
 //Rota para deletar estoque
 router.post('/deleteestoque',estoqueController.deleteEstoque);
 
+router.get('/selectestoque',estoqueController.selectEstoque);
 
+router.get('/selecttotem',totemController.selectTotem);
 
+router.get('/selectmaquina',maquinaController.selectMaquina);
 
 module.exports = router;
 

@@ -66,3 +66,22 @@ exports.deleteEstoque = async (req, res) => {
     }
 
 };
+
+exports.selectEstoque = async (req, res) => {
+
+    try {
+        const { data, error } = await modelEstoque.selectEstoque();
+
+        if (data && data.length) {
+            res.status(200).json({
+                message: 'Econtrado!', data
+            });
+        } else {
+            throw Error('Não encontrado dados!')
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+
+};

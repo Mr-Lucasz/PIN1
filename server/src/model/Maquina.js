@@ -20,3 +20,12 @@ exports.updateMaquina = async (id_maquina,status_maquina, local_maquina) => {
   console.log(data);
   return  {data,error};
 };
+
+exports.selectMaquina = async () => {
+  const { data, error } = await supabase.from('Maquina').select(`id_maquina,status_maquina,local_maquina`);
+  if (error) {
+      console.log('deu erro');
+      console.log(error)
+  }
+  return { data, error };
+};
