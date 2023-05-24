@@ -38,3 +38,22 @@ exports.updateTotem = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+exports.selectTotem = async (req, res) => {
+
+    try {
+       
+        const { data, error } = await modelTotem.selectTotem();
+
+        if (data && data.length) {
+            res.status(200).json({
+                message: 'Econtrado!', data
+            });
+        } else {
+            throw Error('Não encontrado dados!')
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+  };

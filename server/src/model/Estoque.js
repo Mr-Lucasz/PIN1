@@ -29,3 +29,12 @@ exports.deleteEstoque = async (id_itemestoque) => {
     }
     return { data, error };
 };
+
+exports.selectEstoque = async () => {
+    const { data, error } = await supabase.from('Item_estoque').select(`id_itemestoque,Bebida(nome_bebida)`);
+    if (error) {
+        console.log('deu erro');
+        console.log(error)
+    }
+    return { data, error };
+};
