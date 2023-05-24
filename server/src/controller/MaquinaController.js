@@ -49,7 +49,7 @@ exports.updateMaquina = async (req, res) => {
 
         if (data && data.length) {
             res.status(200).json({
-                message: 'Econtrado!', data
+                message: 'Encontrado!', data
             });
         } else {
             throw Error('Não encontrado dados!')

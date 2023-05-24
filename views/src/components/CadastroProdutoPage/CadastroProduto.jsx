@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import iconeVoltar from "../util/iconeVoltar.png";
 import "react-datepicker/dist/react-datepicker.css";
@@ -7,12 +7,17 @@ import axios from "axios"; //biblioteca para fazer requisições HTTP em JavaScr
 import Modal from "react-modal";
 
 function CadastroProduto() {
+  const [id_bebida, setIdBebida] = useState("");
   const [nome_bebida, setNomeBebida] = useState("");
   const [valor_bebida, setValorBebida] = useState("");
   const [imagem_bebida, setImagemBebida] = useState("");
   const [tipo_bebida, setTipoBebida] = useState("");
 
+  const [bebidasDisponiveis, setBebidasDisponiveis] = useState([]);
+  const [nomeBebidasDisponiveis, setNomeBebidasDisponiveis] = useState([]);
   const [exibirModal, setExibirModal] = useState(false);
+  const [selectedBebida, setSelectedBebida] = useState("");
+
 
   const createProduct = async (e) => {
     e.preventDefault();
@@ -26,6 +31,38 @@ function CadastroProduto() {
     // Exibe no console o objeto de resposta da requisição
     console.log(response.data);
   };
+
+  useEffect(() => {
+    const selectBebidasDisponiveis = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/selectbebida");
+        setBebidasDisponiveis(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    selectBebidasDisponiveis();
+  }, []);
+
+
+
+  const insertEstoque = async (e) => {
+    e.preventDefault();
+    const response = await axios.post("http://localhost:3001/newestoque", {
+      id_bebida: id_bebida // Envia o id_bebida como parâmetro
+    });
+  
+    // Exibe no console o objeto de resposta da requisição
+    console.log(response.data);
+    setIdBebida("");
+    setNomeBebidasDisponiveis("");
+  };
+const selectBebida = (e) => {
+  const selectedBebida = bebidasDisponiveis.find((bebida) => bebida.nome_bebida === e.target.value);
+  setIdBebida(selectedBebida.id_bebida);
+  setNomeBebidasDisponiveis(e.target.value);
+};
 
   return (
     <div>
@@ -100,7 +137,8 @@ function CadastroProduto() {
                   <select
                     value={tipo_bebida}
                     required
-                    onChange={(e) => setTipoBebida(e.target.value)}>
+                    onChange={(e) => setTipoBebida(e.target.value)}
+                  >
                     <option value="refrigerante">Refrigerante</option>
                     <option value="agua">Água</option>
                     <option value="suco">Suco</option>
@@ -141,27 +179,25 @@ function CadastroProduto() {
             className="modal-content"
             ariaHideApp={false}
           >
-           
             <form className="form-modal">
-            <h2>ESTOQUE</h2>
+              <h2>ESTOQUE</h2>
               <div className="escolher-bebida">
                 <label htmlFor="bebidas-disponiveis">Bebidas Disponíveis</label>
-                <select
-                  id="bebidasDisponiveis"
-                  name="bebidasDisponiveis"
-                  classeName="bebidas-disponiveis"
-                >
+                <div className="input-bebidas-disponiveis">
+                <select value={nomeBebidasDisponiveis}
+                    required
+                    onChange={selectBebida} // Alterado para chamar a função selectBebida
+                  className="bebidas-disponiveis" >
                   <option value="">Selecione uma bebida</option>
-                  <option value="refrigerante">Refrigerante</option>
-                  <option value="agua">Água</option>
-                  <option value="suco">Suco</option>
-                  <option value="energetico">Bebida Energética</option>
-                  <option value="cha">Chá</option>
-                  <option value="cafe">Café</option>
-                  <option value="alcoolica">Bebida Alcoólica</option>
+                  {bebidasDisponiveis.map((Bebida) => (
+                    <option key={Bebida.id} value={Bebida.id}>
+                      {Bebida.nome_bebida}
+                    </option>
+                  ))}
                 </select>
+                </div>
               </div>
-              <button>INSERIR NO ESTOQUE</button>
+              <button onClick={insertEstoque}>INSERIR NO ESTOQUE</button>
             </form>
 
             <button onClick={() => setExibirModal(false)}>Fechar</button>

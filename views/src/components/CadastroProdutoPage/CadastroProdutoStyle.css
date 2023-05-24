@@ -175,7 +175,7 @@ input[type="file"] {
 }
 
 
-.imput-bebida .input-bebida select {
+.input-bebida select{
     /* Reset Select */
 
     outline: 0;
@@ -184,7 +184,7 @@ input[type="file"] {
     /* Personalize */
     flex: 1;
     padding: 0em 1em;
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
 }
 
@@ -286,7 +286,24 @@ select::-ms-expand {
  
   }
 
-  .bebida-escolhida{
-    display: flex;
-    
+  .escolher-bebida{
+   
+display: flex;
+
+  }
+
+  .escolher-bebida label{
+  margin-right: 1rem;
+
+    }
+
+  .input-bebidas-disponiveis select {
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0em 1em;
+    color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
   }

@@ -66,5 +66,7 @@ router.get('/selecttotem',totemController.selectTotem);
 
 router.get('/selectmaquina',maquinaController.selectMaquina);
 
+router.get('/selectbebida',bebidaController.selectBebida);
+
 module.exports = router;
 
