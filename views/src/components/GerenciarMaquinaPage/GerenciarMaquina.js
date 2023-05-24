@@ -2,7 +2,6 @@ import './GerenciarMaquinaStyle.css';
 import React from 'react';
 import Header from '../Header/Header';
 
-
 function GerenciarMaquina() {
 
   return (
@@ -12,40 +11,34 @@ function GerenciarMaquina() {
         <a href="/home" class="titulo">
           &#10094; GERENCIAMENTO DE MÁQUINAS
         </a>
-
+     
       </div>
-      <br />
+      <br></br>
+      <br></br>
       <div className='filtros'>
         {/* espaco */}
         <div className='espaco'></div>
-        {/* primeiro campo de selecao */}
-          <select className='opcao'>
-            <option value="em-andamento">EM ANDAMENTO </option>
-            <option value="laranja">Laranja</option>
-            <option value="banana">Banana</option>
-            <option value="uva">Uva</option>
-          </select>
-          {/* espaco */}
-          <div className='espaco'></div>
-          {/* segundo campo de filtro */}
-          <input type='text' className='buscar' name='buscar' placeholder='BUSCAR' required></input>
-          {/* espaco */}
-          <div className='espaco'></div>
-          {/* filtros */}
-          <select className='opcao'>
-            <option value="em-andamento">EM ANDAMENTO </option>
-            <option value="laranja">Laranja</option>
-            <option value="banana">Banana</option>
-            <option value="uva">Uva</option>
-          </select>
-          {/* espaco */}
-          <div className='espaco'></div>
-          {/* adcionar maquina */}
-          <a href="/adicionar-maquina" className="addmaquina">
-           ADD MÁQUINA
-          </a>
-          {/* espaco */}
-          <div className='espaco'></div>
+        {/* busca */} 
+        <input type='text' className='buscar' name='buscar' placeholder='BUSCAR' required></input>
+        {/* espaco */}
+        <div className='espaco'></div>
+        {/* campo de selecao */}
+        <select className='opcao'>
+          <option value="Todos">Todos</option>
+          <option value="Disponivel">Disponível</option>
+          <option value="Operacao">Operação</option>
+          <option value="Manutencao">Manutenção</option>
+          <option value="Inativa">Inativa</option>
+        </select>
+
+        {/* espaco */}
+        <div className='espacomaior'></div>
+        {/* adcionar maquina */}
+        <a href="/adicionar-maquina" className="addmaquina">
+          ADICIONAR MÁQUINA
+        </a>
+        {/* espaco */}
+        <div className='espaco'></div>   
       </div>
     </div>
   );
