@@ -55,7 +55,10 @@
 }
 
 
-button {
+
+.maquinas-button , 
+.relatorios-button,
+.estoque-button {
   height: 100%;
   width: 100%;
   border-radius: 45px;
