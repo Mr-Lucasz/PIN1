@@ -7,7 +7,7 @@ const funcionarioController = require('./controller/FuncionarioController');
 const maquinaController = require('./controller/MaquinaController');
 const totemController = require('./controller/TotemController');
 const reposicaoController = require('./controller/ReposicaoController');
-
+const estoqueController = require('./controller/EstoqueController');
 
 // Rota de autenticação
 router.post('/login', authController.login);
@@ -40,16 +40,27 @@ router.post('/newfuncionario', funcionarioController.createFuncionario);
 router.post('/updatefuncionario', funcionarioController.updateFuncionario);
 
 //Rota criar Totem
-router.post('/newTotem',totemController.createTotem);
+router.post('/newtotem',totemController.createTotem);
 
 //Rota de atualizar totem
-router.post('/updateTotem',totemController.updateTotem);
+router.post('/updatetotem',totemController.updateTotem);
 
 //Rota criar Reposicao
-router.post('/newReposicao',reposicaoController.createReposicao);
+router.post('/newreposicao',reposicaoController.createReposicao);
 
 //Rota de atualizar totem
-router.post('/updateReposicao',reposicaoController.updateReposicao);
+router.post('/updatereposicao',reposicaoController.updateReposicao);
+
+//Rota para criar estoque
+router.post('/newestoque',estoqueController.createEstoque);
+
+//Rota para atualizar estoque 
+router.post('/updateestoque',estoqueController.updateEstoque);
+
+//Rota para deletar estoque
+router.post('/deleteestoque',estoqueController.deleteEstoque);
+
+
 
 
 module.exports = router;
