@@ -119,14 +119,14 @@ button:active {
 .relatorios-button {
   background: rgba(237, 55, 68, 0.25);
 }
-.reposicao-button {
-  background: rgba(237, 55, 68, 0.25);
-}
-
 
 .estoque-button {
   background: rgba(237, 55, 68, 0.35);
 }
+.reposicao-button {
+  background: rgba(237, 55, 68, 0.45);
+}
+
 
 .destaque {
   color: rgba(235, 55, 67, 1);
