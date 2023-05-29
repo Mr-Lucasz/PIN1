@@ -1,4 +1,4 @@
-.home-wrap{
+.home-wrap-admin{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,16 +8,16 @@
 
 }
 
-.area-btn-img {
+.area-btn-img-admin {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row-reverse;
   gap: 10rem;
-  margin: 3.5rem;
+  margin: 2.5rem;
 }
 
-.area-buttons {
+.area-buttons-admin {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,37 +28,36 @@
 
 }
 
-
-.title-home {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Kaisei Tokumin';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 3.2rem;
-  margin: 3rem;
-  width: 100%;
-
+.title-home-admin{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Kaisei Tokumin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3.2rem;
+    margin: 1rem;
+    width: 100%;
 }
 
-.titleHome1 {
+
+.titleHome1-admin {
   position: relative;
   margin-right: 25%;
 }
 
 
-.titleHome2 {
+.titleHome2-admin {
 
   margin-left: 15%;
 }
 
 
-.maquinas-button , 
-.relatorios-button,
- .estoque-button,
- .gerenciar-usuario-button {
+.maquinas-button-admin, 
+.relatorios-button-admin,
+.estoque-button-admin,
+.gerenciar-usuario-button-admin {
   height: 100%;
   width: 100%;
   border-radius: 45px;
@@ -72,11 +71,11 @@
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1280px) {
-  .area-buttons button{
+  .area-buttons-admin button{
     font-size: 1.4rem;
   }
 
-  .area-btn-img {
+  .area-btn-img-admin {
     gap: 9rem;
   }
 }
@@ -86,15 +85,15 @@
     font-size: 1.1rem;
   }
 
-  .area-btn-img {
+  .area-btn-img-admin {
     gap: 0.2rem;
     margin-left: -1em;
   }
-  .title-home {
+  .title-home-admin {
     font-size: 2.5rem;
   
   }
-  .area-buttons  button{
+  .area-buttons-admin  button{
     font-size: 1.4rem;
     width: 60%;
 
@@ -111,32 +110,27 @@ button:active {
   opacity: 0.8;
 }
 
-.maquinas-button {
+.maquinas-button-admin {
   background: rgba(237, 55, 68, 0.15);
   margin-top: 7%;
 }
 
-.relatorios-button {
+.relatorios-button-admin {
   background: rgba(237, 55, 68, 0.25);
 }
-.reposicao-button {
-  background: rgba(237, 55, 68, 0.25);
-}
-
-
-.estoque-button {
+.estoque-button-admin {
   background: rgba(237, 55, 68, 0.35);
 }
 
-.gerenciar-usuario-button {
+.gerenciar-usuario-button-admin {
   background: rgba(237, 55, 68, 0.45);
 }
 
-.destaque {
+.destaque-admin {
   color: rgba(235, 55, 67, 1);
 }
 
-.img-refri-home {
+.img-refri-home-admin {
   display: flex;
   justify-content: center;
   width: 243px;
@@ -144,7 +138,7 @@ button:active {
 }
 
 
-.img-refri-home img {
+.img-refri-home-admin img {
   height: 100%;
 }
 

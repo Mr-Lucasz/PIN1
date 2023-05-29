@@ -39,9 +39,9 @@ const ModalFormEstoque = ({
             </select>
           </div>
         </div>
-        <button onClick={insertEstoque}>INSERIR NO ESTOQUE</button>
+        <button className="btn-inserir-estoque" onClick={insertEstoque}>Adicionar no estoque</button>
       </form>
-      <button onClick={onClose}>Fechar</button>
+      <button className="btn-close-modal-estoque"onClick={onClose}>Fechar</button>
     </Modal>
   );
 };

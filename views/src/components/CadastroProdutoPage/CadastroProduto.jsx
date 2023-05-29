@@ -4,7 +4,8 @@ import iconeVoltar from "../util/iconeVoltar.png";
 import "react-datepicker/dist/react-datepicker.css";
 import "./CadastroProdutoStyle.css";
 import axios from "axios"; //biblioteca para fazer requisições HTTP em JavaScript
-import ModalFormEstoque from "../FormEstoqueModal/ModalFormEstoque.jsx"
+import ModalFormEstoque from "../FormEstoqueModal/ModalFormEstoque.jsx";
+import CurrencyInput from "react-currency-input-field";
 
 function CadastroProduto() {
   const [id_bebida, setIdBebida] = useState("");
@@ -17,18 +18,38 @@ function CadastroProduto() {
   const [nomeBebidasDisponiveis, setNomeBebidasDisponiveis] = useState([]);
   const [exibirModal, setExibirModal] = useState(false);
 
-
   const createProduct = async (e) => {
     e.preventDefault();
-    const response = await axios.post("http://localhost:3001/newbebida", {
-      nome_bebida,
-      tipo_bebida,
-      valor_bebida,
-      // imagemBebida,
-    });
 
-    // Exibe no console o objeto de resposta da requisição
-    console.log(response.data);
+    if (!nome_bebida) {
+      alert("Por favor, preencha o campo Nome Produto!");
+      return;
+    }
+
+    if (!tipo_bebida) {
+      alert("Por favor, selecione uma opção de Categoria!");
+      return;
+    }
+
+    if (!valor_bebida) {
+      alert("Por favor, preencha o campo Valor!");
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:3001/newbebida", {
+        nome_bebida,
+        tipo_bebida,
+        valor_bebida,
+      });
+
+      console.log("Resposta do endpoint:", response.data);
+      // Lógica adicional para lidar com a resposta de sucesso do endpoint
+      alert(response.data.message);
+    } catch (error) {
+      console.error("Erro ao enviar dados para o endpoint:", error.message);
+      alert("Erro ao cadastrar produto!");
+    }
   };
 
   useEffect(() => {
@@ -44,24 +65,24 @@ function CadastroProduto() {
     selectBebidasDisponiveis();
   }, []);
 
-
-
   const insertEstoque = async (e) => {
     e.preventDefault();
     const response = await axios.post("http://localhost:3001/newestoque", {
-      id_bebida: id_bebida // Envia o id_bebida como parâmetro
+      id_bebida: id_bebida, // Envia o id_bebida como parâmetro
     });
-  
+
     // Exibe no console o objeto de resposta da requisição
     console.log(response.data);
     setIdBebida("");
     setNomeBebidasDisponiveis("");
   };
-const selectBebida = (e) => {
-  const selectedBebida = bebidasDisponiveis.find((bebida) => bebida.nome_bebida === e.target.value);
-  setIdBebida(selectedBebida.id_bebida);
-  setNomeBebidasDisponiveis(e.target.value);
-};
+  const selectBebida = (e) => {
+    const selectedBebida = bebidasDisponiveis.find(
+      (bebida) => bebida.nome_bebida === e.target.value
+    );
+    setIdBebida(selectedBebida.id_bebida);
+    setNomeBebidasDisponiveis(e.target.value);
+  };
 
   return (
     <div>
@@ -88,12 +109,13 @@ const selectBebida = (e) => {
                   <input
                     type="text"
                     name="produto"
-                    // placeholder="Informe o Produto:"
+                    placeholder="Informe o Produto:"
                     required
                     onChange={(e) => setNomeBebida(e.target.value)}
                   />
                 </div>
               </div>
+
               <div className="valor-field-form">
                 <div className="label-valor">
                   <label htmlFor="valor-label">
@@ -102,13 +124,15 @@ const selectBebida = (e) => {
                 </div>
 
                 <div className="input-valor">
-                  <input
-                    type="number"
+                  <CurrencyInput
                     name="valor"
-                    step="0.01"
-                    // placeholder="Informe o Preço:"
+                    prefix="R$"
+                    decimalSeparator=","
+                    groupSeparator="."
+                    decimalsLimit={2}
+                    placeholder="Informe o Preço"
                     required
-                    onChange={(e) => setValorBebida(e.target.value)}
+                    onValueChange={(value) => setValorBebida(value || "")}
                   />
                 </div>
               </div>
@@ -170,14 +194,14 @@ const selectBebida = (e) => {
           >
             ACESSAR ESTOQUE
           </button>
-           <ModalFormEstoque
-          isOpen={exibirModal}
-          onClose={() => setExibirModal(false)}
-          bebidasDisponiveis={bebidasDisponiveis}
-          nomeBebidasDisponiveis={nomeBebidasDisponiveis}
-          selectBebida={selectBebida}
-          insertEstoque={insertEstoque}
-        />
+          <ModalFormEstoque
+            isOpen={exibirModal}
+            onClose={() => setExibirModal(false)}
+            bebidasDisponiveis={bebidasDisponiveis}
+            nomeBebidasDisponiveis={nomeBebidasDisponiveis}
+            selectBebida={selectBebida}
+            insertEstoque={insertEstoque}
+          />
         </div>
       </div>
     </div>

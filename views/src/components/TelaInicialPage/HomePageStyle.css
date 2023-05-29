@@ -14,7 +14,7 @@
   align-items: center;
   flex-direction: row-reverse;
   gap: 10rem;
-  margin: 3.5rem;
+  margin: 2.5rem;
 }
 
 .area-buttons {
@@ -38,7 +38,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 3.2rem;
-  margin: 3rem;
+  margin: 1rem;
   width: 100%;
 
 }
@@ -107,7 +107,7 @@ button:hover {
 }
 
 button:active {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   opacity: 0.8;
 }
 
@@ -124,7 +124,7 @@ button:active {
   background: rgba(237, 55, 68, 0.35);
 }
 .reposicao-button {
-  background: rgba(237, 55, 68, 0.45);
+  background: rgba(237, 55, 68, 0.55);
 }
 
 

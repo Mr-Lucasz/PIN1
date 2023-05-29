@@ -28,35 +28,35 @@ function AdminHomePage({ isAuthenticated }) {
     return (
         <div>
         <Header/>
-        <div className="home-wrap">
+        <div className="home-wrap-admin">
  
 
-            <div className="title-home">
-                <div className="titleHome1">
+            <div className="title-home-admin">
+                <div className="titleHome1-admin">
                     <span>
                         Um time de
-                        <span class="destaque"> sucesso </span>
+                        <span className="destaque-admin"> sucesso </span>
                         levando</span>
                 </div>
-                <div className="titleHome2">
+                <div className="titleHome2-admin">
                     <span>as</span>
 
-                    <span className="destaque"> melhores bebidas</span>
+                    <span className="destaque-admin"> melhores bebidas</span>
                     <span> até </span>
 
-                    <span className="destaque">você!</span>
+                    <span className="destaque-admin">você!</span>
                 </div>
             </div>
-            <div className="area-btn-img">
+            <div className="area-btn-img-admin">
 
-                <div className='img-refri-home'>
+                <div className='img-refri-home-admin'>
                     <img src={refriImage} alt="Refri" />
                 </div>
-                <div className="area-buttons">
-                    <button className='maquinas-button' onClick={(e) => gerenciarMaqMenu(e)} >GERENCIAR MÁQUINAS</button>
-                    <button className='relatorios-button' onClick={(e) => relatorioMenu(e)}>RELATÓRIOS</button>
-                    <button className='estoque-button'onClick={(e) => gerenciarEstoqueMenu(e)} >GERENCIAR ESTOQUE</button>
-                    <button className='gerenciar-usuario-button'onClick={(e) => cadastroFuncionario(e)} >GERENCIAR USUÁRIO</button>
+                <div className="area-buttons-admin">
+                    <button className='maquinas-button-admin' onClick={(e) => gerenciarMaqMenu(e)} >GERENCIAR MÁQUINAS</button>
+                    <button className='relatorios-button-admin' onClick={(e) => relatorioMenu(e)}>RELATÓRIOS</button>
+                    <button className='estoque-button-admin'onClick={(e) => gerenciarEstoqueMenu(e)} >GERENCIAR ESTOQUE</button>
+                    <button className='gerenciar-usuario-button-admin'onClick={(e) => cadastroFuncionario(e)} >GERENCIAR USUÁRIO</button>
                 </div>
             </div>
 
