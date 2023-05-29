@@ -1,0 +1,317 @@
+ .login-form-wrap {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 100%;
+     max-height: auto;
+     margin-top: -5rem;
+     width: 100vw;
+     height: 100vh;
+
+ }
+
+
+
+ @media screen and (min-width: 1281px) {
+
+     .login-container {
+         margin: 0 auto;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-direction: column;
+         width: 100%;
+         height: 150%; 
+         
+     }
+     .login-form-wrap {
+        margin-top: -3rem;
+    }
+     
+ }
+
+ /* Desktops: (min-width: 1281px)
+ Laptops, desktops: (min-width: 1025px) and (max-width: 1280px
+ Tablets, ipads: (min-width: 768px) and (max-width: 1024px
+ Tablets de baixa resolução, celulares: (min-width: 481px) and (max- width: 767px) */
+
+ @media screen and (min-width: 1025px) and (max-width: 1280px) {
+     .login-container {
+         width: 100%;
+         margin: 1em 2em;
+         transition: all 0.5 ease;
+
+     }
+ }
+
+ @media screen and (min-width: 768px) and (max-width: 1024px) {
+     .login-container {
+         width: 100%;
+         margin: 1rem 2rem;
+         margin-top: 14rem;
+         transition: all 0.5s ease;
+     }
+ }
+
+ .img-refri {
+     max-width: 100%;
+     height: 744px;
+
+
+ }
+
+ .img-refri img {
+     width: 100%;
+     height: 100%;
+
+
+ }
+
+ .form-area {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 15rem;
+     width: 100%;
+     height: 547px;
+     transition: all 0.3s ease;
+ }
+
+ @media (max-width: 1024px) {
+     .form-area {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 16px;
+         transition: all 0.3s ease;
+         width: 100%;
+         height: 100%;
+     }
+ }
+
+ @media screen and (min-width: 1025px) and (max-width: 1280px) {
+     .form-area {
+         gap: 5em;
+         transition: all 0.3s ease;
+     }
+ }
+
+ @media screen and (min-width: 768px) and (max-width: 1024px) {
+
+     .form-area {
+         gap: 2em;
+         transition: all 0.3s ease;
+
+     }
+
+ }
+
+
+
+
+
+ .title-pai {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     padding: 0px;
+     box-sizing: border-box;
+     width: 100%;
+     height: auto;
+     z-index: 1;
+ }
+
+
+ /*
+O código abaixo define as propriedades de estilo de fonte para os elementos que correspondem.
+    o filho span dentro de um elemento com classe "title1" ou "title2*/
+ .title1 span:nth-child(1),
+ .title1 span:nth-child(3),
+ .title2 span:nth-child(1),
+ .title2 span:nth-child(2),
+ .title2 span:nth-child(4),
+ .title2 span:nth-child(6),
+ .title2 span:nth-child(7),
+ .title2 span:nth-child(8) {
+     font-family: 'Jacques Francois Shadow', cursive;
+     font-style: normal;
+     font-weight: 400;
+     font-size: 110px;
+     color: #EB3743;
+     letter-spacing: 10px;
+ }
+
+ .title1 span:nth-child(2),
+ .title1 span:nth-child(4),
+ .title2 span:nth-child(3),
+ .title2 span:nth-child(5) {
+     font-family: 'Londrina Solid', cursive;
+     font-style: normal;
+     font-weight: 400;
+     font-size: 120px;
+     color: rgba(235, 55, 67, 0.93);
+     letter-spacing: 10px;
+
+ }
+
+ .title1 {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: all 0.3s ease;
+     margin-right: 25%;
+     width: 100%;
+     height: auto;
+     margin-bottom: -10px;
+     max-height: 8rem;
+
+ }
+
+ .title2 {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: all 0.3s ease;
+     margin-left: 10%;
+     width: 100%;
+     height: auto;
+     max-height: 8rem;
+
+ }
+
+
+
+ .login-form {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     background: rgba(237, 55, 68, 0.22);
+     padding: 1.375rem 3.125rem 2.625rem;
+     box-sizing: border-box;
+     border-radius: 60px;
+     width: 34.75rem;
+     height: 25.375rem;
+     gap: 2px;
+ }
+
+ @media screen and (min-width: 1025px) and (max-width: 1280px) {
+     .login-form {
+
+         margin-right: 1rem;
+         transition: all 0.3s ease;
+
+     }
+
+     /* .login-form {} */
+
+ }
+
+ @media screen and (min-width: 768px) and (max-width: 1024px) {
+     .login-form {
+
+         margin-right: 1rem;
+         transition: all 0.3s ease;
+         max-width: 50%;
+
+     }
+
+
+ }
+
+ .login-form h1 {
+     padding: 1px;
+     box-sizing: border-box;
+     font-family: 'Inter';
+     font-style: italic;
+     font-weight: 676;
+     font-size: 3.125rem;
+     line-height: 61px;
+     text-align: center;
+     color: #400F12;
+     font-variation-settings: 'slnt' -10;
+     margin-top: 3px;
+
+
+
+ }
+
+ .area-inputs {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     width: 100%;
+     height: 100%;
+
+ }
+
+ .area-user-senha-form {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     width: 100%;
+     height: 100%;
+     gap: 12px;
+     margin-bottom: 36px;
+
+ }
+
+ .input-user,
+ .input-password {
+     width: 26rem;
+     height: 40.47px;
+ }
+
+ .user-form input[type=usuario],
+ .senha-form input[type=password] {
+
+     background: #FFFFFF;
+     /* Adiciona padding à esquerda */
+     box-sizing: border-box;
+     /* Mantém a largura do elemento mesmo com padding */
+     border: 2px solid #FFFFFF;
+     width: 100%;
+     height: 100%;
+     border-radius: 60px;
+     padding-left: 20px;
+     padding-right: 5px;
+ }
+
+
+
+ .label-email,
+ .label-senha {
+     padding: 0.2em;
+     font-family: 'Inter';
+     font-style: italic;
+     font-weight: 500;
+     font-size: 25px;
+     line-height: 30px;
+     color: #000000;
+     font-variation-settings: 'slnt' -10;
+     margin-bottom: 3.2px;
+
+ }
+
+
+
+ .btn-entrarLogin {
+
+     background: #FFFFFF;
+     border-radius: 20px;
+     font-family: 'Inter';
+     font-style: normal;
+     font-weight: 400;
+     font-size: 1.5625rem;
+     border: 2px solid #FFFFFF;
+     width: 169.36px;
+     height: 62.9px;
+ }
+
+ .btn-entrarLogin:active {
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+     opacity: 0.8;
+ }
