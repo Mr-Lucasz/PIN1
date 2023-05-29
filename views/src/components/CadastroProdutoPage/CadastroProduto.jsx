@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
-import iconeVoltar from "../util/iconeVoltar.png";
+// import iconeVoltar from "../util/iconeVoltar.png";
 import "react-datepicker/dist/react-datepicker.css";
 import "./CadastroProdutoStyle.css";
 import axios from "axios"; //biblioteca para fazer requisições HTTP em JavaScript
@@ -13,6 +13,7 @@ function CadastroProduto() {
   const [valor_bebida, setValorBebida] = useState("");
   const [imagem_bebida, setImagemBebida] = useState("");
   const [tipo_bebida, setTipoBebida] = useState("");
+  let baseUrl = "http://localhost:3001";
 
   const [bebidasDisponiveis, setBebidasDisponiveis] = useState([]);
   const [nomeBebidasDisponiveis, setNomeBebidasDisponiveis] = useState([]);
@@ -37,7 +38,7 @@ function CadastroProduto() {
     }
 
     try {
-      const response = await axios.post("http://localhost:3001/newbebida", {
+      const response = await axios.post(baseUrl+"/newbebida", {
         nome_bebida,
         tipo_bebida,
         valor_bebida,
@@ -55,7 +56,7 @@ function CadastroProduto() {
   useEffect(() => {
     const selectBebidasDisponiveis = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/selectbebida");
+        const response = await axios.get(baseUrl+"/selectbebida");
         setBebidasDisponiveis(response.data.data);
       } catch (error) {
         console.log(error);
@@ -67,7 +68,7 @@ function CadastroProduto() {
 
   const insertEstoque = async (e) => {
     e.preventDefault();
-    const response = await axios.post("http://localhost:3001/newestoque", {
+    const response = await axios.post(baseUrl+"/newestoque", {
       id_bebida: id_bebida, // Envia o id_bebida como parâmetro
     });
 
@@ -78,8 +79,7 @@ function CadastroProduto() {
   };
   const selectBebida = (e) => {
     const selectedBebida = bebidasDisponiveis.find(
-      (bebida) => bebida.nome_bebida === e.target.value
-    );
+      (bebida) => bebida.nome_bebida === e.target.value);
     setIdBebida(selectedBebida.id_bebida);
     setNomeBebidasDisponiveis(e.target.value);
   };
@@ -162,13 +162,13 @@ function CadastroProduto() {
                     required
                     onChange={(e) => setTipoBebida(e.target.value)}
                   >
-                    <option value="refrigerante">Refrigerante</option>
-                    <option value="agua">Água</option>
-                    <option value="suco">Suco</option>
-                    <option value="energetico">Bebida Energética</option>
-                    <option value="cha">Chá</option>
-                    <option value="cafe">Café</option>
-                    <option value="alcoolica">Bebida Alcoólica</option>
+                    <option value="Refrigerante">Refrigerante</option>
+                    <option value="Agua">Água</option>
+                    <option value="Suco">Suco</option>
+                    <option value="Energetico">Bebida Energética</option>
+                    <option value="Cha">Chá</option>
+                    <option value="Cafe">Café</option>
+                    <option value="Alcoolica">Bebida Alcoólica</option>
                   </select>
                 </div>
               </div>
