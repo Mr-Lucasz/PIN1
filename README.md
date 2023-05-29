@@ -51,7 +51,6 @@ Este é um servidor Node.js para uma aplicação web.
 
 - `dev`: Inicia o servidor em modo de desenvolvimento com o Nodemon
 
-
 # Views
 
 Views é um projeto de exemplo criado com React.
@@ -72,7 +71,7 @@ Para iniciar o servidor de desenvolvimento, use o seguinte comando:
 npm start
 ```
 
-A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
+A aplicação estará disponível em [http://localhost:3000](http://localhost:300).
 
 ## Dependências
 
