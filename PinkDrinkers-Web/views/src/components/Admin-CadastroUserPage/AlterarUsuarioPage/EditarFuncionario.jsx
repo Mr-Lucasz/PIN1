@@ -3,18 +3,18 @@ import Header from "../../Header/Header";
 import "./EditarFuncionarioStyle.css";
 import iconeVoltar from "../../util/iconeVoltar.png";
 import { useState } from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import axios from "axios"; //biblioteca para fazer requisições HTTP em JavaScript
 
 
 
 
 function EditarFuncionario() {
-    const [idFuncionario, setIdFuncionario] = useState("");
+    // const [idFuncionario, setIdFuncionario] = useState("");
     const [nome, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassoword] = useState("");
-    const [mostrarSenha, setMostrarSenha] = useState(false);
+    // const [mostrarSenha, setMostrarSenha] = useState(false);
     const [erro, setErro] = useState(null); // Estado para armazenar a mensagem de erro
 
     
@@ -39,20 +39,20 @@ function EditarFuncionario() {
     
 
      
-    const listarFuncionarioById = async (e) => {
-    try {
-      const response = await axios.post("http://localhost:3001//selectbyfuncionario/:id", {
-        nome,
-        email,
-        password
-      });
-      console.log(response.data);
-      setErro(null);
-    } catch (error) {
-      setErro(error.response.data.message); // Define a mensagem de erro recebida do backend
-    }
+  //   const listarFuncionarioById = async (e) => {
+  //   try {
+  //     const response = await axios.post("http://localhost:3001//selectbyfuncionario/:id", {
+  //       nome,
+  //       email,
+  //       password
+  //     });
+  //     console.log(response.data);
+  //     setErro(null);
+  //   } catch (error) {
+  //     setErro(error.response.data.message); // Define a mensagem de erro recebida do backend
+  //   }
     
-  };
+  // };
 
   return (
     <div>
@@ -91,7 +91,7 @@ function EditarFuncionario() {
         <label>Informe sua senha:
         <div className="password-input">
           <input
-            type={mostrarSenha ? "text" : "password"}
+            type={password ? "text" : "password"}
             placeholder="Informe sua senha"
             value={password}
             onChange={(e) => setPassoword(e.target.value)}
