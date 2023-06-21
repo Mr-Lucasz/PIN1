@@ -9,8 +9,8 @@ export  function StartPage() {
   const navigate = useNavigate();
 
   const handleTitleClick = async (e) => {
-   e.
-    navigate('/home-page');
+
+    navigate('/homepage');
 };
 
   return (
