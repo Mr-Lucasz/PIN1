@@ -1,0 +1,34 @@
+.headerProduto{
+    display: flex;
+    box-sizing: border-box;
+    padding: 1rem 0.5rem;
+    gap: 29.5rem;
+    margin-bottom: -2rem;
+}
+
+.logoTipo{
+    display: flex;
+
+height: 6.125rem;
+}
+
+.iconCart{
+    display: flex;
+max-width: 3.375rem;
+cursor: pointer;
+}
+
+.iconCart:hover {
+    transform: scale(1.2);
+  }
+
+.iconCart:hover::after {
+    /* Estilos do tooltip */
+    content: attr(title);
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 4px;
+  }
