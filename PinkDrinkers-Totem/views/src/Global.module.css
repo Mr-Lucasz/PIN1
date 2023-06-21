@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Jacques+Francois+Shadow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@700&display=swap");
+
+body {
+  background: rgba(252, 238, 191, 1);
+
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Londrina Solid",
+    "Jacques Francois Shadow", "Inter", "Kaisei Tokumin" sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

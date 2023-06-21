@@ -1,0 +1,144 @@
+.home-wrap-admin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+  width: auto;
+
+}
+
+.area-btn-img-admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 10rem;
+  margin: 2.5rem;
+}
+
+.area-buttons-admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.4rem;
+  width: 34.25rem;
+  height: 23.196rem;
+
+}
+
+.title-home-admin{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Kaisei Tokumin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3.2rem;
+    margin: 1rem;
+    width: 100%;
+}
+
+
+.titleHome1-admin {
+  position: relative;
+  margin-right: 25%;
+}
+
+
+.titleHome2-admin {
+
+  margin-left: 15%;
+}
+
+
+.maquinas-button-admin, 
+.relatorios-button-admin,
+.estoque-button-admin,
+.gerenciar-usuario-button-admin {
+  height: 100%;
+  width: 100%;
+  border-radius: 45px;
+  border: none;
+  box-shadow: 0px 1px 0px #999;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  opacity: 0.85;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .area-buttons-admin button{
+    font-size: 1.4rem;
+  }
+
+  .area-btn-img-admin {
+    gap: 9rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  button{
+    font-size: 1.1rem;
+  }
+
+  .area-btn-img-admin {
+    gap: 0.2rem;
+    margin-left: -1em;
+  }
+  .title-home-admin {
+    font-size: 2.5rem;
+  
+  }
+  .area-buttons-admin  button{
+    font-size: 1.4rem;
+    width: 60%;
+
+  } 
+}
+
+button:hover {
+  box-shadow: 0px 5px 0px #999;
+  /* Adiciona sombra maior quando o mouse passa sobre o botão */
+}
+
+button:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  opacity: 0.8;
+}
+
+.maquinas-button-admin {
+  background: rgba(237, 55, 68, 0.15);
+  margin-top: 7%;
+}
+
+.relatorios-button-admin {
+  background: rgba(237, 55, 68, 0.25);
+}
+.estoque-button-admin {
+  background: rgba(237, 55, 68, 0.35);
+}
+
+.gerenciar-usuario-button-admin {
+  background: rgba(237, 55, 68, 0.45);
+}
+
+.destaque-admin {
+  color: rgba(235, 55, 67, 1);
+}
+
+.img-refri-home-admin {
+  display: flex;
+  justify-content: center;
+  width: 243px;
+  height: 25.5625rem;
+}
+
+
+.img-refri-home-admin img {
+  height: 100%;
+}
+
