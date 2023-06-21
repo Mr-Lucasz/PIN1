@@ -19,6 +19,7 @@ function CadastroFuncionario() {
   };
 
   return (
+    
     <div>
       <Header />
       <div className="wrap-cadastro-funcionario">

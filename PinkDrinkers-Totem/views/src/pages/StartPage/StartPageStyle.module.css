@@ -1,0 +1,19 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1024px;
+    flex-direction: column;
+}
+
+.imgRefri {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height:787px ;
+    max-width: 523px;
+}
+
+.imgRefri img{
+    width: 65% ;
+}

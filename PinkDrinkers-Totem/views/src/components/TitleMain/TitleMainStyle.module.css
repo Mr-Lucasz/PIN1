@@ -1,0 +1,66 @@
+.title-pai {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px;
+    box-sizing: border-box;
+    z-index: 1;
+    width: 1018px;
+    height: 272px;
+
+}
+
+
+/*
+O código abaixo define as propriedades de estilo de fonte para os elementos que correspondem.
+   o filho span dentro de um elemento com classe "title1" ou "title2*/
+.title1 span:nth-child(1),
+.title1 span:nth-child(3),
+.title2 span:nth-child(1),
+.title2 span:nth-child(2),
+.title2 span:nth-child(4),
+.title2 span:nth-child(6),
+.title2 span:nth-child(7),
+.title2 span:nth-child(8) {
+    font-family: 'Jacques Francois Shadow', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 7.8125rem;
+    color: #EB3743;
+    letter-spacing: 15px;
+}
+
+.title1 span:nth-child(2),
+.title1 span:nth-child(4),
+.title2 span:nth-child(3),
+.title2 span:nth-child(5) {
+    font-family: 'Londrina Solid', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size:8.75rem;
+    color: rgba(235, 55, 67, 0.93);
+    letter-spacing: 15px;
+
+}
+
+.title1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-right: 62%;
+    max-height: 8rem;
+
+}
+
+.title2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: 18%;
+    max-height: 8rem;
+}
+
+
