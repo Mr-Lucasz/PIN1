@@ -10,7 +10,23 @@
     height: 272px;
 
 }
-
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
 
 /*
 O código abaixo define as propriedades de estilo de fonte para os elementos que correspondem.
@@ -29,6 +45,7 @@ O código abaixo define as propriedades de estilo de fonte para os elementos que
     font-size: 7.8125rem;
     color: #EB3743;
     letter-spacing: 15px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .title1 span:nth-child(2),
@@ -41,6 +58,7 @@ O código abaixo define as propriedades de estilo de fonte para os elementos que
     font-size:8.75rem;
     color: rgba(235, 55, 67, 0.93);
     letter-spacing: 15px;
+    animation: slideIn 1s ease-in-out;
 
 }
 

@@ -1,23 +1,28 @@
 import React from "react";
 import styles from "./Homepage.module.css";
 import {TitleApp} from "../../components/TitleApp";
-import Logo from "../../assets/img/Logo.svg";
-import Cart from "../../assets/img/cart.svg";
+import {Header} from "../../components/HeaderCart/Header";
+import {Nav} from "../../components/Nav";
 
 export function HomePage() {
-
+  const filters = [
+    { name: "TODOS",link: "#"  },
+    { name: "REFRIGERANTE", link: "#" },
+    { name: "ENERGÉTICO",link: "#"  },
+    { name: "SUCO", link: "#"  },
+    { name: "ÁGUA", link: "#"  }
+  ];
 
   return (
     <div className={styles.wrapperHome} >
-
-    <header>
-    <div className={styles.imgRefri}>
-   <img src={Logo} alt="Logotipo do Ignite" />
-   <img src={Cart} alt="Logotipo do Ignite" />
-    </div>
-      </header>
-     <h1>HELLO WORLD</h1>
+      <Header />
+      <main className={styles.content}>
      <TitleApp title="PRODUTOS" />
+     <Nav filters={filters} />
+     <div className={styles.blocos}>
+
+     </div>
+     </main>
       </div>
   );
 }

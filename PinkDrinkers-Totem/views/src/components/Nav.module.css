@@ -1,0 +1,42 @@
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60.25rem;
+  border-radius: 8px;
+  background: rgba(237, 55, 68, 0.1);
+  border-radius: 1.25rem;
+  height: 7.4375rem;
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  gap: 1.75rem; /* Adicione o espaçamento desejado */
+}
+
+.nav a {
+  font-family: "Londrina Solid";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  color: rgba(235, 55, 67, 0.93);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  max-width: 250px;
+  max-height: 68px;
+  padding: 0.75rem;
+  box-sizing: border-box;
+}
+
+.nav a:hover {
+  background-color: #f89a97; /* Cor ao passar o mouse */
+  border-radius: 1.25rem;
+  color: #fff;
+}
+
+.nav a.active {
+    background-color: #f89a97; /* Cor do background do link ativo */
+    color: #fff; /* Cor do texto do link ativo */
+    border-radius: 1.25rem;
+  }

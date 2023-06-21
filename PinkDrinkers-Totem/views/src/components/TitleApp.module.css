@@ -1,3 +1,4 @@
+
 .title-app{
     display: flex;
     align-items: center;
@@ -7,11 +8,7 @@
     box-sizing: border-box;
     z-index: 1;
     width: 100%;
-
-
-   
 }
-
 
 .title1 span {
   font-family: "Londrina Solid";
@@ -19,13 +16,15 @@
   color: rgba(235, 55, 67, 0.93);
   font-style: normal;
   font-weight: 400;
+
+}
+.hover-page span{
   cursor: pointer;
   transition: background-color 0.1s ease;
 }
 
-.title1:hover span {
- color: #f89a97;
+.hover-page span:hover {
+  color: #f89a97;
   /* Outros estilos de realce */
 }
-
 

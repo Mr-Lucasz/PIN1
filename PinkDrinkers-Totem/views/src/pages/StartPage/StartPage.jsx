@@ -19,7 +19,7 @@ export  function StartPage() {
    <div className={styles.imgRefri}>
    <img src={refriImg} alt="Logotipo do Ignite" />
     </div>
-    <TitleApp title="INICIAR"  onClick={handleTitleClick}/>
+    <TitleApp title="INICIAR"  onClick={handleTitleClick}  hoverPage={true} />
    </div>
   );
 }
