@@ -1,0 +1,44 @@
+.box-produto-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Define 3 colunas com largura igual */
+  
+  width: 100%;
+  height: auto;
+  background: wheat;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.25rem;
+  border-radius: 0.7rem;
+}
+
+.box-produto {
+  display: flex;
+  margin: 39px 25px;
+  width: 17.1875rem;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 1rem;
+}
+.box-produto-img {
+  width: 17.1875rem;
+  max-height: 18.46731rem;
+  display: flex;
+  justify-content: center;
+  background: rgba(237, 55, 68, 0.1);
+  border-radius: 2rem;
+  box-sizing: border-box;
+  padding: 1.25rem;
+  margin-bottom: 0.82rem;
+
+}
+.infos-produt{
+  display: flex;
+
+}
+
+.props-preco {
+  display: flex;
+  justify-content: center;
+}
