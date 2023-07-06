@@ -2,7 +2,9 @@ const { supabase } = require('../database');
 
 
 exports.createFuncionario = async (nome, email, password) => {
-  const { data, error } = await supabase.from('Funcionario').insert({ name: nome, email: email, password: password}, { returning: 'minimal' }).select();
+  const { data, error } = await supabase.from('Funcionario')
+  .insert({ name: nome, email: email, password: password}, { returning: 'minimal' })
+  .select();
   if (error) {
     console.log('deu erro');
     console.log(error)

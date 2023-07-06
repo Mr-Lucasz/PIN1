@@ -3,11 +3,11 @@ const modelEstoque = require('../model/Estoque');
 
 exports.createEstoque = async (req, res) => {
 
-    const { id_bebida } = req.body;
+    const { id_itemestoque, id_bebida } = req.body;
 
     try {
         //Chama o metodo createEstoque do modelo 
-        const { data, error } = await modelEstoque.createEstoque(id_bebida);
+        const { data, error } = await modelEstoque.createEstoque(id_itemestoque,id_bebida);
         //Retorna a resposta com a mensagem de sucesso e dados do estoque
         if (data && data.length) {
             res.status(201).json({

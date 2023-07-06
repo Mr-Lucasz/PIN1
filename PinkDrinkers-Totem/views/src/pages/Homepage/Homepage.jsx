@@ -3,6 +3,7 @@ import styles from "./Homepage.module.css";
 import {TitleApp} from "../../components/TitleApp";
 import {Header} from "../../components/HeaderCart/Header";
 import {Nav} from "../../components/Nav";
+import { BoxProduto } from "../../components/Cart/BoxProduto";
 
 export function HomePage() {
   const filters = [
@@ -19,9 +20,7 @@ export function HomePage() {
       <main className={styles.content}>
      <TitleApp title="PRODUTOS" />
      <Nav filters={filters} />
-     <div className={styles.blocos}>
-
-     </div>
+     <BoxProduto />
      </main>
       </div>
   );
