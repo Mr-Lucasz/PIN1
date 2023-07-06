@@ -1,7 +1,10 @@
 const { supabase } = require('../database');
 
-exports.createEstoque = async (id_bebida) => {
-    const { data, error } = await supabase.from('Item_estoque').insert({ id_bebida: id_bebida }, { returning: 'minimal' }).select();
+exports.createEstoque = async (id_itemestoque, id_bebida) => {
+    const { data, error } = await supabase
+      .from('Item_estoque')
+      .insert({ id_itemestoque: id_itemestoque, id_bebida: id_bebida }, { returning: 'minimal' })
+      .select();
     if (error) {
         console.log('Deu erro aqui');
         console.log(error)

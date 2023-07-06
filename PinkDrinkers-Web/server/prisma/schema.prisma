@@ -7,7 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Define o modelo do usuário
 model User {
   id       Int     @id @default(autoincrement())
   name     String?
@@ -15,74 +14,80 @@ model User {
   password String
 }
 
-model Bebida {
-  id_bebida    Int          @id @default(autoincrement())
-  nome_bebida  String
-  tipo_bebida  String
-  valor_bebida Float
-  item_estoque Int          @unique
-  Item_estoque Item_estoque @relation(fields: [item_estoque], references: [id_itemestoque])
-  item_totem   Int          @unique
-  Item_totem   Item_totem   @relation(fields: [item_totem], references: [id_itemtotem])
+model avaliacao {
+  id_avaliacao   Int  @id @default(autoincrement())
+  nota_avaliacao Int?
 }
 
-model Funcionario {
+model funcionario {
   id_funcionario    Int     @id @default(autoincrement())
-  nome_funcionario  String?
-  login_funcionario String  @unique
-  senha_funcionario String
+  nome_funcionario  String? @db.Char
+  login_funcionario String? @db.Char
+  senha_funcionario String? @db.Char
+}
+
+model Item_estoque {
+  id_itemestoque Int         @id @default(autoincrement())
+  id_bebida      Int?
+  Bebida         Bebida?     @relation(fields: [id_bebida], references: [id_bebida], onDelete: NoAction, onUpdate: NoAction)
+  Reposicao      Reposicao[]
+}
+
+model item_totem {
+  id_bebida    Int?
+  id_totem     Int?
+  id_itemtotem Int  @id @default(autoincrement())
+}
+
+model pagamento {
+  id_pagamento Int  @id @default(autoincrement())
+  id_venda     Int?
+  status_venda Int?
 }
 
 model Reposicao {
   id_reposicao         Int           @id @default(autoincrement())
-  id_totem             Totem?
-  id_itemestoque       Item_estoque?
-  status_reposicao     String
-  observacao_reposicao String?
-  data_reposicao       DateTime
+  status_reposicao     String?       @db.VarChar
+  observacao_reposicao String?       @db.VarChar
+  id_itemestoque       Int?
+  id_totem             Int?
+  data_reposicao       DateTime?     @db.Date
+  item_estoque         Item_estoque? @relation(fields: [id_itemestoque], references: [id_itemestoque], onDelete: NoAction, onUpdate: NoAction)
+  totem                Totem?        @relation(fields: [id_totem], references: [id_totem], onUpdate: NoAction)
 }
 
-model Venda {
-  id_venda     Int         @id @default(autoincrement())
-  id_itemtotem Item_totem?
-  id_totem     Totem?
-  
-  valor_venda  Float
-  data_venda   DateTime
-}
 
 model Totem {
-  id_totem   Int        @id @default(autoincrement())
-  id_maquina Maquina?
-  nome_totem String
-  reposicao  Int        @unique
-  Reposicao  Reposicao  @relation(fields: [reposicao], references: [id_reposicao])
-  item_totem Int        @unique
-  Item_totem Item_totem @relation(fields: [item_totem], references: [id_itemtotem])
-  venda      Int        @unique
-  Venda      Venda      @relation(fields: [venda], references: [id_venda])
+  id_totem                          Int         @id @default(autoincrement())
+  id_maquina                        Int?
+  nome_totem                        String?     @db.Char(20)
+  Maquina                           Maquina[]
+  reposicao                         Reposicao[]
+  Maquina_Totem_id_maquinaToMaquina Maquina?    @relation("Totem_id_maquinaToMaquina", fields: [id_maquina], references: [id_maquina], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model venda {
+  id_venda     Int       @id @default(autoincrement())
+  id_itemtotem Int?
+  valor_venda  Float?
+  id_avaliacao Int?
+  id_totem     Int?
+  data_venda   DateTime? @db.Date
+}
+
+model Bebida {
+  id_bebida    Int            @id @default(autoincrement())
+  nome_bebida  String?
+  tipo_bebida  String?
+  valor_bebida Float?
+  item_estoque Item_estoque[]
 }
 
 model Maquina {
-  id_maquina     Int    @id @default(autoincrement())
-  status_maquina String
-  local_maquina  String
-  totem          Int    @unique
-  Totem          Totem  @relation(fields: [totem], references: [id_totem])
+  id_maquina                      Int     @id(map: "maquina_pkey") @default(autoincrement())
+  status_maquina                  String?
+  local_maquina                   String?
+  id_totem                        Int?
+  totem                           Totem?  @relation(fields: [id_totem], references: [id_totem], onUpdate: NoAction)
+  Totem_Totem_id_maquinaToMaquina Totem[] @relation("Totem_id_maquinaToMaquina")
 }
-
-model Item_estoque {
-  id_itemestoque Int       @id @default(autoincrement())
-  id_bebida      Bebida?
-  reposicao      Int       @unique
-  Reposicao      Reposicao @relation(fields: [reposicao], references: [id_reposicao])
-}
-
-model Item_totem {
-  id_itemtotem Int     @id @default(autoincrement())
-  id_bebida    Bebida?
-  id_totem     Totem?
-  venda        Int     @unique
-  Venda        Venda   @relation(fields: [venda], references: [id_venda])
-}
-
