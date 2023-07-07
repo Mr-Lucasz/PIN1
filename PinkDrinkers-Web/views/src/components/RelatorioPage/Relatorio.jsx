@@ -7,66 +7,36 @@ import { Link } from 'react-router-dom';
 
 
 function Relatorio() {
-  const [id_totem, settotem] = useState('');
+  const [tipo, settotem] = useState('');
   const [selecttotem, setSelectTotem] = useState([]);
   const [dataIni, setDataIni] = useState('');
   const [dataFim, setDataFim] = useState('');
   const [selectRelatorio, setSelectRelatorio] = useState([]);
 
   const [resultadoTabel, setTable] = useState([]);
+  const [tipotable, setTabletipo] = useState([]);
+
 
   const pesquisaRelatorio = async (e) => {
     e.preventDefault();
     const { data, error } = await axios.post('http://localhost:3001/pesquisarelatorio', {
-      id_totem,
+      tipo,
       dataIni,
       dataFim
-    }).then((data) =>{ console.log(data.data.data) ;
+    }).then((data) => {
+      console.log(data.data.data);
       if (Array.isArray(data.data.data)) {
-      setTable(data.data.data);
-    } else {
-      setTable([]);
-    } });
+        setTable(data.data.data);
+        setTabletipo(data.data.valor);
+      } else {
+        setTable([]);
+      }
+    });
 
-   
-    
   }
-  
-  
 
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Lógica para processar os valores do formulário
-  };
 
-  const [periodoDe, setPeriodoDe] = useState('');
-  const [periodoAte, setPeriodoAte] = useState('');
-  const [showCalendar, setShowCalendar] = useState(false);
-
-  useEffect(() => {
-    const selectTotem = async () => {
-      try {
-        const { data } = await axios.get('http://localhost:3001/selecttotem');
-        setSelectTotem(data.data);
-      } catch (error) {
-        console.error('Erro ao buscar os dados do banco:', error);
-      }
-    };
-    selectTotem();
-  }, []);
-
-  useEffect(() => {
-    const selectRelatorio = async () => {
-      try {
-        const { data } = await axios.get('http://localhost:3001/pesquisarelatorio');
-        setSelectTotem(data.data);
-      } catch (error) {
-        console.error('Erro ao buscar os dados do banco:', error);
-      }
-    };
-    selectRelatorio();
-  }, []);
 
   return (
     <div>
@@ -82,18 +52,20 @@ function Relatorio() {
 
           <br />
           <div className='id_maquina'>
-            <label className='maquina'>Totem:</label>
+            <label className='maquina'>Tipo Relatorio:</label>
             <select
               className='opcao-maquina'
-              value={id_totem}
+              value={tipo}
               required
               onChange={(e) => settotem(e.target.value)}
             >
-              <option value="">Selecione um Totem</option>
-              {selecttotem.map((totem) => (
-                <option key={totem.id_totem} value={totem.id_totem}>{totem.nome_totem}</option>
-              ))}
+              <option value="">Selecione o Tipo</option>
+              <option value="1">Bebidas</option>
+              <option value="2">Reposições</option>
+              <option value="3">Maquinas</option>
+              <option value="4">Venda</option>
             </select>
+
           </div>
 
           <br />
@@ -121,34 +93,93 @@ function Relatorio() {
           </div>
 
           <br />
-          
+
           <button className='botao-confirmar' type='submit' onClick={pesquisaRelatorio}>
             Confirmar
           </button>
-          
+
           <br />
 
         </form>
         <div className="resultado-tabela">
           <h2>Resultado da Consulta</h2>
-          <ul>
-            
-            {resultadoTabel.map((item) => (
-              <>
-
-              <li key={item.id_venda}>{item.Totem.nome_totem}</li>
-              <li key={item.id_venda}>{item.id_venda}</li>
-             
-              <li key={item.id_venda}>{item.data_venda}</li>
-             
-              
-              <br></br>
-              </>
-              
-            ))}
-          </ul>
+          {resultadoTabel.length > 0 ? (
+            <table className="tabela">
+              <thead>
+                <tr>
+                  {tipotable === 1 && (
+                    <>
+                      <th>Bebida</th>
+                      <th>Tipo</th>
+                      <th>Valor</th>
+                    </>
+                  )}
+                  {tipotable === 2 && (
+                    <>
+                      <th>Bebida</th>
+                      <th>Status</th>
+                      <th>Observação</th>
+                      <th>Data</th>
+                    </>
+                  )}
+                  {tipotable === 3 && (
+                    <>
+                      <th>Local</th>
+                      <th>Status</th>
+                    </>
+                  )}
+                  {tipotable === 4 && (
+                    <>
+                      <th>Totem</th>
+                      <th>Bebida</th>
+                      <th>Valor</th>
+                      <th>Data</th>
+                    </>
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                {resultadoTabel.map((item) => (
+                  <tr key={item.valor}>
+                    {tipotable === 1 && (
+                      <>
+                        <td>{item.Bebida.nome_bebida}</td>
+                        <td>{item.Bebida.tipo_bebida}</td>
+                        <td>{item.Bebida.valor_bebida}</td>
+                      </>
+                    )}
+                    {tipotable === 2 && (
+                      <>
+                        <td>{item.Item_estoque.Bebida.nome_bebida}</td>
+                        <td>{item.status_reposicao}</td>
+                        <td>{item.observacao_reposicao}</td>
+                        <td>{item.data_reposicao}</td>
+                      </>
+                    )}
+                    {tipotable === 3 && (
+                      <>
+                        <td>{item.local_maquina}</td>
+                        <td>{item.status_maquina}</td>
+                      </>
+                    )}
+                    {tipotable === 4 && (
+                      <>
+                        <td>{item.Totem.nome_totem}</td>
+                        <td>{item.item_totem.Bebida.nome_bebida}</td>
+                        <td>{item.valor_venda}</td>
+                        <td>{item.data_venda}</td>
+                      </>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p>Nenhum resultado encontrado.</p>
+          )}
         </div>
-        
+
+
       </div>
     </div>
   );
