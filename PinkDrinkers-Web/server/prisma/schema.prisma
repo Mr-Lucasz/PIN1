@@ -29,6 +29,7 @@ model funcionario {
 model Item_estoque {
   id_itemestoque Int         @id @default(autoincrement())
   id_bebida      Int?
+  created_at     DateTime?   @default(now()) @db.Timestamp(6)
   Bebida         Bebida?     @relation(fields: [id_bebida], references: [id_bebida], onDelete: NoAction, onUpdate: NoAction)
   Reposicao      Reposicao[]
 }
@@ -55,7 +56,6 @@ model Reposicao {
   item_estoque         Item_estoque? @relation(fields: [id_itemestoque], references: [id_itemestoque], onDelete: NoAction, onUpdate: NoAction)
   totem                Totem?        @relation(fields: [id_totem], references: [id_totem], onUpdate: NoAction)
 }
-
 
 model Totem {
   id_totem                          Int         @id @default(autoincrement())

@@ -24,10 +24,10 @@
   color: rgba(235, 55, 67, 0.93);
   text-decoration: none;
   transition: color 0.2s ease;
-  max-width: 250px;
   max-height: 58px;
   padding: 0.65rem;
   box-sizing: border-box;
+ 
 }
 
 .nav a:hover {
@@ -37,7 +37,15 @@
 }
 
 .nav a.active {
-    background-color: #f89a97; /* Cor do background do link ativo */
-    color: #fff; /* Cor do texto do link ativo */
-    border-radius: 1.25rem;
-  }
+  background-color: #f89a97; /* Cor do background do link ativo */
+  color: #fff; /* Cor do texto do link ativo */
+  border-radius: 1.25rem;
+}
+
+.arrowStyle {
+  /* Estilize a seta aqui */
+  /* Por exemplo: */
+  color: red;
+  font-size: 24px;
+  width: none;
+}

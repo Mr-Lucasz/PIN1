@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../Cart/BoxImg.module.css";
 
-export function BoxImagem({ imagemSrc, tamanho, backgroundColor }) {
+export function BoxImg({ imagemSrc, tamanho, backgroundColor }) {
   const boxStyle = {
     backgroundColor: backgroundColor,
   };

@@ -1,0 +1,27 @@
+.wrapperPayment {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+    width: 1024px;
+  }
+  
+  .position-button {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 4rem;
+    align-items: center;
+  }
+  
+  .blockedOption {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  .blockedButton {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  

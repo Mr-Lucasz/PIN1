@@ -5,16 +5,19 @@
   font-family: Londrina Solid;
   font-size: 2.5rem;
   border: none;
-  padding: 10px 20px;
+  padding: 0rem 1rem;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
   cursor: pointer;
-    border-radius: 1rem;
+  border-radius: 1rem;
 }
 
 .button:hover {
   background-color: rgba(237, 55, 68, 0.5);
   color: rgba(0, 0, 0, 0.93);
 }   
+
+.button.disabled {
+  background-color: gray;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

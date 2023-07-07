@@ -1,0 +1,41 @@
+.divMain {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  height: 7rem;
+  cursor: pointer;
+}
+
+.divMain:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+.divMain.clicked {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+.divMain span {
+  color: rgba(0, 0, 0, 0.93);
+  font-family: "Londrina Solid", sans-serif;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  width: 18.25rem;
+  height: 7.25rem;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.divMain.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
