@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./CartPage.module.css";
 import { TitleApp } from "../../components/TitleApp";
 import { Header } from "../../components/HeaderCart/Header";
@@ -15,11 +15,17 @@ export function CartPage() {
   const [quantity, setQuantity] = useState(1);
   const location = useLocation();
 
-  // Recuperar as informações do produto de localStorage
-  const productData = JSON.parse(localStorage.getItem('productData'));
-  console.log(productData);
+  // Recuperar as informações do produto da URL
+  const queryParams = new URLSearchParams(location.search);
+  const productData = JSON.parse(queryParams.get("productData"));
   const { productImage, productName, productPrice } = productData || {};
 
+  useEffect(() => {
+    if (productData && productData.quantity) {
+      setQuantity(productData.quantity);
+    }
+  }, [productData]);
+  
   const filters = [
     { name: "PRODUTOS NO CARRINHO", link: "#", maxWidth: "40rem" },
   ];

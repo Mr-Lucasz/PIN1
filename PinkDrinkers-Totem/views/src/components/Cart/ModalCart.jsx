@@ -28,9 +28,14 @@ export function ModalCart({ isOpen, onClose, product }) {
       productPrice: parseFloat(product.Bebida.valor_bebida),
       quantity: quantity,
     };
-    navigate("/cart-submit-buy", { state: productData });
+
+    navigate(
+      `/cart-submit-buy?productData=${encodeURIComponent(
+        JSON.stringify(productData)
+      )}`
+    );
   };
-  
+
   const handlePageClick1 = async (e) => {
     navigate("/confirm-payment");
   };
@@ -51,10 +56,7 @@ export function ModalCart({ isOpen, onClose, product }) {
       <form className={styles.modalForm}>
         <header>
           <h2 className={styles.titleModal}>
-            <IoIosArrowBack
-              className={styles["back-icon"]}
-              onClick={onClose}
-            />
+            <IoIosArrowBack className={styles["back-icon"]} onClick={onClose} />
             ADICIONAR CARRINHO
           </h2>
         </header>
@@ -73,7 +75,11 @@ export function ModalCart({ isOpen, onClose, product }) {
           />
         </main>
         <div className={styles["btns-modal"]}>
-          <Button width="40.375rem" height="3.1875rem" onClick={handlePageClick1}>
+          <Button
+            width="40.375rem"
+            height="3.1875rem"
+            onClick={handlePageClick1}
+          >
             COMPRAR
           </Button>
           <Button

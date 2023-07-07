@@ -3,15 +3,19 @@ import styles from "./PaymentPage.module.css";
 import { TitleApp } from "../../components/TitleApp";
 import { Header } from "../../components/HeaderCart/Header";
 import { Nav } from "../../components/Nav";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../../components/Buttons";
 import { Option } from "./Option";
 import Card from "../../assets/img/Card.svg";
 import Pix from "../../assets/img/Pix.svg";
 import Loading from "../../assets/img/Loading.svg";
+import axios from "axios";
 
 export function PaymentPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { valorTotal, id_bebida } = location.state || {};
+
   const filters = [
     { name: "PRODUTOS NO CARRINHO", link: "#", maxWidth: "40rem" },
   ];
@@ -24,11 +28,23 @@ export function PaymentPage() {
     navigate("/homepage");
   };
 
-  const submitPaymentClick = () => {
+  const submitPaymentClick = async () => {
     if (optionSelected) {
-      alert("Pagamento realizado com sucesso!");
-      setButtonsBlocked(true);
-      setShowLoading(true);
+      try {
+        const response = await axios.post("http://localhost:3001/newvenda", {
+          id_bebida: 12,
+          id_totem: 1,
+          valor_venda: 12,
+        });
+
+        console.log(response.data); // Lidar com a resposta da requisição aqui
+
+        alert("Pagamento realizado com sucesso!");
+        setButtonsBlocked(true);
+        setShowLoading(true);
+      } catch (error) {
+        console.log("Ocorreu um erro na requisição:", error);
+      }
     } else {
       alert("Selecione uma opção de pagamento.");
     }
@@ -133,7 +149,6 @@ export function PaymentPage() {
       </div>
       {showLoading && showFeedback && (
         <div className={styles.loadingOverlay}>
-
           <img src={Loading} alt="Loading" />
         </div>
       )}
