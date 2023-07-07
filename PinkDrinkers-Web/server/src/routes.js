@@ -9,6 +9,8 @@ const totemController = require('./controller/TotemController');
 const reposicaoController = require('./controller/ReposicaoController');
 const estoqueController = require('./controller/EstoqueController');
 const relatorioController = require('./controller/RelatorioController');
+const pagamentoController = require('./controller/PagamentoController');
+const avaliacaoController = require('./controller/AvaliacaoController');
 
 // Rota de autenticação
 router.post('/login', authController.login);
@@ -80,6 +82,10 @@ router.get('/selectbyidmaquina/:id_maquina',maquinaController.maquinaById);
 router.get('/selectfuncionario',funcionarioController.selectFuncionario);
 
 router.get('/selectbyfuncionario/:id',funcionarioController.funcionarioById);
+
+router.post('/confirm-payment',pagamentoController.confirmaPagamento);
+
+router.post('/feedback-submit',avaliacaoController.insereAvaliacao);
 
 
 
