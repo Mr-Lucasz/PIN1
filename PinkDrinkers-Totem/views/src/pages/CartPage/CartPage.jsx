@@ -8,16 +8,25 @@ import { useNavigate } from "react-router-dom";
 import { BoxImg } from "../../components/Cart/BoxImg";
 import { ProductInfo } from "../../components/Cart/ProductInfo";
 import Button from "../../components/Buttons";
+import { useLocation } from "react-router-dom";
 
-export function CartPage({ productImage, productName, productPrice }) {
+export function CartPage() {
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
+  const location = useLocation();
+
+  // Recuperar as informações do produto de localStorage
+  const productData = JSON.parse(localStorage.getItem('productData'));
+  console.log(productData);
+  const { productImage, productName, productPrice } = productData || {};
+
   const filters = [
     { name: "PRODUTOS NO CARRINHO", link: "#", maxWidth: "40rem" },
   ];
   const handleArrowClick = async (e) => {
     navigate("/homepage");
   };
+
   const decrementQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
@@ -27,6 +36,7 @@ export function CartPage({ productImage, productName, productPrice }) {
   const incrementQuantity = () => {
     setQuantity(quantity + 1);
   };
+
   const handlePageClick = async (e) => {
     navigate("/confirm-payment");
   };
@@ -40,7 +50,7 @@ export function CartPage({ productImage, productName, productPrice }) {
         <BoxImg
           imagemSrc={productImage}
           tamanho="medium"
-          backgroundColor="rgba(237, 55, 68, 0.10"
+          backgroundColor="rgba(237, 55, 68, 0.10)"
         />
         <ProductInfo
           productName={productName}
@@ -51,14 +61,10 @@ export function CartPage({ productImage, productName, productPrice }) {
         />
       </main>
       <div className={styles["position-button"]}>
-      <Button
-            width="40.375rem"
-            height="3.1875rem"
-            onClick={handlePageClick}
-          >
-            CONFIRMAR COMPRA
-          </Button>
-          </div>
+        <Button width="40.375rem" height="3.1875rem" onClick={handlePageClick}>
+          CONFIRMAR COMPRA
+        </Button>
+      </div>
     </div>
   );
 }

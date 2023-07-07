@@ -1,22 +1,33 @@
 import { useState } from "react";
-import React  from "react";
+import React from "react";
 import styles from "./ProductInfo.module.css";
 import { TextCart } from "./TextCart";
 
-
-export function ProductInfo({ productName, productPrice, decrementQuantity, incrementQuantity }) {
-  const [quantity, setQuantity] = useState(1);
-
-  const handleDecrementQuantity = () => {
+export function ProductInfo({
+  productName,
+  productPrice,
+  quantity,
+  decrementQuantity,
+  incrementQuantity,
+}) {
+  const handleDecrementQuantity = (e) => {
+    e.preventDefault();
     if (quantity > 1) {
-      setQuantity(quantity - 1);
-      decrementQuantity(); // Chama a função recebida por props
+      decrementQuantity();
     }
   };
 
-  const handleIncrementQuantity = () => {
-    setQuantity(quantity + 1);
-    incrementQuantity(); // Chama a função recebida por props
+  const handleIncrementQuantity = (e) => {
+    e.preventDefault();
+    incrementQuantity();
+  };
+
+  const calculateTotal = () => {
+    const total = quantity * productPrice;
+    return total.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
   };
 
   return (
@@ -26,17 +37,23 @@ export function ProductInfo({ productName, productPrice, decrementQuantity, incr
       <div className={styles["product-price"]}>{productPrice}</div>
       <TextCart>VALOR</TextCart>
       <div className={styles["product-quantity"]}>
-        <button className={styles["btn-quantity"]} onClick={handleDecrementQuantity}>
+        <button
+          className={styles["btn-quantity"]}
+          onClick={handleDecrementQuantity}
+        >
           -
         </button>
         <input type="text" value={quantity} readOnly />
-        <button className={styles["btn-quantity"]} onClick={handleIncrementQuantity}>
+        <button
+          className={styles["btn-quantity"]}
+          onClick={handleIncrementQuantity}
+        >
           +
         </button>
       </div>
       <div className={styles["valor-total"]}>
         <TextCart>VALOR TOTAL</TextCart>
-        <div className={styles["product-price"]}>R$ 00,00</div>
+        <div className={styles["product-price"]}>{calculateTotal()}</div>
       </div>
     </div>
   );

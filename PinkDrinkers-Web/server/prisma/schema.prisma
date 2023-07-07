@@ -15,8 +15,10 @@ model User {
 }
 
 model avaliacao {
-  id_avaliacao   Int  @id @default(autoincrement())
+  id_avaliacao   Int    @id @default(autoincrement())
   nota_avaliacao Int?
+  id_venda       Int?
+  venda          venda? @relation(fields: [id_venda], references: [id_venda], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model funcionario {
@@ -37,13 +39,16 @@ model Item_estoque {
 model item_totem {
   id_bebida    Int?
   id_totem     Int?
-  id_itemtotem Int  @id @default(autoincrement())
+  id_itemtotem Int     @id @default(autoincrement())
+  Bebida       Bebida? @relation(fields: [id_bebida], references: [id_bebida], onDelete: NoAction, onUpdate: NoAction)
+  Totem        Totem?  @relation(fields: [id_totem], references: [id_totem], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model pagamento {
-  id_pagamento Int  @id @default(autoincrement())
+  id_pagamento Int     @id @default(autoincrement())
   id_venda     Int?
-  status_venda Int?
+  status_venda String? @db.VarChar
+  venda        venda?  @relation(fields: [id_venda], references: [id_venda], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model Reposicao {
@@ -58,21 +63,26 @@ model Reposicao {
 }
 
 model Totem {
-  id_totem                          Int         @id @default(autoincrement())
+  id_totem                          Int          @id @default(autoincrement())
   id_maquina                        Int?
-  nome_totem                        String?     @db.Char(20)
+  nome_totem                        String?      @db.Char(20)
   Maquina                           Maquina[]
   reposicao                         Reposicao[]
-  Maquina_Totem_id_maquinaToMaquina Maquina?    @relation("Totem_id_maquinaToMaquina", fields: [id_maquina], references: [id_maquina], onDelete: NoAction, onUpdate: NoAction)
+  Maquina_Totem_id_maquinaToMaquina Maquina?     @relation("Totem_id_maquinaToMaquina", fields: [id_maquina], references: [id_maquina], onDelete: NoAction, onUpdate: NoAction)
+  item_totem                        item_totem[]
+  venda                             venda[]
 }
 
 model venda {
-  id_venda     Int       @id @default(autoincrement())
-  id_itemtotem Int?
-  valor_venda  Float?
-  id_avaliacao Int?
-  id_totem     Int?
-  data_venda   DateTime? @db.Date
+  id_venda    Int         @id @default(autoincrement())
+  valor_venda Float?
+  id_totem    Int?
+  data_venda  DateTime?   @default(now()) @db.Timestamp(6)
+  id_bebida   Int?
+  avaliacao   avaliacao[]
+  pagamento   pagamento[]
+  Bebida      Bebida?     @relation(fields: [id_bebida], references: [id_bebida], onDelete: NoAction, onUpdate: NoAction)
+  Totem       Totem?      @relation(fields: [id_totem], references: [id_totem], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model Bebida {
@@ -81,13 +91,16 @@ model Bebida {
   tipo_bebida  String?
   valor_bebida Float?
   item_estoque Item_estoque[]
+  item_totem   item_totem[]
+  venda        venda[]
 }
 
 model Maquina {
-  id_maquina                      Int     @id(map: "maquina_pkey") @default(autoincrement())
+  id_maquina                      Int       @id(map: "maquina_pkey") @default(autoincrement())
   status_maquina                  String?
   local_maquina                   String?
   id_totem                        Int?
-  totem                           Totem?  @relation(fields: [id_totem], references: [id_totem], onUpdate: NoAction)
-  Totem_Totem_id_maquinaToMaquina Totem[] @relation("Totem_id_maquinaToMaquina")
+  created_at                      DateTime? @default(now()) @db.Timestamp(6)
+  totem                           Totem?    @relation(fields: [id_totem], references: [id_totem], onUpdate: NoAction)
+  Totem_Totem_id_maquinaToMaquina Totem[]   @relation("Totem_id_maquinaToMaquina")
 }

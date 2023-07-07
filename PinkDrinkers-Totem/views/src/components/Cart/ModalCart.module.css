@@ -35,6 +35,10 @@
   gap: 2rem;
   margin: -1rem;
 }
+.modalForm header{
+  cursor: pointer;
+}
+
 
 .modalForm H2 {
   color: rgba(4, 4, 4, 0.93);
