@@ -5,6 +5,7 @@ import {StartPage} from './pages/StartPage/StartPage.jsx';
 import {HomePage} from './pages/Homepage/Homepage';
 import {CartPage} from './pages/CartPage/CartPage';
 import {PaymentPage} from './pages/Payment/PaymentPage';
+import { FeedbackPage } from './pages/FeedbakcPage/FeedbackPage';
 
 
 
@@ -22,6 +23,7 @@ export function App() {
         {/* Rota do Carrinho */}
         <Route path="/cart-submit-buy" element={<CartPage />} />
         <Route path="/confirm-payment" element={<PaymentPage />} />
+        <Route path="/submit-feedback" element={<FeedbackPage />} />
       </Routes>
     </div>
   );

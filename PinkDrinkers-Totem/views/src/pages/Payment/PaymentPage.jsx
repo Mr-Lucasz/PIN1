@@ -8,6 +8,7 @@ import Button from "../../components/Buttons";
 import { Option } from "./Option";
 import Card from "../../assets/img/Card.svg";
 import Pix from "../../assets/img/Pix.svg";
+import Loading from "../../assets/img/Loading.svg";
 
 export function PaymentPage() {
   const navigate = useNavigate();
@@ -131,7 +132,10 @@ export function PaymentPage() {
         )}
       </div>
       {showLoading && showFeedback && (
-        <div className={styles.loadingOverlay}>Carregando...</div>
+        <div className={styles.loadingOverlay}>
+
+          <img src={Loading} alt="Loading" />
+        </div>
       )}
     </div>
   );
