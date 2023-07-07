@@ -15,7 +15,7 @@ const app = express(); // Cria uma instância do servidor Express
 app.use(bodyParser.json()); // Adiciona o middleware Body Parser para lidar com as solicitações JSON
 app.use(cors()); // Adiciona o middleware CORS para permitir o acesso a recursos de diferentes origens
 app.use(express.json());
-
+ 
 
 // Configuração de rotas
 app.use(routes); //linka com arquivo routes.js

@@ -11,14 +11,14 @@ function EditarMaquina() {
     const { id_maquina } = useParams();
 //pega valores para salvar no banco
   const [status_maquina, setStatus] = useState('');
-  const [endereco_maquina, setEndereco] = useState('');
+  const [local_maquina, setEndereco] = useState('');
 
   const EditarMaquina = async (e) => {
     e.preventDefault();
     const {data, error} = await axios.post('http://localhost:3001/updatemaquina', {
       id_maquina,
       status_maquina,
-      endereco_maquina
+      local_maquina
     });
     console.log(error);
     if(error === 'undefined'){
@@ -35,7 +35,7 @@ function EditarMaquina() {
         
          
          setStatus(data.data.data[0].status_maquina);
-         setEndereco(data.data.data[0].endereco_maquina);
+         setEndereco(data.data.data[0].local_maquina);
 
         // Atualiza o estado com os dados obtidos do banco
         } catch (error) {
@@ -90,7 +90,7 @@ function EditarMaquina() {
                   <label className="labelform" htmlFor="produto">Endereço:</label>
                 </div>
                 <div className='input-produto'>
-                  <input className="inputbebida" value={endereco_maquina} required
+                  <input className="inputbebida" value={local_maquina} required
                     onChange={(e) =>
                       setEndereco(e.target.value)} />
                 </div>

@@ -1,0 +1,21 @@
+.boxImagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:2rem ;
+  }
+  
+  .imagem {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .small {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .medium {
+    width: 21.5625rem;
+    height: 27.0625rem;
+  }
