@@ -13,9 +13,11 @@ export function FeedbackPage(props) {
   const setStar = (value) => {
     setChoosedStars(value);
   };
+
   const handleClick = async (e) => {
     navigate("/homepage");
   };
+
   const getActiveStar = (value) => {
     return props.stars >= value ? styles.active : "";
   };
@@ -38,7 +40,7 @@ export function FeedbackPage(props) {
       return (
         <div className={styles.commender}>
           <p className={styles.commender_tit}>
-          Você avaliou isso {`${choosedStars} ${
+            Você avaliou isso {`${choosedStars} ${
               choosedStars > 1 ? "Estrelas!" : "star"
             }`}
           </p>
@@ -69,9 +71,10 @@ export function FeedbackPage(props) {
       </main>
       {renderCommender()}
       <div className={styles.btnArea}>
-        <button className={styles.button} onClick={handleClick}>Voltar para a página inicial</button>
+        <button className={styles.button} onClick={handleClick}>
+          Voltar para a página inicial
+        </button>
       </div>
-
     </div>
   );
 }
