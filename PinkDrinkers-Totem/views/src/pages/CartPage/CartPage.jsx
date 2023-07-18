@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "./CartPage.module.css";
 import { TitleApp } from "../../components/TitleApp";
 import { Header } from "../../components/HeaderCart/Header";
@@ -12,23 +11,29 @@ import { useLocation } from "react-router-dom";
 
 export function CartPage() {
   const navigate = useNavigate();
-  const [quantity, setQuantity] = useState(1);
   const location = useLocation();
+  const [quantity, setQuantity] = useState(1);
 
   // Recuperar as informações do produto da URL
   const queryParams = new URLSearchParams(location.search);
   const productData = JSON.parse(queryParams.get("productData"));
   const { productImage, productName, productPrice } = productData || {};
+  console.log(productData);
+
+  const updateQuantity = useCallback((newQuantity) => {
+    if (newQuantity < 1) {
+      return; // Impede a atualização se a nova quantidade for menor que 1
+    }
+    // Atualize a quantidade com setQuantity
+    setQuantity(newQuantity);
+  }, []);
 
   useEffect(() => {
     if (productData && productData.quantity) {
-      setQuantity(productData.quantity);
+      setQuantity(productData.quantity); // Usar editedQuantity
     }
   }, [productData]);
-  
-  const filters = [
-    { name: "PRODUTOS NO CARRINHO", link: "#", maxWidth: "40rem" },
-  ];
+
   const handleArrowClick = async (e) => {
     navigate("/homepage");
   };
@@ -42,7 +47,6 @@ export function CartPage() {
   const incrementQuantity = () => {
     setQuantity(quantity + 1);
   };
-
   const handlePageClick = async (e) => {
     navigate("/confirm-payment");
   };
@@ -51,7 +55,13 @@ export function CartPage() {
     <div className={styles.wrapperCart}>
       <Header showCart={false} />
       <TitleApp title="CARRINHO" />
-      <Nav filters={filters} backArrow={true} arrowOnClick={handleArrowClick} />
+      <Nav
+        filters={[
+          { name: "PRODUTOS NO CARRINHO", link: "#", maxWidth: "40rem" },
+        ]}
+        backArrow={true}
+        arrowOnClick={handleArrowClick}
+      />
       <main className={styles.contentCart}>
         <BoxImg
           imagemSrc={productImage}

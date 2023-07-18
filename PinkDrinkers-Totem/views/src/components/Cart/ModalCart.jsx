@@ -23,6 +23,7 @@ export function ModalCart({ isOpen, onClose, product }) {
 
   const handlePageClick = async (e) => {
     const productData = {
+      productId: product.Bebida.id_bebida,
       productImage: product.Bebida.img_bebida,
       productName: product.Bebida.nome_bebida,
       productPrice: parseFloat(product.Bebida.valor_bebida),
@@ -90,7 +91,7 @@ export function ModalCart({ isOpen, onClose, product }) {
           >
             ADICIONAR AO CARRINHO
           </Button>
-          <IoIosArrowBack className={styles["close-icon"]} onClick={onClose} />
+          {/* <IoIosArrowBack className={styles["close-icon"]} onClick={onClose} /> */}
         </div>
       </form>
     </Modal>

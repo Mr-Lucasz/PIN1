@@ -86,13 +86,14 @@ model venda {
 }
 
 model Bebida {
-  id_bebida    Int            @id @default(autoincrement())
-  nome_bebida  String?
-  tipo_bebida  String?
-  valor_bebida Float?
-  item_estoque Item_estoque[]
-  item_totem   item_totem[]
-  venda        venda[]
+  id_bebida     Int            @id @default(autoincrement())
+  nome_bebida   String?
+  tipo_bebida   String?
+  valor_bebida  Float?
+  imagem_bebida Bytes?
+  item_estoque  Item_estoque[]
+  item_totem    item_totem[]
+  venda         venda[]
 }
 
 model Maquina {

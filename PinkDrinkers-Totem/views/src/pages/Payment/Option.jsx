@@ -11,11 +11,10 @@ export function Option({ onClick, optionPayment, imagem, children, buttonsBlocke
     }
   };
 
+  const mainClassName = `${styles.divMain} ${isClicked ? styles.clicked : ""} ${buttonsBlocked ? styles.disabled : ""}`;
+
   return (
-    <main
-      className={`${styles.divMain} ${isClicked ? styles.clicked : ""} ${buttonsBlocked ? styles.disabled : ""}`}
-      onClick={handleClick}
-    >
+    <main className={mainClassName} onClick={handleClick}>
       <span className={styles.span}>{children}</span>
       <img src={imagem} alt={optionPayment} className={styles.image} />
     </main>

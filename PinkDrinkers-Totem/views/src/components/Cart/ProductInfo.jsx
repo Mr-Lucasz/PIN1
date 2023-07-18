@@ -1,4 +1,3 @@
-import { useState } from "react";
 import React from "react";
 import styles from "./ProductInfo.module.css";
 import { TextCart } from "./TextCart";
@@ -9,6 +8,7 @@ export function ProductInfo({
   quantity,
   decrementQuantity,
   incrementQuantity,
+  updateQuantity,
 }) {
   const handleDecrementQuantity = (e) => {
     e.preventDefault();
@@ -22,6 +22,11 @@ export function ProductInfo({
     incrementQuantity();
   };
 
+  const handleQuantityChange = (e) => {
+    e.preventDefault(); // Impede o comportamento padrão do formulário
+    const newQuantity = parseInt(e.target.value);
+    updateQuantity(newQuantity); // Chame a função updateQuantity para atualizar a quantidade no CartPage
+  };
   const calculateTotal = () => {
     const total = quantity * productPrice;
     return total.toLocaleString("pt-BR", {
@@ -35,7 +40,7 @@ export function ProductInfo({
       <TextCart>PRODUTO</TextCart>
       <div className={styles["product-name"]}>{productName}</div>
       <div className={styles["product-price"]}>{productPrice}</div>
-      <TextCart>VALOR</TextCart>
+      <TextCart>QUANTIDADE</TextCart>
       <div className={styles["product-quantity"]}>
         <button
           className={styles["btn-quantity"]}
@@ -43,7 +48,12 @@ export function ProductInfo({
         >
           -
         </button>
-        <input type="text" value={quantity} readOnly />
+        <input
+          type="number"
+          min={1}
+          value={quantity}
+          onChange={handleQuantityChange}
+        />
         <button
           className={styles["btn-quantity"]}
           onClick={handleIncrementQuantity}

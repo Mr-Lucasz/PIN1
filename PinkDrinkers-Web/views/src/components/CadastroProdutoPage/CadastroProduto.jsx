@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
-// import iconeVoltar from "../util/iconeVoltar.png";
 import "react-datepicker/dist/react-datepicker.css";
 import "./CadastroProdutoStyle.css";
-import axios from "axios"; //biblioteca para fazer requisições HTTP em JavaScript
+import axios from "axios";
 import ModalFormEstoque from "../FormEstoqueModal/ModalFormEstoque.jsx";
 import CurrencyInput from "react-currency-input-field";
 
@@ -13,11 +12,33 @@ function CadastroProduto() {
   const [valor_bebida, setValorBebida] = useState("");
   const [imagem_bebida, setImagemBebida] = useState("");
   const [tipo_bebida, setTipoBebida] = useState("");
-  let baseUrl = "http://localhost:3001";
-
   const [bebidasDisponiveis, setBebidasDisponiveis] = useState([]);
   const [nomeBebidasDisponiveis, setNomeBebidasDisponiveis] = useState([]);
   const [exibirModal, setExibirModal] = useState(false);
+  const baseUrl = "http://localhost:3001";
+
+  const opcoesCategoria = [
+    { value: "Refrigerante", label: "Refrigerante" },
+    { value: "Agua", label: "Água" },
+    { value: "Suco", label: "Suco" },
+    { value: "Energetico", label: "Bebida Energética" },
+    { value: "Cha", label: "Chá" },
+    { value: "Cafe", label: "Café" },
+    { value: "Alcoolica", label: "Bebida Alcoólica" },
+  ];
+
+  useEffect(() => {
+    const selectBebidasDisponiveis = async () => {
+      try {
+        const response = await axios.get(baseUrl + "/selectbebida");
+        setBebidasDisponiveis(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    selectBebidasDisponiveis();
+  }, []);
 
   const createProduct = async (e) => {
     e.preventDefault();
@@ -38,14 +59,13 @@ function CadastroProduto() {
     }
 
     try {
-      const response = await axios.post(baseUrl+"/newbebida", {
+      const response = await axios.post(baseUrl + "/newbebida", {
         nome_bebida,
         tipo_bebida,
         valor_bebida,
       });
 
       console.log("Resposta do endpoint:", response.data);
-      // Lógica adicional para lidar com a resposta de sucesso do endpoint
       alert(response.data.message);
     } catch (error) {
       console.error("Erro ao enviar dados para o endpoint:", error.message);
@@ -53,33 +73,21 @@ function CadastroProduto() {
     }
   };
 
-  useEffect(() => {
-    const selectBebidasDisponiveis = async () => {
-      try {
-        const response = await axios.get(baseUrl+"/selectbebida");
-        setBebidasDisponiveis(response.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    selectBebidasDisponiveis();
-  }, []);
-
   const insertEstoque = async (e) => {
     e.preventDefault();
-    const response = await axios.post(baseUrl+"/newestoque", {
-      id_bebida: id_bebida, // Envia o id_bebida como parâmetro
+    const response = await axios.post(baseUrl + "/newestoque", {
+      id_bebida: id_bebida,
     });
 
-    // Exibe no console o objeto de resposta da requisição
     console.log(response.data);
     setIdBebida("");
     setNomeBebidasDisponiveis("");
   };
+
   const selectBebida = (e) => {
     const selectedBebida = bebidasDisponiveis.find(
-      (bebida) => bebida.nome_bebida === e.target.value);
+      (bebida) => bebida.nome_bebida === e.target.value
+    );
     setIdBebida(selectedBebida.id_bebida);
     setNomeBebidasDisponiveis(e.target.value);
   };
@@ -90,11 +98,6 @@ function CadastroProduto() {
       <div className="cadastro-produto-wrap">
         <div className="title-cadastro-voltar" href="/home">
           <a href="/home" className="titulo">
-            {/* <img
-              src={iconeVoltar}
-              alt="Ícone de voltar"
-              className="title-icon"
-            /> */}
             <span>&#10094; CADASTRAR PRODUTO</span>
           </a>
         </div>
@@ -162,13 +165,11 @@ function CadastroProduto() {
                     required
                     onChange={(e) => setTipoBebida(e.target.value)}
                   >
-                    <option value="Refrigerante">Refrigerante</option>
-                    <option value="Agua">Água</option>
-                    <option value="Suco">Suco</option>
-                    <option value="Energetico">Bebida Energética</option>
-                    <option value="Cha">Chá</option>
-                    <option value="Cafe">Café</option>
-                    <option value="Alcoolica">Bebida Alcoólica</option>
+                    {opcoesCategoria.map((opcao) => (
+                      <option key={opcao.value} value={opcao.value}>
+                        {opcao.label}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -183,7 +184,6 @@ function CadastroProduto() {
                   CONFIRMAR
                 </button>
               </div>
-              {/* <input type="submit" value="CONFIRMAR" className="confirmar-button" /> */}
             </div>
           </div>
         </form>

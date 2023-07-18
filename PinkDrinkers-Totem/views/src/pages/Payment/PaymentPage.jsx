@@ -19,6 +19,7 @@ export function PaymentPage() {
   const filters = [
     { name: "PRODUTOS NO CARRINHO", link: "#", maxWidth: "40rem" },
   ];
+
   const [optionSelected, setOptionSelected] = useState("");
   const [buttonsBlocked, setButtonsBlocked] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
@@ -76,12 +77,9 @@ export function PaymentPage() {
   }, [showFeedback]);
 
   useEffect(() => {
-    if (showLoading) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = showLoading ? "hidden" : "auto";
   }, [showLoading]);
+
 
   return (
     <div className={styles.wrapperPayment}>
