@@ -10,7 +10,7 @@ function CadastroProduto() {
   const [id_bebida, setIdBebida] = useState("");
   const [nome_bebida, setNomeBebida] = useState("");
   const [valor_bebida, setValorBebida] = useState("");
-  const [imagem_bebida, setImagemBebida] = useState("");
+  const [imagem_bebida, setImagemBebida] = useState(null);
   const [tipo_bebida, setTipoBebida] = useState("");
   const [bebidasDisponiveis, setBebidasDisponiveis] = useState([]);
   const [nomeBebidasDisponiveis, setNomeBebidasDisponiveis] = useState([]);
@@ -42,29 +42,35 @@ function CadastroProduto() {
 
   const createProduct = async (e) => {
     e.preventDefault();
-
+  
     if (!nome_bebida) {
       alert("Por favor, preencha o campo Nome Produto!");
       return;
     }
-
+  
     if (!tipo_bebida) {
       alert("Por favor, selecione uma opção de Categoria!");
       return;
     }
-
+  
     if (!valor_bebida) {
       alert("Por favor, preencha o campo Valor!");
       return;
     }
-
+  
+    const formData = new FormData();
+    formData.append("nome_bebida", nome_bebida);
+    formData.append("tipo_bebida", tipo_bebida);
+    formData.append("valor_bebida", valor_bebida);
+    formData.append("imagem_bebida", imagem_bebida);
+  
     try {
-      const response = await axios.post(baseUrl + "/newbebida", {
-        nome_bebida,
-        tipo_bebida,
-        valor_bebida,
+      const response = await axios.post(baseUrl + "/newbebida", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
-
+  
       console.log("Resposta do endpoint:", response.data);
       alert(response.data.message);
     } catch (error) {
@@ -72,6 +78,7 @@ function CadastroProduto() {
       alert("Erro ao cadastrar produto!");
     }
   };
+  
 
   const insertEstoque = async (e) => {
     e.preventDefault();
@@ -151,7 +158,7 @@ function CadastroProduto() {
                     name="arquivo"
                     id="arquivo"
                     required
-                    onChange={(e) => setImagemBebida(e.target.value)}
+                    onChange={(e) => setImagemBebida(e.target.files[0])}
                   />
                 </div>
               </div>
